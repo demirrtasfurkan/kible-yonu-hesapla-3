@@ -96,3 +96,5 @@ Bu komut `dist/` klasörünü yeniden oluşturur.
 ## GitHub dosya sayısı
 
 Üretilmiş `dist/` hariç tutulduğu için web arayüzünün 100 dosya sınırına takılmaz.
+
+Deploy test
