@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>{{CITY_NAME}} Kıble Yönü Kaç Derece? | Canlı Pusula</title>
+<meta name="description" content="{{CITY_NAME}} için kıble yönü yaklaşık 151,6° {{DIRECTION_LOWER}} yönündedir. Canlı pusula, harita ve konumla daha hassas kıble hesabı yapın.">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<meta name="theme-color" content="#f6f2e8">
+<link rel="canonical" href="https://kibleyonuhesapla.com/{{CITY_SLUG}}/">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:title" content="{{CITY_NAME}} Kıble Yönü Kaç Derece? | Canlı Pusula">
+<meta property="og:description" content="{{CITY_NAME}} için kıble yönü yaklaşık 151,6° {{DIRECTION_LOWER}} yönündedir. Canlı pusula, harita ve konumla daha hassas kıble hesabı yapın.">
+<meta property="og:url" content="https://kibleyonuhesapla.com/{{CITY_SLUG}}/">
+<meta property="og:image" content="https://kibleyonuhesapla.com/assets/og/kible-yonu-hesapla.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script>window.dataLayer=window.dataLayer||[];</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://kibleyonuhesapla.com/{{CITY_SLUG}}/#webpage","url":"https://kibleyonuhesapla.com/{{CITY_SLUG}}/","name":"{{CITY_NAME}} Kıble Yönü Kaç Derece? | Canlı Pusula","description":"{{CITY_NAME}} için kıble yönü yaklaşık 151,6° {{DIRECTION_LOWER}} yönündedir. Canlı pusula, harita ve konumla daha hassas kıble hesabı yapın.","inLanguage":"tr-TR","breadcrumb":{"@id":"https://kibleyonuhesapla.com/{{CITY_SLUG}}/#breadcrumb"}},{"@type":"BreadcrumbList","@id":"https://kibleyonuhesapla.com/{{CITY_SLUG}}/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana Sayfa","item":"https://kibleyonuhesapla.com/"},{"@type":"ListItem","position":2,"name":"Şehirler","item":"https://kibleyonuhesapla.com/sehirler/"},{"@type":"ListItem","position":3,"name":"{{CITY_NAME}} Kıble Yönü","item":"https://kibleyonuhesapla.com/{{CITY_SLUG}}/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"{{CITY_NAME}} kıble yönü kaç derece?","acceptedAnswer":{"@type":"Answer","text":"{{CITY_NAME}} il merkezi için kıble yönü yaklaşık 151,6 derecedir ve {{DIRECTION_LOWER}} yönünü gösterir. İlçe ve bulunduğunuz noktaya göre küçük farklar olabilir."}},{"@type":"Question","name":"{{CITY_NAME}} için telefonla kıble nasıl bulunur?","acceptedAnswer":{"@type":"Answer","text":"Konum iznini verip canlı pusulayı başlatarak telefonunuzu yavaşça döndürebilirsiniz. Uygulama kıble doğrultusuna yaklaştığınızda yön farkını gösterir."}},{"@type":"Question","name":"{{CITY_NAME}} kıble hesabı kesin midir?","acceptedAnswer":{"@type":"Answer","text":"Sayfadaki sabit sonuç il merkezi koordinatına göredir. Bulunduğunuz noktaya özel daha hassas sonuç için konumunuzu kullanmanız önerilir."}}]}]}</script>
+</head>
+<body data-city-page="true" data-city-name="{{CITY_NAME}}" data-city-lat="{{LAT}}" data-city-lng="{{LNG}}">
+<header class="site-header">
+ <div class="container header-inner">
+  <a class="brand" href="/" aria-label="Ana sayfa"><img src="/assets/icons/favicon.svg" width="36" height="36" alt=""><span>Kıble Yönü Hesapla</span></a>
+  <nav aria-label="Ana menü"><a href="#sonuc">Sonuç</a><a href="#bilgi">Bilgi</a><a href="/sehirler/">81 İl</a></nav>
+ </div>
+</header>
+<main>
+<section class="city-page-hero">
+ <div class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Ana Sayfa</a><span>›</span><a href="/sehirler/">Şehirler</a><span>›</span><span>{{CITY_NAME}}</span></nav>
+  <div class="city-page-grid">
+   <div class="city-page-copy">
+    <span class="eyebrow">{{CITY_NAME_UPPER}} KIBLE HESABI</span>
+    <h1>{{CITY_NAME}} Kıble Yönü</h1>
+    <p class="lead">{{CITY_NAME}} il merkezi için kıble yönü yaklaşık <strong>151,6°</strong> ve <strong>{{DIRECTION}}</strong> yönündedir. Bulunduğun noktaya özel sonuç için konumunu kullanabilirsin.</p>
+    <div class="actions">
+      <button id="locationButton" class="btn btn-primary" type="button"><span>⌖</span> Konumuma göre hesapla</button>
+      <a class="btn btn-secondary" href="#sonuc">Şehir sonucunu gör</a>
+    </div>
+    <form id="searchForm" class="search-form" autocomplete="off">
+      <label for="locationSearch">Başka şehir veya ilçe ara</label>
+      <div class="search-row"><input id="locationSearch" type="search" placeholder="Örn. Kadıköy, {{CITY_NAME}}" minlength="2"><button type="submit">Ara</button></div>
+      <div id="searchResults" class="search-results" hidden></div>
+    </form>
+    <p id="statusMessage" class="status" role="status" aria-live="polite">{{CITY_NAME}} merkez koordinatına göre sonuç hazırlanıyor.</p>
+    <div class="city-static-summary">
+      <div><span>Yaklaşık açı</span><strong>151,6°</strong></div>
+      <div><span>Ana yön</span><strong>{{DIRECTION}}</strong></div>
+      <div><span>Kâbe mesafesi</span><strong>2.405 km</strong></div>
+    </div>
+   </div>
+   <div class="preview-card">
+     <div class="preview-top"><span>Şehir sonucu</span><strong id="previewPlace">{{CITY_NAME}}</strong></div>
+     <div class="mini-compass"><div class="mini-ring"><span class="north">K</span><div id="previewNeedle" class="preview-needle"><span class="preview-tip"></span><span class="preview-line"></span></div><span class="mini-center"></span></div></div>
+     <div class="preview-result"><strong id="previewBearing">151,6°</strong><span id="previewDirection">{{DIRECTION}}</span></div>
+     <div class="preview-metrics"><div><span>Mesafe</span><strong id="previewDistance">2.405 km</strong></div><div><span>Kaynak</span><strong id="previewAccuracy">İl merkezi</strong></div></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="city-page-result" id="sonuc">
+ <div class="container">
+  <section id="resultSection" class="result-section">
+   <div class="result-heading"><div><span class="section-label">HESAPLAMA SONUCU</span><h2 id="resultTitle">{{CITY_NAME}} için kıble yönü</h2></div><button id="shareButton" class="share-button" type="button">Sonucu paylaş</button></div>
+   <div class="result-grid">
+    <article class="compass-card">
+     <div class="bearing-row"><div><span>Kıble açısı</span><strong id="bearingValue">151,6°</strong></div><span id="directionValue" class="direction-badge">{{DIRECTION}}</span></div>
+     <div class="compass-wrap"><div class="compass-face"><span class="dir n">K</span><span class="dir e">D</span><span class="dir s">G</span><span class="dir w">B</span><div class="inner-circle"></div><div id="qiblaNeedle" class="needle"><span class="needle-tip"></span><span class="needle-line"></span></div><span class="center-dot"></span></div></div>
+     <button id="compassButton" class="btn btn-primary full" type="button">Canlı pusulayı başlat</button>
+     <p id="compassStatus" class="helper">Telefonu düz tutup yavaşça döndür.</p>
+     <div id="alignmentMessage" class="alignment" hidden><strong>Kıble doğrultusundasınız</strong><span>Cihazı sabit tutun.</span></div>
+    </article>
+    <article class="info-card">
+     <div class="metric"><span>Kâbe’ye mesafe</span><strong id="distanceValue">2.405 km</strong></div>
+     <div class="metric"><span>Hesaplama noktası</span><strong id="accuracyValue">İl merkezi</strong></div>
+     <div class="metric"><span>Seçilen konum</span><strong id="placeValue">{{CITY_NAME}}</strong></div>
+     <div class="metric"><span>Cihaz yönü</span><strong id="headingValue">Bekleniyor</strong></div>
+     <div class="info-note"><strong>Daha hassas sonuç</strong><p>İl merkezi yerine bulunduğun noktayı kullanmak için “Konumuma göre hesapla” butonuna dokun.</p></div>
+    </article>
+   </div>
+   <article class="map-card">
+    <div class="map-header"><div><span class="section-label">HARİTA</span><h3>{{CITY_NAME}} merkezinden Kâbe’ye yön</h3></div><button id="fitMapButton" type="button">Haritayı yenile</button></div>
+    <div id="map" class="map-shell" aria-label="{{CITY_NAME}} ile Kâbe arasındaki harita">
+      <iframe id="mapFrame" title="{{CITY_NAME}} kıble yönü haritası" loading="lazy" referrerpolicy="no-referrer" hidden></iframe>
+      <div id="mapPlaceholder" class="map-placeholder"><span>Harita hazırlanıyor</span><small>{{CITY_NAME}} ile Kâbe arasındaki görünüm yükleniyor.</small></div>
+      <div class="map-route-card" aria-hidden="true"><span class="route-point">{{CITY_NAME}}</span><span class="route-line"></span><span class="route-point kaaba">Kâbe</span></div>
+    </div>
+   </article>
+  </section>
+ </div>
+</section>
+
+<section class="city-content" id="bilgi">
+ <div class="container city-content-grid">
+  <article>
+   <span class="section-label">{{CITY_NAME_UPPER}} KIBLE REHBERİ</span>
+   <h2>{{CITY_NAME}}’da kıble hangi yöndedir?</h2>
+   <p>{{CITY_NAME}} şehir merkezi esas alındığında kıble açısı yaklaşık <strong>151,6°</strong> olarak hesaplanır. Bu değer gerçek kuzeyden saat yönünde ölçülür ve genel olarak <strong>{{DIRECTION_LOWER}}</strong> yönünü ifade eder.</p>
+   <p>Şehrin farklı ilçe ve mahallelerinde sonuç küçük oranlarda değişebilir. Bu nedenle namaz kılacağın noktada daha hassas bir yön belirlemek için sayfanın konum özelliğini kullanman önerilir.</p>
+   <h3>{{CITY_NAME}} kıble pusulası nasıl kullanılır?</h3>
+   <p>Önce konum iznini vererek sonucu bulunduğun noktaya göre güncelle. Ardından canlı pusulayı başlat, telefonu düz tut ve yavaşça dön. Pusuladaki ok kıble doğrultusunu, altındaki fark değeri ise doğru yöne ne kadar yakın olduğunu gösterir.</p>
+   <h3>Derece değeri neden değişebilir?</h3>
+   <p>Sabit {{CITY_NAME}} sonucu il merkezi koordinatına göredir. GPS doğruluğu, telefon sensörünün kalibrasyonu, metal yüzeyler ve manyetik kılıflar canlı pusula sonucunu etkileyebilir.</p>
+   <h3>Harita ile kontrol</h3>
+   <p>Harita, seçilen konum ile Mekke’deki Kâbe arasındaki genel doğrultuyu görsel olarak kontrol etmeni sağlar. Pusula sensörü bulunmayan cihazlarda harita görünümü alternatif bir yöntemdir.</p>
+  </article>
+  <aside class="city-nearby"><strong>Diğer şehirlerin kıble yönleri</strong><a href="/cankiri-kible-yonu/">Çankırı kıble yönü</a>
+<a href="/corum-kible-yonu/">Çorum kıble yönü</a>
+<a href="/izmir-kible-yonu/">İzmir kıble yönü</a>
+<a href="/sanliurfa-kible-yonu/">Şanlıurfa kıble yönü</a>
+<a href="/sirnak-kible-yonu/">Şırnak kıble yönü</a><a href="/sehirler/">Tüm 81 ili görüntüle →</a></aside>
+ </div>
+</section>
+
+<section class="faq" id="sss"><div class="container"><div class="section-head"><div><span class="section-label">SSS</span><h2>{{CITY_NAME}} kıble yönü hakkında</h2></div></div>
+<div class="faq-list">
+<details><summary>{{CITY_NAME}} kıble yönü kaç derece?</summary><p>İl merkezi için yaklaşık 151,6° ve {{DIRECTION_LOWER}} yönündedir.</p></details>
+<details><summary>İlçelerde aynı derece mi kullanılır?</summary><p>İlçeye göre küçük farklar oluşabilir. Bulunduğun noktaya göre hesaplama yapmak daha hassas sonuç verir.</p></details>
+<details><summary>Telefon pusulası doğru sonuç verir mi?</summary><p>Kalibre edilmiş ve yön sensörü bulunan telefonlarda iyi sonuç verir. Metal yüzeylerden ve manyetik aksesuarlardan uzak durulmalıdır.</p></details>
+</div></div></section>
+</main>
+<footer><div class="container footer-grid"><div><strong>Kıble Yönü Hesapla</strong><p>81 il için kıble açısı, canlı pusula ve harita.</p></div><div><a href="/">Ana sayfa</a><a href="/sehirler/">81 İl</a><a href="/gizlilik.html">Gizlilik</a></div><div><a href="/sitemap.xml">Sitemap</a><span>© 2026</span></div></div></footer>
+<script src="/assets/js/qibla.js" defer></script>
+<script src="/assets/js/app.js" defer></script>
+</body></html>

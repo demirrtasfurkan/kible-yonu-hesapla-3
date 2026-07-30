@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Kıble Yönü Hesapla | Canlı Pusula ve Harita</title>
+  <meta name="description" content="Konumunuzu kullanarak kıble yönünü, kıble açısını ve Kâbe'ye olan yaklaşık mesafeyi hesaplayın. Canlı pusula, harita ve şehir arama özelliği.">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+  <meta name="theme-color" content="#f6f2e8">
+  <link rel="canonical" href="https://kibleyonuhesapla.com/">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/icons/icon-192.svg">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="tr_TR">
+  <meta property="og:title" content="Kıble Yönü Hesapla">
+  <meta property="og:description" content="Canlı konum, pusula ve harita ile kıble yönünüzü anında bulun.">
+  <meta property="og:url" content="https://kibleyonuhesapla.com/">
+  <meta property="og:image" content="https://kibleyonuhesapla.com/assets/og/kible-yonu-hesapla.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preload" href="/assets/css/style.css" as="style">
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+  <script>window.dataLayer=window.dataLayer||[];</script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"WebSite",
+        "@id":"https://kibleyonuhesapla.com/#website",
+        "url":"https://kibleyonuhesapla.com/",
+        "name":"Kıble Yönü Hesapla",
+        "inLanguage":"tr-TR"
+      },
+      {
+        "@type":"WebApplication",
+        "@id":"https://kibleyonuhesapla.com/#app",
+        "name":"Kıble Yönü Hesapla",
+        "url":"https://kibleyonuhesapla.com/",
+        "applicationCategory":"UtilitiesApplication",
+        "operatingSystem":"Any",
+        "isAccessibleForFree":true,
+        "inLanguage":"tr-TR",
+        "featureList":[
+          "Konumla kıble hesaplama",
+          "Canlı pusula",
+          "Kâbe yön çizgili harita",
+          "Şehir ve ilçe arama",
+          "Kâbe mesafesi"
+        ]
+      },
+      {
+        "@type":"FAQPage",
+        "mainEntity":[
+          {
+            "@type":"Question",
+            "name":"Kıble yönü nasıl hesaplanır?",
+            "acceptedAnswer":{"@type":"Answer","text":"Bulunduğunuz konum ile Mekke'deki Kâbe'nin koordinatları arasındaki başlangıç açısı hesaplanır ve gerçek kuzeye göre derece olarak gösterilir."}
+          },
+          {
+            "@type":"Question",
+            "name":"Telefonla kıble yönü bulunabilir mi?",
+            "acceptedAnswer":{"@type":"Answer","text":"Konum ve yön sensörü bulunan telefonlarda canlı pusula ile kıble yönü gösterilebilir."}
+          },
+          {
+            "@type":"Question",
+            "name":"Konum bilgim saklanıyor mu?",
+            "acceptedAnswer":{"@type":"Answer","text":"Hayır. Konum bilgisi tarayıcınızda hesaplama amacıyla kullanılır ve özel bir kullanıcı profiline bağlanmaz."}
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/" aria-label="Kıble Yönü Hesapla ana sayfa">
+        <img src="/assets/icons/favicon.svg" width="36" height="36" alt="">
+        <span>Kıble Yönü Hesapla</span>
+      </a>
+      <nav aria-label="Ana menü">
+        <a href="#arac">Kıbleyi bul</a>
+        <a href="#sehirler">Şehirler</a>
+        <a href="#rehber">Rehber</a>
+        <a href="#sss">SSS</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="arac">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">ÜCRETSİZ · GİZLİLİK ODAKLI · HIZLI</span>
+          <h1>Kıble yönünü bulunduğun konuma göre anında hesapla.</h1>
+          <p class="lead">Konumunu kullan, kıble açını öğren ve desteklenen telefonlarda canlı pusula ile doğru yönü takip et.</p>
+
+          <div class="actions">
+            <button id="locationButton" class="btn btn-primary" type="button" aria-describedby="locationPrivacy">
+              <span>⌖</span>
+              Kıbleyi bul
+            </button>
+            <a class="btn btn-secondary" href="#sehirler">Şehir seç</a>
+          </div>
+
+          <form id="searchForm" class="search-form" autocomplete="off">
+            <label for="locationSearch">Şehir veya ilçe ile hesapla</label>
+            <div class="search-row">
+              <input id="locationSearch" type="search" placeholder="Örn. Kadıköy, İstanbul" minlength="2">
+              <button type="submit">Ara</button>
+            </div>
+            <div id="searchResults" class="search-results" hidden></div>
+          </form>
+
+          <p id="statusMessage" class="status" role="status" aria-live="polite">Başlamak için konumunu kullanabilir veya bir yer arayabilirsin.</p>
+          <p id="locationPrivacy" class="privacy-inline">Konumun yalnızca cihazında hesaplama yapmak için kullanılır.</p>
+
+          <div class="hero-visual-cue" aria-hidden="true">
+            <span class="hero-orbit"></span>
+            <span class="hero-arrow">↑</span>
+            <span class="hero-kaaba">◆</span>
+          </div>
+
+          <div class="trust-strip">
+            <span>✓ Konum kaydedilmez</span>
+            <span>✓ Hesaplama cihazında yapılır</span>
+            <span>✓ Üyelik gerekmez</span>
+          </div>
+        </div>
+
+        <div class="preview-card">
+          <div class="preview-top">
+            <span>Canlı sonuç önizlemesi</span>
+            <strong id="previewPlace">Konum bekleniyor</strong>
+          </div>
+
+          <div class="mini-compass">
+            <div class="mini-ring">
+              <span class="north">K</span>
+              <div id="previewNeedle" class="preview-needle">
+                <span class="preview-tip"></span>
+                <span class="preview-line"></span>
+              </div>
+              <span class="mini-center"></span>
+            </div>
+          </div>
+
+          <div class="preview-result">
+            <strong id="previewBearing">—</strong>
+            <span id="previewDirection">Kıble yönü</span>
+          </div>
+
+          <div class="preview-metrics">
+            <div><span>Mesafe</span><strong id="previewDistance">—</strong></div>
+            <div><span>Doğruluk</span><strong id="previewAccuracy">—</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <section id="resultSection" class="result-section" hidden>
+          <div class="result-heading">
+            <div>
+              <span class="section-label">HESAPLAMA SONUCU</span>
+              <h2 id="resultTitle">Kıble yönünüz</h2>
+            </div>
+            <button id="shareButton" class="share-button" type="button">Sonucu paylaş</button>
+          </div>
+
+          <div class="result-grid">
+            <article class="compass-card">
+              <div class="bearing-row">
+                <div>
+                  <span>Kıble açısı</span>
+                  <strong id="bearingValue">—</strong>
+                </div>
+                <span id="directionValue" class="direction-badge">—</span>
+              </div>
+
+              <div class="compass-wrap">
+                <div class="compass-face">
+                  <span class="dir n">K</span>
+                  <span class="dir e">D</span>
+                  <span class="dir s">G</span>
+                  <span class="dir w">B</span>
+                  <div class="inner-circle"></div>
+                  <div id="qiblaNeedle" class="needle">
+                    <span class="needle-tip"></span>
+                    <span class="needle-line"></span>
+                  </div>
+                  <span class="center-dot"></span>
+                </div>
+              </div>
+
+              <button id="compassButton" class="btn btn-primary full" type="button">Canlı pusulayı başlat</button>
+              <p id="compassStatus" class="helper">Telefonu düz tutup yavaşça döndür.</p>
+
+              <div id="alignmentMessage" class="alignment" hidden>
+                <strong>Kıble doğrultusundasınız</strong>
+                <span>Cihazı sabit tutun.</span>
+              </div>
+            </article>
+
+            <article class="info-card">
+              <div class="metric"><span>Kâbe’ye mesafe</span><strong id="distanceValue">—</strong></div>
+              <div class="metric"><span>Konum doğruluğu</span><strong id="accuracyValue">—</strong></div>
+              <div class="metric"><span>Seçilen konum</span><strong id="placeValue">—</strong></div>
+              <div class="metric"><span>Cihaz yönü</span><strong id="headingValue">Bekleniyor</strong></div>
+              <div class="info-note">
+                <strong>Daha doğru sonuç için</strong>
+                <p>Telefonu metal yüzeylerden uzak tut ve gerekiyorsa cihazı sekiz çizerek kalibre et.</p>
+              </div>
+            </article>
+          </div>
+
+          <article class="map-card">
+            <div class="map-header">
+              <div>
+                <span class="section-label">HARİTA</span>
+                <h3>Konumdan Kâbe’ye yön çizgisi</h3>
+              </div>
+              <button id="fitMapButton" type="button">Haritayı yenile</button>
+            </div>
+            <div id="map" class="map-shell" aria-label="Seçilen konum ile Kâbe arasındaki kıble yönü haritası">
+              <iframe id="mapFrame" title="Kıble yönü haritası" loading="lazy" referrerpolicy="no-referrer" hidden></iframe>
+              <div id="mapPlaceholder" class="map-placeholder">
+                <span>Harita sonuçtan sonra yüklenir</span>
+                <small>İlk açılışı hızlandırmak için harita gecikmeli açılır.</small>
+              </div>
+              <div class="map-route-card" aria-hidden="true">
+                <span class="route-point">Sen</span>
+                <span class="route-line"></span>
+                <span class="route-point kaaba">Kâbe</span>
+              </div>
+            </div>
+          </article>
+        </section>
+        <section class="confidence-band" aria-label="Kullanım güvenceleri">
+          <div><strong>Konum kaydedilmez</strong><span>Hesaplama tarayıcıda yapılır.</span></div>
+          <div><strong>Canlı sensör desteği</strong><span>Uyumlu telefonlarda yönü takip eder.</span></div>
+          <div><strong>Ücretsiz kullanım</strong><span>Üyelik veya ödeme gerekmez.</span></div>
+        </section>
+      </div>
+    </section>
+
+    <section class="cities" id="sehirler">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="section-label">POPÜLER ŞEHİRLER</span>
+            <h2>Şehrine göre kıble yönünü hesapla</h2>
+          </div>
+          <p>GPS kullanmadan hızlıca şehir merkezine göre hesaplama yapabilirsin.</p>
+        </div>
+
+        <div class="city-grid">
+          <button class="city-card" data-lat="41.0082" data-lng="28.9784" data-place="İstanbul"><strong>İstanbul</strong><span>Kıble yönünü hesapla →</span></button>
+          <button class="city-card" data-lat="39.9334" data-lng="32.8597" data-place="Ankara"><strong>Ankara</strong><span>Kıble yönünü hesapla →</span></button>
+          <button class="city-card" data-lat="38.4237" data-lng="27.1428" data-place="İzmir"><strong>İzmir</strong><span>Kıble yönünü hesapla →</span></button>
+          <button class="city-card" data-lat="40.1885" data-lng="29.0610" data-place="Bursa"><strong>Bursa</strong><span>Kıble yönünü hesapla →</span></button>
+          <button class="city-card" data-lat="36.8969" data-lng="30.7133" data-place="Antalya"><strong>Antalya</strong><span>Kıble yönünü hesapla →</span></button>
+          <button class="city-card" data-lat="37.8746" data-lng="32.4932" data-place="Konya"><strong>Konya</strong><span>Kıble yönünü hesapla →</span></button>
+        </div><div class="home-city-links"><a href="/istanbul-kible-yonu/">İstanbul</a> <a href="/ankara-kible-yonu/">Ankara</a> <a href="/izmir-kible-yonu/">İzmir</a> <a href="/bursa-kible-yonu/">Bursa</a> <a href="/antalya-kible-yonu/">Antalya</a> <a href="/konya-kible-yonu/">Konya</a></div><div style="margin-top:24px;text-align:center"><a class="btn btn-secondary" href="/sehirler/">81 ilin tamamını görüntüle</a></div>
+      </div>
+    </section>
+
+    <section class="how">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="section-label">NASIL ÇALIŞIR?</span>
+            <h2>Üç adımda kıble yönünü bul</h2>
+          </div>
+        </div>
+
+        <div class="steps">
+          <article><span>1</span><h3>Konumunu seç</h3><p>GPS kullan veya şehir ve ilçe araması yap.</p></article>
+          <article><span>2</span><h3>Kıble açısını hesapla</h3><p>Küre geometrisi kullanılarak başlangıç açısı ve mesafe hesaplanır.</p></article>
+          <article><span>3</span><h3>Canlı pusulayı takip et</h3><p>Telefonunu döndür ve kıble doğrultusuna gelince yeşil uyarıyı takip et.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="guide" id="rehber">
+      <div class="container guide-grid">
+        <article>
+          <span class="section-label">KIBLE REHBERİ</span>
+          <h2>Kıble yönü nasıl hesaplanır?</h2>
+          <p>Kıble yönü, bulunduğunuz konum ile Mekke’deki Kâbe’nin koordinatları arasındaki en kısa büyük çember rotasının başlangıç açısıdır. Sonuç gerçek kuzeyden saat yönünde derece olarak ifade edilir.</p>
+          <p>Örneğin 151° sonucu, kuzeyden saat yönünde 151 derece dönülmesi gerektiğini gösterir. Türkiye’de kıble yönü çoğunlukla güneydoğu yönündedir; ancak doğru derece şehre ve ilçeye göre değişir.</p>
+          <h3>Telefonla kıble yönü bulunur mu?</h3>
+          <p>Konum ve yön sensörü bulunan telefonlarda kıble yönü hesaplanabilir. Sensörün doğru çalışması için telefonu düz tutmak, metal yüzeylerden uzaklaşmak ve gerektiğinde cihazı kalibre etmek gerekir.</p>
+          <h3>Harita ile kıble yönü nasıl doğrulanır?</h3>
+          <p>Harita üzerinde bulunduğunuz nokta ile Kâbe arasındaki çizgiyi inceleyerek pusula sonucunu görsel olarak doğrulayabilirsiniz.</p>
+        </article>
+
+        <aside class="guide-aside">
+          <strong>En doğru kullanım</strong>
+          <ol>
+            <li>Konum servislerini aç.</li>
+            <li>Konum iznini onayla.</li>
+            <li>Telefonu düz tut.</li>
+            <li>Canlı pusulayı başlat.</li>
+            <li>Yeşil doğrultu uyarısını takip et.</li>
+          </ol>
+        </aside>
+      </div>
+    </section>
+
+    <section class="faq" id="sss">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="section-label">SSS</span>
+            <h2>Kıble yönü hakkında merak edilenler</h2>
+          </div>
+        </div>
+
+        <div class="faq-list">
+          <details><summary>Kıble açısı ne anlama gelir?</summary><p>Gerçek kuzeyden saat yönünde ölçülen Kâbe yönüdür. 0° kuzeyi, 90° doğuyu ve 180° güneyi ifade eder.</p></details>
+          <details><summary>Canlı pusula neden hareket etmiyor?</summary><p>Masaüstü bilgisayarlarda yön sensörü bulunmayabilir. Canlı pusula özelliği en iyi mobil cihazlarda çalışır.</p></details>
+          <details><summary>Manuel şehir araması ne kadar hassastır?</summary><p>Seçilen şehir veya ilçenin merkez koordinatları kullanılır. Daha hassas sonuç için GPS konumunu kullanabilirsiniz.</p></details>
+          <details><summary>Konum verisi saklanıyor mu?</summary><p>Hayır. Hesaplama tarayıcıda yapılır ve konum özel bir kullanıcı profiline bağlanmaz.</p></details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div><strong>Kıble Yönü Hesapla</strong><p>Canlı pusula ve harita ile ücretsiz kıble bulma aracı.</p></div>
+      <div><a href="#arac">Kıbleyi bul</a><a href="#sehirler">Şehirler</a><a href="#rehber">Rehber</a></div>
+      <div><a href="/gizlilik.html">Gizlilik</a><a href="/robots.txt">Robots.txt</a><a href="/sitemap.xml">Sitemap</a><span>© 2026</span></div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/qibla.js" defer></script>
+  <script src="/assets/js/app.js" defer></script>
+</body>
+</html>
