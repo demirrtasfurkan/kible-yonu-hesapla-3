@@ -6,7 +6,39 @@
     "lng": 35.3213,
     "bearing": 164.7,
     "direction": "Güney",
-    "distance": 1786
+    "distance": 1786,
+    "nearby": [
+      {
+        "name": "Mersin",
+        "slug": "mersin-kible-yonu",
+        "distance": 64
+      },
+      {
+        "name": "Osmaniye",
+        "slug": "osmaniye-kible-yonu",
+        "distance": 83
+      },
+      {
+        "name": "Hatay",
+        "slug": "hatay-kible-yonu",
+        "distance": 116
+      },
+      {
+        "name": "Niğde",
+        "slug": "nigde-kible-yonu",
+        "distance": 122
+      },
+      {
+        "name": "Kahramanmaraş",
+        "slug": "kahramanmaras-kible-yonu",
+        "distance": 155
+      },
+      {
+        "name": "Kilis",
+        "slug": "kilis-kible-yonu",
+        "distance": 163
+      }
+    ]
   },
   {
     "name": "Adıyaman",
@@ -15,7 +47,39 @@
     "lng": 38.2786,
     "bearing": 174.9,
     "direction": "Güney",
-    "distance": 1823
+    "distance": 1823,
+    "nearby": [
+      {
+        "name": "Malatya",
+        "slug": "malatya-kible-yonu",
+        "distance": 66
+      },
+      {
+        "name": "Şanlıurfa",
+        "slug": "sanliurfa-kible-yonu",
+        "distance": 81
+      },
+      {
+        "name": "Gaziantep",
+        "slug": "gaziantep-kible-yonu",
+        "distance": 111
+      },
+      {
+        "name": "Kahramanmaraş",
+        "slug": "kahramanmaras-kible-yonu",
+        "distance": 121
+      },
+      {
+        "name": "Elazığ",
+        "slug": "elazig-kible-yonu",
+        "distance": 131
+      },
+      {
+        "name": "Kilis",
+        "slug": "kilis-kible-yonu",
+        "distance": 155
+      }
+    ]
   },
   {
     "name": "Afyonkarahisar",
@@ -24,7 +88,39 @@
     "lng": 30.5567,
     "bearing": 152.7,
     "direction": "Güneydoğu",
-    "distance": 2120
+    "distance": 2120,
+    "nearby": [
+      {
+        "name": "Kütahya",
+        "slug": "kutahya-kible-yonu",
+        "distance": 89
+      },
+      {
+        "name": "Uşak",
+        "slug": "usak-kible-yonu",
+        "distance": 100
+      },
+      {
+        "name": "Isparta",
+        "slug": "isparta-kible-yonu",
+        "distance": 110
+      },
+      {
+        "name": "Eskişehir",
+        "slug": "eskisehir-kible-yonu",
+        "distance": 114
+      },
+      {
+        "name": "Burdur",
+        "slug": "burdur-kible-yonu",
+        "distance": 117
+      },
+      {
+        "name": "Bilecik",
+        "slug": "bilecik-kible-yonu",
+        "distance": 151
+      }
+    ]
   },
   {
     "name": "Ağrı",
@@ -33,7 +129,39 @@
     "lng": 43.0503,
     "bearing": 189.5,
     "direction": "Güney",
-    "distance": 2057
+    "distance": 2057,
+    "nearby": [
+      {
+        "name": "Iğdır",
+        "slug": "igdir-kible-yonu",
+        "distance": 88
+      },
+      {
+        "name": "Kars",
+        "slug": "kars-kible-yonu",
+        "distance": 98
+      },
+      {
+        "name": "Van",
+        "slug": "van-kible-yonu",
+        "distance": 138
+      },
+      {
+        "name": "Muş",
+        "slug": "mus-kible-yonu",
+        "distance": 141
+      },
+      {
+        "name": "Erzurum",
+        "slug": "erzurum-kible-yonu",
+        "distance": 154
+      },
+      {
+        "name": "Ardahan",
+        "slug": "ardahan-kible-yonu",
+        "distance": 157
+      }
+    ]
   },
   {
     "name": "Aksaray",
@@ -42,7 +170,39 @@
     "lng": 34.037,
     "bearing": 162.0,
     "direction": "Güney",
-    "distance": 1964
+    "distance": 1964,
+    "nearby": [
+      {
+        "name": "Nevşehir",
+        "slug": "nevsehir-kible-yonu",
+        "distance": 66
+      },
+      {
+        "name": "Niğde",
+        "slug": "nigde-kible-yonu",
+        "distance": 71
+      },
+      {
+        "name": "Kırşehir",
+        "slug": "kirsehir-kible-yonu",
+        "distance": 87
+      },
+      {
+        "name": "Kayseri",
+        "slug": "kayseri-kible-yonu",
+        "distance": 132
+      },
+      {
+        "name": "Konya",
+        "slug": "konya-kible-yonu",
+        "distance": 146
+      },
+      {
+        "name": "Karaman",
+        "slug": "karaman-kible-yonu",
+        "distance": 150
+      }
+    ]
   },
   {
     "name": "Amasya",
@@ -51,7 +211,39 @@
     "lng": 35.8353,
     "bearing": 168.8,
     "direction": "Güney",
-    "distance": 2171
+    "distance": 2171,
+    "nearby": [
+      {
+        "name": "Tokat",
+        "slug": "tokat-kible-yonu",
+        "distance": 71
+      },
+      {
+        "name": "Çorum",
+        "slug": "corum-kible-yonu",
+        "distance": 75
+      },
+      {
+        "name": "Samsun",
+        "slug": "samsun-kible-yonu",
+        "distance": 82
+      },
+      {
+        "name": "Yozgat",
+        "slug": "yozgat-kible-yonu",
+        "distance": 127
+      },
+      {
+        "name": "Sivas",
+        "slug": "sivas-kible-yonu",
+        "distance": 142
+      },
+      {
+        "name": "Sinop",
+        "slug": "sinop-kible-yonu",
+        "distance": 163
+      }
+    ]
   },
   {
     "name": "Ankara",
@@ -60,7 +252,39 @@
     "lng": 32.8597,
     "bearing": 160.2,
     "direction": "Güney",
-    "distance": 2162
+    "distance": 2162,
+    "nearby": [
+      {
+        "name": "Kırıkkale",
+        "slug": "kirikkale-kible-yonu",
+        "distance": 57
+      },
+      {
+        "name": "Çankırı",
+        "slug": "cankiri-kible-yonu",
+        "distance": 98
+      },
+      {
+        "name": "Bolu",
+        "slug": "bolu-kible-yonu",
+        "distance": 139
+      },
+      {
+        "name": "Kırşehir",
+        "slug": "kirsehir-kible-yonu",
+        "distance": 143
+      },
+      {
+        "name": "Karabük",
+        "slug": "karabuk-kible-yonu",
+        "distance": 143
+      },
+      {
+        "name": "Yozgat",
+        "slug": "yozgat-kible-yonu",
+        "distance": 167
+      }
+    ]
   },
   {
     "name": "Antalya",
@@ -69,7 +293,39 @@
     "lng": 30.7133,
     "bearing": 150.4,
     "direction": "Güneydoğu",
-    "distance": 1932
+    "distance": 1932,
+    "nearby": [
+      {
+        "name": "Isparta",
+        "slug": "isparta-kible-yonu",
+        "distance": 97
+      },
+      {
+        "name": "Burdur",
+        "slug": "burdur-kible-yonu",
+        "distance": 99
+      },
+      {
+        "name": "Denizli",
+        "slug": "denizli-kible-yonu",
+        "distance": 174
+      },
+      {
+        "name": "Konya",
+        "slug": "konya-kible-yonu",
+        "distance": 191
+      },
+      {
+        "name": "Afyonkarahisar",
+        "slug": "afyonkarahisar-kible-yonu",
+        "distance": 207
+      },
+      {
+        "name": "Muğla",
+        "slug": "mugla-kible-yonu",
+        "distance": 211
+      }
+    ]
   },
   {
     "name": "Ardahan",
@@ -78,7 +334,39 @@
     "lng": 42.7022,
     "bearing": 187.9,
     "direction": "Güney",
-    "distance": 2206
+    "distance": 2206,
+    "nearby": [
+      {
+        "name": "Kars",
+        "slug": "kars-kible-yonu",
+        "distance": 66
+      },
+      {
+        "name": "Artvin",
+        "slug": "artvin-kible-yonu",
+        "distance": 74
+      },
+      {
+        "name": "Ağrı",
+        "slug": "agri-kible-yonu",
+        "distance": 157
+      },
+      {
+        "name": "Iğdır",
+        "slug": "igdir-kible-yonu",
+        "distance": 174
+      },
+      {
+        "name": "Erzurum",
+        "slug": "erzurum-kible-yonu",
+        "distance": 181
+      },
+      {
+        "name": "Rize",
+        "slug": "rize-kible-yonu",
+        "distance": 183
+      }
+    ]
   },
   {
     "name": "Artvin",
@@ -87,7 +375,39 @@
     "lng": 41.8183,
     "bearing": 185.5,
     "direction": "Güney",
-    "distance": 2205
+    "distance": 2205,
+    "nearby": [
+      {
+        "name": "Ardahan",
+        "slug": "ardahan-kible-yonu",
+        "distance": 74
+      },
+      {
+        "name": "Rize",
+        "slug": "rize-kible-yonu",
+        "distance": 110
+      },
+      {
+        "name": "Kars",
+        "slug": "kars-kible-yonu",
+        "distance": 125
+      },
+      {
+        "name": "Erzurum",
+        "slug": "erzurum-kible-yonu",
+        "distance": 150
+      },
+      {
+        "name": "Bayburt",
+        "slug": "bayburt-kible-yonu",
+        "distance": 169
+      },
+      {
+        "name": "Trabzon",
+        "slug": "trabzon-kible-yonu",
+        "distance": 177
+      }
+    ]
   },
   {
     "name": "Aydın",
@@ -96,7 +416,39 @@
     "lng": 27.8416,
     "bearing": 144.4,
     "direction": "Güneydoğu",
-    "distance": 2159
+    "distance": 2159,
+    "nearby": [
+      {
+        "name": "Muğla",
+        "slug": "mugla-kible-yonu",
+        "distance": 85
+      },
+      {
+        "name": "İzmir",
+        "slug": "izmir-kible-yonu",
+        "distance": 88
+      },
+      {
+        "name": "Manisa",
+        "slug": "manisa-kible-yonu",
+        "distance": 92
+      },
+      {
+        "name": "Denizli",
+        "slug": "denizli-kible-yonu",
+        "distance": 110
+      },
+      {
+        "name": "Uşak",
+        "slug": "usak-kible-yonu",
+        "distance": 165
+      },
+      {
+        "name": "Balıkesir",
+        "slug": "balikesir-kible-yonu",
+        "distance": 199
+      }
+    ]
   },
   {
     "name": "Balıkesir",
@@ -105,7 +457,39 @@
     "lng": 27.8826,
     "bearing": 147.3,
     "direction": "Güneydoğu",
-    "distance": 2322
+    "distance": 2322,
+    "nearby": [
+      {
+        "name": "Bursa",
+        "slug": "bursa-kible-yonu",
+        "distance": 117
+      },
+      {
+        "name": "Manisa",
+        "slug": "manisa-kible-yonu",
+        "distance": 121
+      },
+      {
+        "name": "Çanakkale",
+        "slug": "canakkale-kible-yonu",
+        "distance": 137
+      },
+      {
+        "name": "İzmir",
+        "slug": "izmir-kible-yonu",
+        "distance": 150
+      },
+      {
+        "name": "Tekirdağ",
+        "slug": "tekirdag-kible-yonu",
+        "distance": 151
+      },
+      {
+        "name": "Yalova",
+        "slug": "yalova-kible-yonu",
+        "distance": 162
+      }
+    ]
   },
   {
     "name": "Bartın",
@@ -114,7 +498,39 @@
     "lng": 32.461,
     "bearing": 160.6,
     "direction": "Güney",
-    "distance": 2345
+    "distance": 2345,
+    "nearby": [
+      {
+        "name": "Karabük",
+        "slug": "karabuk-kible-yonu",
+        "distance": 44
+      },
+      {
+        "name": "Zonguldak",
+        "slug": "zonguldak-kible-yonu",
+        "distance": 57
+      },
+      {
+        "name": "Kastamonu",
+        "slug": "kastamonu-kible-yonu",
+        "distance": 112
+      },
+      {
+        "name": "Bolu",
+        "slug": "bolu-kible-yonu",
+        "distance": 118
+      },
+      {
+        "name": "Düzce",
+        "slug": "duzce-kible-yonu",
+        "distance": 136
+      },
+      {
+        "name": "Çankırı",
+        "slug": "cankiri-kible-yonu",
+        "distance": 146
+      }
+    ]
   },
   {
     "name": "Batman",
@@ -123,7 +539,39 @@
     "lng": 41.1351,
     "bearing": 184.3,
     "direction": "Güney",
-    "distance": 1834
+    "distance": 1834,
+    "nearby": [
+      {
+        "name": "Siirt",
+        "slug": "siirt-kible-yonu",
+        "distance": 72
+      },
+      {
+        "name": "Mardin",
+        "slug": "mardin-kible-yonu",
+        "distance": 72
+      },
+      {
+        "name": "Diyarbakır",
+        "slug": "diyarbakir-kible-yonu",
+        "distance": 79
+      },
+      {
+        "name": "Bitlis",
+        "slug": "bitlis-kible-yonu",
+        "distance": 103
+      },
+      {
+        "name": "Bingöl",
+        "slug": "bingol-kible-yonu",
+        "distance": 125
+      },
+      {
+        "name": "Şırnak",
+        "slug": "sirnak-kible-yonu",
+        "distance": 130
+      }
+    ]
   },
   {
     "name": "Bayburt",
@@ -132,7 +580,39 @@
     "lng": 40.2249,
     "bearing": 181.1,
     "direction": "Güney",
-    "distance": 2094
+    "distance": 2094,
+    "nearby": [
+      {
+        "name": "Gümüşhane",
+        "slug": "gumushane-kible-yonu",
+        "distance": 67
+      },
+      {
+        "name": "Erzincan",
+        "slug": "erzincan-kible-yonu",
+        "distance": 83
+      },
+      {
+        "name": "Rize",
+        "slug": "rize-kible-yonu",
+        "distance": 89
+      },
+      {
+        "name": "Trabzon",
+        "slug": "trabzon-kible-yonu",
+        "distance": 93
+      },
+      {
+        "name": "Erzurum",
+        "slug": "erzurum-kible-yonu",
+        "distance": 97
+      },
+      {
+        "name": "Tunceli",
+        "slug": "tunceli-kible-yonu",
+        "distance": 140
+      }
+    ]
   },
   {
     "name": "Bilecik",
@@ -141,7 +621,39 @@
     "lng": 30.0665,
     "bearing": 153.1,
     "direction": "Güneydoğu",
-    "distance": 2269
+    "distance": 2269,
+    "nearby": [
+      {
+        "name": "Eskişehir",
+        "slug": "eskisehir-kible-yonu",
+        "distance": 50
+      },
+      {
+        "name": "Kütahya",
+        "slug": "kutahya-kible-yonu",
+        "distance": 72
+      },
+      {
+        "name": "Sakarya",
+        "slug": "sakarya-kible-yonu",
+        "distance": 84
+      },
+      {
+        "name": "Bursa",
+        "slug": "bursa-kible-yonu",
+        "distance": 87
+      },
+      {
+        "name": "Kocaeli",
+        "slug": "kocaeli-kible-yonu",
+        "distance": 90
+      },
+      {
+        "name": "Yalova",
+        "slug": "yalova-kible-yonu",
+        "distance": 95
+      }
+    ]
   },
   {
     "name": "Bingöl",
@@ -150,7 +662,39 @@
     "lng": 40.4983,
     "bearing": 182.1,
     "direction": "Güney",
-    "distance": 1943
+    "distance": 1943,
+    "nearby": [
+      {
+        "name": "Tunceli",
+        "slug": "tunceli-kible-yonu",
+        "distance": 86
+      },
+      {
+        "name": "Muş",
+        "slug": "mus-kible-yonu",
+        "distance": 109
+      },
+      {
+        "name": "Diyarbakır",
+        "slug": "diyarbakir-kible-yonu",
+        "distance": 110
+      },
+      {
+        "name": "Elazığ",
+        "slug": "elazig-kible-yonu",
+        "distance": 113
+      },
+      {
+        "name": "Batman",
+        "slug": "batman-kible-yonu",
+        "distance": 125
+      },
+      {
+        "name": "Erzincan",
+        "slug": "erzincan-kible-yonu",
+        "distance": 129
+      }
+    ]
   },
   {
     "name": "Bitlis",
@@ -159,7 +703,39 @@
     "lng": 42.1095,
     "bearing": 187.2,
     "direction": "Güney",
-    "distance": 1900
+    "distance": 1900,
+    "nearby": [
+      {
+        "name": "Siirt",
+        "slug": "siirt-kible-yonu",
+        "distance": 54
+      },
+      {
+        "name": "Muş",
+        "slug": "mus-kible-yonu",
+        "distance": 68
+      },
+      {
+        "name": "Batman",
+        "slug": "batman-kible-yonu",
+        "distance": 103
+      },
+      {
+        "name": "Van",
+        "slug": "van-kible-yonu",
+        "distance": 111
+      },
+      {
+        "name": "Şırnak",
+        "slug": "sirnak-kible-yonu",
+        "distance": 114
+      },
+      {
+        "name": "Bingöl",
+        "slug": "bingol-kible-yonu",
+        "distance": 150
+      }
+    ]
   },
   {
     "name": "Bolu",
@@ -168,7 +744,39 @@
     "lng": 31.6116,
     "bearing": 157.7,
     "direction": "Güney",
-    "distance": 2283
+    "distance": 2283,
+    "nearby": [
+      {
+        "name": "Düzce",
+        "slug": "duzce-kible-yonu",
+        "distance": 40
+      },
+      {
+        "name": "Zonguldak",
+        "slug": "zonguldak-kible-yonu",
+        "distance": 81
+      },
+      {
+        "name": "Karabük",
+        "slug": "karabuk-kible-yonu",
+        "distance": 99
+      },
+      {
+        "name": "Sakarya",
+        "slug": "sakarya-kible-yonu",
+        "distance": 103
+      },
+      {
+        "name": "Bartın",
+        "slug": "bartin-kible-yonu",
+        "distance": 118
+      },
+      {
+        "name": "Ankara",
+        "slug": "ankara-kible-yonu",
+        "distance": 139
+      }
+    ]
   },
   {
     "name": "Burdur",
@@ -177,7 +785,39 @@
     "lng": 30.2908,
     "bearing": 150.5,
     "direction": "Güneydoğu",
-    "distance": 2030
+    "distance": 2030,
+    "nearby": [
+      {
+        "name": "Isparta",
+        "slug": "isparta-kible-yonu",
+        "distance": 24
+      },
+      {
+        "name": "Antalya",
+        "slug": "antalya-kible-yonu",
+        "distance": 99
+      },
+      {
+        "name": "Denizli",
+        "slug": "denizli-kible-yonu",
+        "distance": 106
+      },
+      {
+        "name": "Afyonkarahisar",
+        "slug": "afyonkarahisar-kible-yonu",
+        "distance": 117
+      },
+      {
+        "name": "Uşak",
+        "slug": "usak-kible-yonu",
+        "distance": 132
+      },
+      {
+        "name": "Muğla",
+        "slug": "mugla-kible-yonu",
+        "distance": 179
+      }
+    ]
   },
   {
     "name": "Bursa",
@@ -186,7 +826,39 @@
     "lng": 29.061,
     "bearing": 150.8,
     "direction": "Güneydoğu",
-    "distance": 2322
+    "distance": 2322,
+    "nearby": [
+      {
+        "name": "Yalova",
+        "slug": "yalova-kible-yonu",
+        "distance": 54
+      },
+      {
+        "name": "Bilecik",
+        "slug": "bilecik-kible-yonu",
+        "distance": 87
+      },
+      {
+        "name": "İstanbul",
+        "slug": "istanbul-kible-yonu",
+        "distance": 91
+      },
+      {
+        "name": "Kocaeli",
+        "slug": "kocaeli-kible-yonu",
+        "distance": 101
+      },
+      {
+        "name": "Kütahya",
+        "slug": "kutahya-kible-yonu",
+        "distance": 117
+      },
+      {
+        "name": "Balıkesir",
+        "slug": "balikesir-kible-yonu",
+        "distance": 117
+      }
+    ]
   },
   {
     "name": "Çanakkale",
@@ -195,7 +867,39 @@
     "lng": 26.4142,
     "bearing": 144.7,
     "direction": "Güneydoğu",
-    "distance": 2439
+    "distance": 2439,
+    "nearby": [
+      {
+        "name": "Tekirdağ",
+        "slug": "tekirdag-kible-yonu",
+        "distance": 130
+      },
+      {
+        "name": "Balıkesir",
+        "slug": "balikesir-kible-yonu",
+        "distance": 137
+      },
+      {
+        "name": "Edirne",
+        "slug": "edirne-kible-yonu",
+        "distance": 170
+      },
+      {
+        "name": "Kırklareli",
+        "slug": "kirklareli-kible-yonu",
+        "distance": 188
+      },
+      {
+        "name": "Manisa",
+        "slug": "manisa-kible-yonu",
+        "distance": 192
+      },
+      {
+        "name": "İzmir",
+        "slug": "izmir-kible-yonu",
+        "distance": 202
+      }
+    ]
   },
   {
     "name": "Çankırı",
@@ -204,7 +908,39 @@
     "lng": 33.6134,
     "bearing": 162.8,
     "direction": "Güney",
-    "distance": 2212
+    "distance": 2212,
+    "nearby": [
+      {
+        "name": "Kırıkkale",
+        "slug": "kirikkale-kible-yonu",
+        "distance": 84
+      },
+      {
+        "name": "Kastamonu",
+        "slug": "kastamonu-kible-yonu",
+        "distance": 89
+      },
+      {
+        "name": "Ankara",
+        "slug": "ankara-kible-yonu",
+        "distance": 98
+      },
+      {
+        "name": "Karabük",
+        "slug": "karabuk-kible-yonu",
+        "distance": 107
+      },
+      {
+        "name": "Çorum",
+        "slug": "corum-kible-yonu",
+        "distance": 113
+      },
+      {
+        "name": "Yozgat",
+        "slug": "yozgat-kible-yonu",
+        "distance": 134
+      }
+    ]
   },
   {
     "name": "Çorum",
@@ -213,7 +949,39 @@
     "lng": 34.9556,
     "bearing": 166.4,
     "direction": "Güney",
-    "distance": 2176
+    "distance": 2176,
+    "nearby": [
+      {
+        "name": "Amasya",
+        "slug": "amasya-kible-yonu",
+        "distance": 75
+      },
+      {
+        "name": "Yozgat",
+        "slug": "yozgat-kible-yonu",
+        "distance": 82
+      },
+      {
+        "name": "Çankırı",
+        "slug": "cankiri-kible-yonu",
+        "distance": 113
+      },
+      {
+        "name": "Kastamonu",
+        "slug": "kastamonu-kible-yonu",
+        "distance": 136
+      },
+      {
+        "name": "Tokat",
+        "slug": "tokat-kible-yonu",
+        "distance": 137
+      },
+      {
+        "name": "Samsun",
+        "slug": "samsun-kible-yonu",
+        "distance": 142
+      }
+    ]
   },
   {
     "name": "Denizli",
@@ -222,7 +990,39 @@
     "lng": 29.0864,
     "bearing": 147.4,
     "direction": "Güneydoğu",
-    "distance": 2090
+    "distance": 2090,
+    "nearby": [
+      {
+        "name": "Muğla",
+        "slug": "mugla-kible-yonu",
+        "distance": 89
+      },
+      {
+        "name": "Uşak",
+        "slug": "usak-kible-yonu",
+        "distance": 105
+      },
+      {
+        "name": "Burdur",
+        "slug": "burdur-kible-yonu",
+        "distance": 106
+      },
+      {
+        "name": "Aydın",
+        "slug": "aydin-kible-yonu",
+        "distance": 110
+      },
+      {
+        "name": "Isparta",
+        "slug": "isparta-kible-yonu",
+        "distance": 129
+      },
+      {
+        "name": "Afyonkarahisar",
+        "slug": "afyonkarahisar-kible-yonu",
+        "distance": 168
+      }
+    ]
   },
   {
     "name": "Diyarbakır",
@@ -231,7 +1031,39 @@
     "lng": 40.2306,
     "bearing": 181.3,
     "direction": "Güney",
-    "distance": 1834
+    "distance": 1834,
+    "nearby": [
+      {
+        "name": "Mardin",
+        "slug": "mardin-kible-yonu",
+        "distance": 79
+      },
+      {
+        "name": "Batman",
+        "slug": "batman-kible-yonu",
+        "distance": 79
+      },
+      {
+        "name": "Bingöl",
+        "slug": "bingol-kible-yonu",
+        "distance": 110
+      },
+      {
+        "name": "Elazığ",
+        "slug": "elazig-kible-yonu",
+        "distance": 122
+      },
+      {
+        "name": "Tunceli",
+        "slug": "tunceli-kible-yonu",
+        "distance": 146
+      },
+      {
+        "name": "Siirt",
+        "slug": "siirt-kible-yonu",
+        "distance": 151
+      }
+    ]
   },
   {
     "name": "Düzce",
@@ -240,7 +1072,39 @@
     "lng": 31.1565,
     "bearing": 156.7,
     "direction": "Güneydoğu",
-    "distance": 2309
+    "distance": 2309,
+    "nearby": [
+      {
+        "name": "Bolu",
+        "slug": "bolu-kible-yonu",
+        "distance": 40
+      },
+      {
+        "name": "Sakarya",
+        "slug": "sakarya-kible-yonu",
+        "distance": 65
+      },
+      {
+        "name": "Zonguldak",
+        "slug": "zonguldak-kible-yonu",
+        "distance": 87
+      },
+      {
+        "name": "Kocaeli",
+        "slug": "kocaeli-kible-yonu",
+        "distance": 107
+      },
+      {
+        "name": "Bilecik",
+        "slug": "bilecik-kible-yonu",
+        "distance": 127
+      },
+      {
+        "name": "Karabük",
+        "slug": "karabuk-kible-yonu",
+        "distance": 129
+      }
+    ]
   },
   {
     "name": "Edirne",
@@ -249,7 +1113,39 @@
     "lng": 26.5623,
     "bearing": 147.1,
     "direction": "Güneydoğu",
-    "distance": 2572
+    "distance": 2572,
+    "nearby": [
+      {
+        "name": "Kırklareli",
+        "slug": "kirklareli-kible-yonu",
+        "distance": 55
+      },
+      {
+        "name": "Tekirdağ",
+        "slug": "tekirdag-kible-yonu",
+        "distance": 111
+      },
+      {
+        "name": "Çanakkale",
+        "slug": "canakkale-kible-yonu",
+        "distance": 170
+      },
+      {
+        "name": "İstanbul",
+        "slug": "istanbul-kible-yonu",
+        "distance": 215
+      },
+      {
+        "name": "Balıkesir",
+        "slug": "balikesir-kible-yonu",
+        "distance": 252
+      },
+      {
+        "name": "Yalova",
+        "slug": "yalova-kible-yonu",
+        "distance": 254
+      }
+    ]
   },
   {
     "name": "Elazığ",
@@ -258,7 +1154,39 @@
     "lng": 39.2264,
     "bearing": 178.1,
     "direction": "Güney",
-    "distance": 1920
+    "distance": 1920,
+    "nearby": [
+      {
+        "name": "Tunceli",
+        "slug": "tunceli-kible-yonu",
+        "distance": 55
+      },
+      {
+        "name": "Malatya",
+        "slug": "malatya-kible-yonu",
+        "distance": 88
+      },
+      {
+        "name": "Bingöl",
+        "slug": "bingol-kible-yonu",
+        "distance": 113
+      },
+      {
+        "name": "Erzincan",
+        "slug": "erzincan-kible-yonu",
+        "distance": 121
+      },
+      {
+        "name": "Diyarbakır",
+        "slug": "diyarbakir-kible-yonu",
+        "distance": 122
+      },
+      {
+        "name": "Adıyaman",
+        "slug": "adiyaman-kible-yonu",
+        "distance": 131
+      }
+    ]
   },
   {
     "name": "Erzincan",
@@ -267,7 +1195,39 @@
     "lng": 39.5,
     "bearing": 179.0,
     "direction": "Güney",
-    "distance": 2038
+    "distance": 2038,
+    "nearby": [
+      {
+        "name": "Tunceli",
+        "slug": "tunceli-kible-yonu",
+        "distance": 71
+      },
+      {
+        "name": "Gümüşhane",
+        "slug": "gumushane-kible-yonu",
+        "distance": 79
+      },
+      {
+        "name": "Bayburt",
+        "slug": "bayburt-kible-yonu",
+        "distance": 83
+      },
+      {
+        "name": "Elazığ",
+        "slug": "elazig-kible-yonu",
+        "distance": 121
+      },
+      {
+        "name": "Bingöl",
+        "slug": "bingol-kible-yonu",
+        "distance": 129
+      },
+      {
+        "name": "Trabzon",
+        "slug": "trabzon-kible-yonu",
+        "distance": 140
+      }
+    ]
   },
   {
     "name": "Erzurum",
@@ -276,7 +1236,39 @@
     "lng": 41.2679,
     "bearing": 184.2,
     "direction": "Güney",
-    "distance": 2060
+    "distance": 2060,
+    "nearby": [
+      {
+        "name": "Bayburt",
+        "slug": "bayburt-kible-yonu",
+        "distance": 97
+      },
+      {
+        "name": "Muş",
+        "slug": "mus-kible-yonu",
+        "distance": 114
+      },
+      {
+        "name": "Bingöl",
+        "slug": "bingol-kible-yonu",
+        "distance": 131
+      },
+      {
+        "name": "Rize",
+        "slug": "rize-kible-yonu",
+        "distance": 139
+      },
+      {
+        "name": "Artvin",
+        "slug": "artvin-kible-yonu",
+        "distance": 150
+      },
+      {
+        "name": "Erzincan",
+        "slug": "erzincan-kible-yonu",
+        "distance": 152
+      }
+    ]
   },
   {
     "name": "Eskişehir",
@@ -285,7 +1277,39 @@
     "lng": 30.5206,
     "bearing": 153.9,
     "direction": "Güneydoğu",
-    "distance": 2224
+    "distance": 2224,
+    "nearby": [
+      {
+        "name": "Bilecik",
+        "slug": "bilecik-kible-yonu",
+        "distance": 50
+      },
+      {
+        "name": "Kütahya",
+        "slug": "kutahya-kible-yonu",
+        "distance": 61
+      },
+      {
+        "name": "Sakarya",
+        "slug": "sakarya-kible-yonu",
+        "distance": 111
+      },
+      {
+        "name": "Afyonkarahisar",
+        "slug": "afyonkarahisar-kible-yonu",
+        "distance": 114
+      },
+      {
+        "name": "Düzce",
+        "slug": "duzce-kible-yonu",
+        "distance": 130
+      },
+      {
+        "name": "Kocaeli",
+        "slug": "kocaeli-kible-yonu",
+        "distance": 131
+      }
+    ]
   },
   {
     "name": "Gaziantep",
@@ -294,7 +1318,39 @@
     "lng": 37.3833,
     "bearing": 171.6,
     "direction": "Güney",
-    "distance": 1755
+    "distance": 1755,
+    "nearby": [
+      {
+        "name": "Kilis",
+        "slug": "kilis-kible-yonu",
+        "distance": 45
+      },
+      {
+        "name": "Kahramanmaraş",
+        "slug": "kahramanmaras-kible-yonu",
+        "distance": 70
+      },
+      {
+        "name": "Osmaniye",
+        "slug": "osmaniye-kible-yonu",
+        "distance": 101
+      },
+      {
+        "name": "Adıyaman",
+        "slug": "adiyaman-kible-yonu",
+        "distance": 111
+      },
+      {
+        "name": "Şanlıurfa",
+        "slug": "sanliurfa-kible-yonu",
+        "distance": 126
+      },
+      {
+        "name": "Hatay",
+        "slug": "hatay-kible-yonu",
+        "distance": 145
+      }
+    ]
   },
   {
     "name": "Giresun",
@@ -303,7 +1359,39 @@
     "lng": 38.3895,
     "bearing": 176.0,
     "direction": "Güney",
-    "distance": 2171
+    "distance": 2171,
+    "nearby": [
+      {
+        "name": "Ordu",
+        "slug": "ordu-kible-yonu",
+        "distance": 44
+      },
+      {
+        "name": "Gümüşhane",
+        "slug": "gumushane-kible-yonu",
+        "distance": 105
+      },
+      {
+        "name": "Trabzon",
+        "slug": "trabzon-kible-yonu",
+        "distance": 112
+      },
+      {
+        "name": "Erzincan",
+        "slug": "erzincan-kible-yonu",
+        "distance": 160
+      },
+      {
+        "name": "Tokat",
+        "slug": "tokat-kible-yonu",
+        "distance": 169
+      },
+      {
+        "name": "Bayburt",
+        "slug": "bayburt-kible-yonu",
+        "distance": 171
+      }
+    ]
   },
   {
     "name": "Gümüşhane",
@@ -312,7 +1400,39 @@
     "lng": 39.4814,
     "bearing": 179.0,
     "direction": "Güney",
-    "distance": 2117
+    "distance": 2117,
+    "nearby": [
+      {
+        "name": "Trabzon",
+        "slug": "trabzon-kible-yonu",
+        "distance": 63
+      },
+      {
+        "name": "Bayburt",
+        "slug": "bayburt-kible-yonu",
+        "distance": 67
+      },
+      {
+        "name": "Erzincan",
+        "slug": "erzincan-kible-yonu",
+        "distance": 79
+      },
+      {
+        "name": "Giresun",
+        "slug": "giresun-kible-yonu",
+        "distance": 105
+      },
+      {
+        "name": "Rize",
+        "slug": "rize-kible-yonu",
+        "distance": 108
+      },
+      {
+        "name": "Ordu",
+        "slug": "ordu-kible-yonu",
+        "distance": 147
+      }
+    ]
   },
   {
     "name": "Hakkâri",
@@ -321,7 +1441,39 @@
     "lng": 43.7408,
     "bearing": 192.9,
     "direction": "Güney",
-    "distance": 1835
+    "distance": 1835,
+    "nearby": [
+      {
+        "name": "Van",
+        "slug": "van-kible-yonu",
+        "distance": 108
+      },
+      {
+        "name": "Şırnak",
+        "slug": "sirnak-kible-yonu",
+        "distance": 112
+      },
+      {
+        "name": "Siirt",
+        "slug": "siirt-kible-yonu",
+        "distance": 162
+      },
+      {
+        "name": "Bitlis",
+        "slug": "bitlis-kible-yonu",
+        "distance": 170
+      },
+      {
+        "name": "Muş",
+        "slug": "mus-kible-yonu",
+        "distance": 231
+      },
+      {
+        "name": "Batman",
+        "slug": "batman-kible-yonu",
+        "distance": 232
+      }
+    ]
   },
   {
     "name": "Hatay",
@@ -330,7 +1482,39 @@
     "lng": 36.1613,
     "bearing": 166.8,
     "direction": "Güney",
-    "distance": 1681
+    "distance": 1681,
+    "nearby": [
+      {
+        "name": "Osmaniye",
+        "slug": "osmaniye-kible-yonu",
+        "distance": 97
+      },
+      {
+        "name": "Kilis",
+        "slug": "kilis-kible-yonu",
+        "distance": 103
+      },
+      {
+        "name": "Adana",
+        "slug": "adana-kible-yonu",
+        "distance": 116
+      },
+      {
+        "name": "Gaziantep",
+        "slug": "gaziantep-kible-yonu",
+        "distance": 145
+      },
+      {
+        "name": "Mersin",
+        "slug": "mersin-kible-yonu",
+        "distance": 152
+      },
+      {
+        "name": "Kahramanmaraş",
+        "slug": "kahramanmaras-kible-yonu",
+        "distance": 167
+      }
+    ]
   },
   {
     "name": "Iğdır",
@@ -339,7 +1523,39 @@
     "lng": 44.045,
     "bearing": 192.2,
     "direction": "Güney",
-    "distance": 2096
+    "distance": 2096,
+    "nearby": [
+      {
+        "name": "Ağrı",
+        "slug": "agri-kible-yonu",
+        "distance": 88
+      },
+      {
+        "name": "Kars",
+        "slug": "kars-kible-yonu",
+        "distance": 110
+      },
+      {
+        "name": "Van",
+        "slug": "van-kible-yonu",
+        "distance": 168
+      },
+      {
+        "name": "Ardahan",
+        "slug": "ardahan-kible-yonu",
+        "distance": 174
+      },
+      {
+        "name": "Muş",
+        "slug": "mus-kible-yonu",
+        "distance": 225
+      },
+      {
+        "name": "Artvin",
+        "slug": "artvin-kible-yonu",
+        "distance": 234
+      }
+    ]
   },
   {
     "name": "Isparta",
@@ -348,7 +1564,39 @@
     "lng": 30.5566,
     "bearing": 151.3,
     "direction": "Güneydoğu",
-    "distance": 2023
+    "distance": 2023,
+    "nearby": [
+      {
+        "name": "Burdur",
+        "slug": "burdur-kible-yonu",
+        "distance": 24
+      },
+      {
+        "name": "Antalya",
+        "slug": "antalya-kible-yonu",
+        "distance": 97
+      },
+      {
+        "name": "Afyonkarahisar",
+        "slug": "afyonkarahisar-kible-yonu",
+        "distance": 110
+      },
+      {
+        "name": "Denizli",
+        "slug": "denizli-kible-yonu",
+        "distance": 129
+      },
+      {
+        "name": "Uşak",
+        "slug": "usak-kible-yonu",
+        "distance": 143
+      },
+      {
+        "name": "Konya",
+        "slug": "konya-kible-yonu",
+        "distance": 171
+      }
+    ]
   },
   {
     "name": "İstanbul",
@@ -357,7 +1605,39 @@
     "lng": 28.9784,
     "bearing": 151.6,
     "direction": "Güneydoğu",
-    "distance": 2405
+    "distance": 2405,
+    "nearby": [
+      {
+        "name": "Yalova",
+        "slug": "yalova-kible-yonu",
+        "distance": 47
+      },
+      {
+        "name": "Kocaeli",
+        "slug": "kocaeli-kible-yonu",
+        "distance": 78
+      },
+      {
+        "name": "Bursa",
+        "slug": "bursa-kible-yonu",
+        "distance": 91
+      },
+      {
+        "name": "Sakarya",
+        "slug": "sakarya-kible-yonu",
+        "distance": 122
+      },
+      {
+        "name": "Tekirdağ",
+        "slug": "tekirdag-kible-yonu",
+        "distance": 123
+      },
+      {
+        "name": "Bilecik",
+        "slug": "bilecik-kible-yonu",
+        "distance": 140
+      }
+    ]
   },
   {
     "name": "İzmir",
@@ -366,7 +1646,39 @@
     "lng": 27.1428,
     "bearing": 143.7,
     "direction": "Güneydoğu",
-    "distance": 2246
+    "distance": 2246,
+    "nearby": [
+      {
+        "name": "Manisa",
+        "slug": "manisa-kible-yonu",
+        "distance": 33
+      },
+      {
+        "name": "Aydın",
+        "slug": "aydin-kible-yonu",
+        "distance": 88
+      },
+      {
+        "name": "Balıkesir",
+        "slug": "balikesir-kible-yonu",
+        "distance": 150
+      },
+      {
+        "name": "Muğla",
+        "slug": "mugla-kible-yonu",
+        "distance": 172
+      },
+      {
+        "name": "Denizli",
+        "slug": "denizli-kible-yonu",
+        "distance": 185
+      },
+      {
+        "name": "Uşak",
+        "slug": "usak-kible-yonu",
+        "distance": 199
+      }
+    ]
   },
   {
     "name": "Kahramanmaraş",
@@ -375,7 +1687,39 @@
     "lng": 36.9228,
     "bearing": 170.4,
     "direction": "Güney",
-    "distance": 1818
+    "distance": 1818,
+    "nearby": [
+      {
+        "name": "Gaziantep",
+        "slug": "gaziantep-kible-yonu",
+        "distance": 70
+      },
+      {
+        "name": "Osmaniye",
+        "slug": "osmaniye-kible-yonu",
+        "distance": 82
+      },
+      {
+        "name": "Kilis",
+        "slug": "kilis-kible-yonu",
+        "distance": 97
+      },
+      {
+        "name": "Adıyaman",
+        "slug": "adiyaman-kible-yonu",
+        "distance": 121
+      },
+      {
+        "name": "Malatya",
+        "slug": "malatya-kible-yonu",
+        "distance": 149
+      },
+      {
+        "name": "Adana",
+        "slug": "adana-kible-yonu",
+        "distance": 155
+      }
+    ]
   },
   {
     "name": "Karabük",
@@ -384,7 +1728,39 @@
     "lng": 32.6204,
     "bearing": 160.7,
     "direction": "Güney",
-    "distance": 2302
+    "distance": 2302,
+    "nearby": [
+      {
+        "name": "Bartın",
+        "slug": "bartin-kible-yonu",
+        "distance": 44
+      },
+      {
+        "name": "Zonguldak",
+        "slug": "zonguldak-kible-yonu",
+        "distance": 74
+      },
+      {
+        "name": "Kastamonu",
+        "slug": "kastamonu-kible-yonu",
+        "distance": 99
+      },
+      {
+        "name": "Bolu",
+        "slug": "bolu-kible-yonu",
+        "distance": 99
+      },
+      {
+        "name": "Çankırı",
+        "slug": "cankiri-kible-yonu",
+        "distance": 107
+      },
+      {
+        "name": "Düzce",
+        "slug": "duzce-kible-yonu",
+        "distance": 129
+      }
+    ]
   },
   {
     "name": "Karaman",
@@ -393,7 +1769,39 @@
     "lng": 33.2287,
     "bearing": 158.2,
     "direction": "Güney",
-    "distance": 1863
+    "distance": 1863,
+    "nearby": [
+      {
+        "name": "Konya",
+        "slug": "konya-kible-yonu",
+        "distance": 101
+      },
+      {
+        "name": "Mersin",
+        "slug": "mersin-kible-yonu",
+        "distance": 132
+      },
+      {
+        "name": "Aksaray",
+        "slug": "aksaray-kible-yonu",
+        "distance": 150
+      },
+      {
+        "name": "Niğde",
+        "slug": "nigde-kible-yonu",
+        "distance": 155
+      },
+      {
+        "name": "Adana",
+        "slug": "adana-kible-yonu",
+        "distance": 187
+      },
+      {
+        "name": "Nevşehir",
+        "slug": "nevsehir-kible-yonu",
+        "distance": 208
+      }
+    ]
   },
   {
     "name": "Kars",
@@ -402,7 +1810,39 @@
     "lng": 43.0975,
     "bearing": 189.2,
     "direction": "Güney",
-    "distance": 2155
+    "distance": 2155,
+    "nearby": [
+      {
+        "name": "Ardahan",
+        "slug": "ardahan-kible-yonu",
+        "distance": 66
+      },
+      {
+        "name": "Ağrı",
+        "slug": "agri-kible-yonu",
+        "distance": 98
+      },
+      {
+        "name": "Iğdır",
+        "slug": "igdir-kible-yonu",
+        "distance": 110
+      },
+      {
+        "name": "Artvin",
+        "slug": "artvin-kible-yonu",
+        "distance": 125
+      },
+      {
+        "name": "Erzurum",
+        "slug": "erzurum-kible-yonu",
+        "distance": 174
+      },
+      {
+        "name": "Muş",
+        "slug": "mus-kible-yonu",
+        "distance": 217
+      }
+    ]
   },
   {
     "name": "Kastamonu",
@@ -411,7 +1851,39 @@
     "lng": 33.7827,
     "bearing": 163.8,
     "direction": "Güney",
-    "distance": 2291
+    "distance": 2291,
+    "nearby": [
+      {
+        "name": "Çankırı",
+        "slug": "cankiri-kible-yonu",
+        "distance": 89
+      },
+      {
+        "name": "Karabük",
+        "slug": "karabuk-kible-yonu",
+        "distance": 99
+      },
+      {
+        "name": "Bartın",
+        "slug": "bartin-kible-yonu",
+        "distance": 112
+      },
+      {
+        "name": "Sinop",
+        "slug": "sinop-kible-yonu",
+        "distance": 134
+      },
+      {
+        "name": "Çorum",
+        "slug": "corum-kible-yonu",
+        "distance": 136
+      },
+      {
+        "name": "Zonguldak",
+        "slug": "zonguldak-kible-yonu",
+        "distance": 166
+      }
+    ]
   },
   {
     "name": "Kayseri",
@@ -420,7 +1892,39 @@
     "lng": 35.4826,
     "bearing": 166.6,
     "direction": "Güney",
-    "distance": 1968
+    "distance": 1968,
+    "nearby": [
+      {
+        "name": "Nevşehir",
+        "slug": "nevsehir-kible-yonu",
+        "distance": 67
+      },
+      {
+        "name": "Niğde",
+        "slug": "nigde-kible-yonu",
+        "distance": 109
+      },
+      {
+        "name": "Kırşehir",
+        "slug": "kirsehir-kible-yonu",
+        "distance": 123
+      },
+      {
+        "name": "Aksaray",
+        "slug": "aksaray-kible-yonu",
+        "distance": 132
+      },
+      {
+        "name": "Yozgat",
+        "slug": "yozgat-kible-yonu",
+        "distance": 135
+      },
+      {
+        "name": "Sivas",
+        "slug": "sivas-kible-yonu",
+        "distance": 175
+      }
+    ]
   },
   {
     "name": "Kilis",
@@ -429,7 +1933,39 @@
     "lng": 37.1212,
     "bearing": 170.5,
     "direction": "Güney",
-    "distance": 1721
+    "distance": 1721,
+    "nearby": [
+      {
+        "name": "Gaziantep",
+        "slug": "gaziantep-kible-yonu",
+        "distance": 45
+      },
+      {
+        "name": "Osmaniye",
+        "slug": "osmaniye-kible-yonu",
+        "distance": 87
+      },
+      {
+        "name": "Kahramanmaraş",
+        "slug": "kahramanmaras-kible-yonu",
+        "distance": 97
+      },
+      {
+        "name": "Hatay",
+        "slug": "hatay-kible-yonu",
+        "distance": 103
+      },
+      {
+        "name": "Adıyaman",
+        "slug": "adiyaman-kible-yonu",
+        "distance": 155
+      },
+      {
+        "name": "Şanlıurfa",
+        "slug": "sanliurfa-kible-yonu",
+        "distance": 157
+      }
+    ]
   },
   {
     "name": "Kırıkkale",
@@ -438,7 +1974,39 @@
     "lng": 33.5153,
     "bearing": 161.9,
     "direction": "Güney",
-    "distance": 2134
+    "distance": 2134,
+    "nearby": [
+      {
+        "name": "Ankara",
+        "slug": "ankara-kible-yonu",
+        "distance": 57
+      },
+      {
+        "name": "Çankırı",
+        "slug": "cankiri-kible-yonu",
+        "distance": 84
+      },
+      {
+        "name": "Kırşehir",
+        "slug": "kirsehir-kible-yonu",
+        "distance": 96
+      },
+      {
+        "name": "Yozgat",
+        "slug": "yozgat-kible-yonu",
+        "distance": 111
+      },
+      {
+        "name": "Çorum",
+        "slug": "corum-kible-yonu",
+        "distance": 145
+      },
+      {
+        "name": "Karabük",
+        "slug": "karabuk-kible-yonu",
+        "distance": 169
+      }
+    ]
   },
   {
     "name": "Kırklareli",
@@ -447,7 +2015,39 @@
     "lng": 27.2252,
     "bearing": 148.6,
     "direction": "Güneydoğu",
-    "distance": 2548
+    "distance": 2548,
+    "nearby": [
+      {
+        "name": "Edirne",
+        "slug": "edirne-kible-yonu",
+        "distance": 55
+      },
+      {
+        "name": "Tekirdağ",
+        "slug": "tekirdag-kible-yonu",
+        "distance": 87
+      },
+      {
+        "name": "İstanbul",
+        "slug": "istanbul-kible-yonu",
+        "distance": 167
+      },
+      {
+        "name": "Çanakkale",
+        "slug": "canakkale-kible-yonu",
+        "distance": 188
+      },
+      {
+        "name": "Yalova",
+        "slug": "yalova-kible-yonu",
+        "distance": 209
+      },
+      {
+        "name": "Bursa",
+        "slug": "bursa-kible-yonu",
+        "distance": 231
+      }
+    ]
   },
   {
     "name": "Kırşehir",
@@ -456,7 +2056,39 @@
     "lng": 34.1709,
     "bearing": 163.1,
     "direction": "Güney",
-    "distance": 2043
+    "distance": 2043,
+    "nearby": [
+      {
+        "name": "Nevşehir",
+        "slug": "nevsehir-kible-yonu",
+        "distance": 75
+      },
+      {
+        "name": "Aksaray",
+        "slug": "aksaray-kible-yonu",
+        "distance": 87
+      },
+      {
+        "name": "Yozgat",
+        "slug": "yozgat-kible-yonu",
+        "distance": 93
+      },
+      {
+        "name": "Kırıkkale",
+        "slug": "kirikkale-kible-yonu",
+        "distance": 96
+      },
+      {
+        "name": "Kayseri",
+        "slug": "kayseri-kible-yonu",
+        "distance": 123
+      },
+      {
+        "name": "Niğde",
+        "slug": "nigde-kible-yonu",
+        "distance": 138
+      }
+    ]
   },
   {
     "name": "Kocaeli",
@@ -465,7 +2097,39 @@
     "lng": 29.8815,
     "bearing": 153.6,
     "direction": "Güneydoğu",
-    "distance": 2355
+    "distance": 2355,
+    "nearby": [
+      {
+        "name": "Sakarya",
+        "slug": "sakarya-kible-yonu",
+        "distance": 44
+      },
+      {
+        "name": "Yalova",
+        "slug": "yalova-kible-yonu",
+        "distance": 57
+      },
+      {
+        "name": "İstanbul",
+        "slug": "istanbul-kible-yonu",
+        "distance": 78
+      },
+      {
+        "name": "Bilecik",
+        "slug": "bilecik-kible-yonu",
+        "distance": 90
+      },
+      {
+        "name": "Bursa",
+        "slug": "bursa-kible-yonu",
+        "distance": 101
+      },
+      {
+        "name": "Düzce",
+        "slug": "duzce-kible-yonu",
+        "distance": 107
+      }
+    ]
   },
   {
     "name": "Konya",
@@ -474,7 +2138,39 @@
     "lng": 32.4932,
     "bearing": 156.9,
     "direction": "Güneydoğu",
-    "distance": 1960
+    "distance": 1960,
+    "nearby": [
+      {
+        "name": "Karaman",
+        "slug": "karaman-kible-yonu",
+        "distance": 101
+      },
+      {
+        "name": "Aksaray",
+        "slug": "aksaray-kible-yonu",
+        "distance": 146
+      },
+      {
+        "name": "Isparta",
+        "slug": "isparta-kible-yonu",
+        "distance": 171
+      },
+      {
+        "name": "Antalya",
+        "slug": "antalya-kible-yonu",
+        "distance": 191
+      },
+      {
+        "name": "Niğde",
+        "slug": "nigde-kible-yonu",
+        "distance": 192
+      },
+      {
+        "name": "Burdur",
+        "slug": "burdur-kible-yonu",
+        "distance": 194
+      }
+    ]
   },
   {
     "name": "Kütahya",
@@ -483,7 +2179,39 @@
     "lng": 29.9833,
     "bearing": 152.1,
     "direction": "Güneydoğu",
-    "distance": 2209
+    "distance": 2209,
+    "nearby": [
+      {
+        "name": "Eskişehir",
+        "slug": "eskisehir-kible-yonu",
+        "distance": 61
+      },
+      {
+        "name": "Bilecik",
+        "slug": "bilecik-kible-yonu",
+        "distance": 72
+      },
+      {
+        "name": "Afyonkarahisar",
+        "slug": "afyonkarahisar-kible-yonu",
+        "distance": 89
+      },
+      {
+        "name": "Uşak",
+        "slug": "usak-kible-yonu",
+        "distance": 96
+      },
+      {
+        "name": "Bursa",
+        "slug": "bursa-kible-yonu",
+        "distance": 117
+      },
+      {
+        "name": "Yalova",
+        "slug": "yalova-kible-yonu",
+        "distance": 150
+      }
+    ]
   },
   {
     "name": "Malatya",
@@ -492,7 +2220,39 @@
     "lng": 38.3095,
     "bearing": 175.2,
     "direction": "Güney",
-    "distance": 1888
+    "distance": 1888,
+    "nearby": [
+      {
+        "name": "Adıyaman",
+        "slug": "adiyaman-kible-yonu",
+        "distance": 66
+      },
+      {
+        "name": "Elazığ",
+        "slug": "elazig-kible-yonu",
+        "distance": 88
+      },
+      {
+        "name": "Tunceli",
+        "slug": "tunceli-kible-yonu",
+        "distance": 136
+      },
+      {
+        "name": "Şanlıurfa",
+        "slug": "sanliurfa-kible-yonu",
+        "distance": 139
+      },
+      {
+        "name": "Kahramanmaraş",
+        "slug": "kahramanmaras-kible-yonu",
+        "distance": 149
+      },
+      {
+        "name": "Gaziantep",
+        "slug": "gaziantep-kible-yonu",
+        "distance": 165
+      }
+    ]
   },
   {
     "name": "Manisa",
@@ -501,7 +2261,39 @@
     "lng": 27.4289,
     "bearing": 144.7,
     "direction": "Güneydoğu",
-    "distance": 2249
+    "distance": 2249,
+    "nearby": [
+      {
+        "name": "İzmir",
+        "slug": "izmir-kible-yonu",
+        "distance": 33
+      },
+      {
+        "name": "Aydın",
+        "slug": "aydin-kible-yonu",
+        "distance": 92
+      },
+      {
+        "name": "Balıkesir",
+        "slug": "balikesir-kible-yonu",
+        "distance": 121
+      },
+      {
+        "name": "Uşak",
+        "slug": "usak-kible-yonu",
+        "distance": 172
+      },
+      {
+        "name": "Denizli",
+        "slug": "denizli-kible-yonu",
+        "distance": 172
+      },
+      {
+        "name": "Muğla",
+        "slug": "mugla-kible-yonu",
+        "distance": 176
+      }
+    ]
   },
   {
     "name": "Mardin",
@@ -510,7 +2302,39 @@
     "lng": 40.7245,
     "bearing": 183.1,
     "direction": "Güney",
-    "distance": 1770
+    "distance": 1770,
+    "nearby": [
+      {
+        "name": "Batman",
+        "slug": "batman-kible-yonu",
+        "distance": 72
+      },
+      {
+        "name": "Diyarbakır",
+        "slug": "diyarbakir-kible-yonu",
+        "distance": 79
+      },
+      {
+        "name": "Siirt",
+        "slug": "siirt-kible-yonu",
+        "distance": 128
+      },
+      {
+        "name": "Şırnak",
+        "slug": "sirnak-kible-yonu",
+        "distance": 157
+      },
+      {
+        "name": "Bitlis",
+        "slug": "bitlis-kible-yonu",
+        "distance": 171
+      },
+      {
+        "name": "Şanlıurfa",
+        "slug": "sanliurfa-kible-yonu",
+        "distance": 172
+      }
+    ]
   },
   {
     "name": "Mersin",
@@ -519,7 +2343,39 @@
     "lng": 34.6415,
     "bearing": 162.3,
     "direction": "Güney",
-    "distance": 1783
+    "distance": 1783,
+    "nearby": [
+      {
+        "name": "Adana",
+        "slug": "adana-kible-yonu",
+        "distance": 64
+      },
+      {
+        "name": "Niğde",
+        "slug": "nigde-kible-yonu",
+        "distance": 129
+      },
+      {
+        "name": "Karaman",
+        "slug": "karaman-kible-yonu",
+        "distance": 132
+      },
+      {
+        "name": "Osmaniye",
+        "slug": "osmaniye-kible-yonu",
+        "distance": 146
+      },
+      {
+        "name": "Hatay",
+        "slug": "hatay-kible-yonu",
+        "distance": 152
+      },
+      {
+        "name": "Aksaray",
+        "slug": "aksaray-kible-yonu",
+        "distance": 181
+      }
+    ]
   },
   {
     "name": "Muğla",
@@ -528,7 +2384,39 @@
     "lng": 28.3636,
     "bearing": 144.7,
     "direction": "Güneydoğu",
-    "distance": 2074
+    "distance": 2074,
+    "nearby": [
+      {
+        "name": "Aydın",
+        "slug": "aydin-kible-yonu",
+        "distance": 85
+      },
+      {
+        "name": "Denizli",
+        "slug": "denizli-kible-yonu",
+        "distance": 89
+      },
+      {
+        "name": "İzmir",
+        "slug": "izmir-kible-yonu",
+        "distance": 172
+      },
+      {
+        "name": "Manisa",
+        "slug": "manisa-kible-yonu",
+        "distance": 176
+      },
+      {
+        "name": "Burdur",
+        "slug": "burdur-kible-yonu",
+        "distance": 179
+      },
+      {
+        "name": "Uşak",
+        "slug": "usak-kible-yonu",
+        "distance": 187
+      }
+    ]
   },
   {
     "name": "Muş",
@@ -537,7 +2425,39 @@
     "lng": 41.7539,
     "bearing": 185.9,
     "direction": "Güney",
-    "distance": 1957
+    "distance": 1957,
+    "nearby": [
+      {
+        "name": "Bitlis",
+        "slug": "bitlis-kible-yonu",
+        "distance": 68
+      },
+      {
+        "name": "Bingöl",
+        "slug": "bingol-kible-yonu",
+        "distance": 109
+      },
+      {
+        "name": "Siirt",
+        "slug": "siirt-kible-yonu",
+        "distance": 114
+      },
+      {
+        "name": "Erzurum",
+        "slug": "erzurum-kible-yonu",
+        "distance": 114
+      },
+      {
+        "name": "Batman",
+        "slug": "batman-kible-yonu",
+        "distance": 130
+      },
+      {
+        "name": "Ağrı",
+        "slug": "agri-kible-yonu",
+        "distance": 141
+      }
+    ]
   },
   {
     "name": "Nevşehir",
@@ -546,7 +2466,39 @@
     "lng": 34.7239,
     "bearing": 164.2,
     "direction": "Güney",
-    "distance": 1974
+    "distance": 1974,
+    "nearby": [
+      {
+        "name": "Aksaray",
+        "slug": "aksaray-kible-yonu",
+        "distance": 66
+      },
+      {
+        "name": "Kayseri",
+        "slug": "kayseri-kible-yonu",
+        "distance": 67
+      },
+      {
+        "name": "Niğde",
+        "slug": "nigde-kible-yonu",
+        "distance": 73
+      },
+      {
+        "name": "Kırşehir",
+        "slug": "kirsehir-kible-yonu",
+        "distance": 75
+      },
+      {
+        "name": "Yozgat",
+        "slug": "yozgat-kible-yonu",
+        "distance": 133
+      },
+      {
+        "name": "Kırıkkale",
+        "slug": "kirikkale-kible-yonu",
+        "distance": 171
+      }
+    ]
   },
   {
     "name": "Niğde",
@@ -555,7 +2507,39 @@
     "lng": 34.6766,
     "bearing": 163.5,
     "direction": "Güney",
-    "distance": 1905
+    "distance": 1905,
+    "nearby": [
+      {
+        "name": "Aksaray",
+        "slug": "aksaray-kible-yonu",
+        "distance": 71
+      },
+      {
+        "name": "Nevşehir",
+        "slug": "nevsehir-kible-yonu",
+        "distance": 73
+      },
+      {
+        "name": "Kayseri",
+        "slug": "kayseri-kible-yonu",
+        "distance": 109
+      },
+      {
+        "name": "Adana",
+        "slug": "adana-kible-yonu",
+        "distance": 122
+      },
+      {
+        "name": "Mersin",
+        "slug": "mersin-kible-yonu",
+        "distance": 129
+      },
+      {
+        "name": "Kırşehir",
+        "slug": "kirsehir-kible-yonu",
+        "distance": 138
+      }
+    ]
   },
   {
     "name": "Ordu",
@@ -564,7 +2548,39 @@
     "lng": 37.8764,
     "bearing": 174.6,
     "direction": "Güney",
-    "distance": 2183
+    "distance": 2183,
+    "nearby": [
+      {
+        "name": "Giresun",
+        "slug": "giresun-kible-yonu",
+        "distance": 44
+      },
+      {
+        "name": "Samsun",
+        "slug": "samsun-kible-yonu",
+        "distance": 134
+      },
+      {
+        "name": "Tokat",
+        "slug": "tokat-kible-yonu",
+        "distance": 134
+      },
+      {
+        "name": "Gümüşhane",
+        "slug": "gumushane-kible-yonu",
+        "distance": 147
+      },
+      {
+        "name": "Trabzon",
+        "slug": "trabzon-kible-yonu",
+        "distance": 155
+      },
+      {
+        "name": "Sivas",
+        "slug": "sivas-kible-yonu",
+        "distance": 156
+      }
+    ]
   },
   {
     "name": "Osmaniye",
@@ -573,7 +2589,39 @@
     "lng": 36.2478,
     "bearing": 167.8,
     "direction": "Güney",
-    "distance": 1774
+    "distance": 1774,
+    "nearby": [
+      {
+        "name": "Kahramanmaraş",
+        "slug": "kahramanmaras-kible-yonu",
+        "distance": 82
+      },
+      {
+        "name": "Adana",
+        "slug": "adana-kible-yonu",
+        "distance": 83
+      },
+      {
+        "name": "Kilis",
+        "slug": "kilis-kible-yonu",
+        "distance": 87
+      },
+      {
+        "name": "Hatay",
+        "slug": "hatay-kible-yonu",
+        "distance": 97
+      },
+      {
+        "name": "Gaziantep",
+        "slug": "gaziantep-kible-yonu",
+        "distance": 101
+      },
+      {
+        "name": "Mersin",
+        "slug": "mersin-kible-yonu",
+        "distance": 146
+      }
+    ]
   },
   {
     "name": "Rize",
@@ -582,7 +2630,39 @@
     "lng": 40.5234,
     "bearing": 181.9,
     "direction": "Güney",
-    "distance": 2180
+    "distance": 2180,
+    "nearby": [
+      {
+        "name": "Trabzon",
+        "slug": "trabzon-kible-yonu",
+        "distance": 68
+      },
+      {
+        "name": "Bayburt",
+        "slug": "bayburt-kible-yonu",
+        "distance": 89
+      },
+      {
+        "name": "Gümüşhane",
+        "slug": "gumushane-kible-yonu",
+        "distance": 108
+      },
+      {
+        "name": "Artvin",
+        "slug": "artvin-kible-yonu",
+        "distance": 110
+      },
+      {
+        "name": "Erzurum",
+        "slug": "erzurum-kible-yonu",
+        "distance": 139
+      },
+      {
+        "name": "Erzincan",
+        "slug": "erzincan-kible-yonu",
+        "distance": 166
+      }
+    ]
   },
   {
     "name": "Sakarya",
@@ -591,7 +2671,39 @@
     "lng": 30.3948,
     "bearing": 154.7,
     "direction": "Güneydoğu",
-    "distance": 2328
+    "distance": 2328,
+    "nearby": [
+      {
+        "name": "Kocaeli",
+        "slug": "kocaeli-kible-yonu",
+        "distance": 44
+      },
+      {
+        "name": "Düzce",
+        "slug": "duzce-kible-yonu",
+        "distance": 65
+      },
+      {
+        "name": "Bilecik",
+        "slug": "bilecik-kible-yonu",
+        "distance": 84
+      },
+      {
+        "name": "Yalova",
+        "slug": "yalova-kible-yonu",
+        "distance": 96
+      },
+      {
+        "name": "Bolu",
+        "slug": "bolu-kible-yonu",
+        "distance": 103
+      },
+      {
+        "name": "Eskişehir",
+        "slug": "eskisehir-kible-yonu",
+        "distance": 111
+      }
+    ]
   },
   {
     "name": "Samsun",
@@ -600,7 +2712,39 @@
     "lng": 36.33,
     "bearing": 170.5,
     "direction": "Güney",
-    "distance": 2233
+    "distance": 2233,
+    "nearby": [
+      {
+        "name": "Amasya",
+        "slug": "amasya-kible-yonu",
+        "distance": 82
+      },
+      {
+        "name": "Tokat",
+        "slug": "tokat-kible-yonu",
+        "distance": 109
+      },
+      {
+        "name": "Sinop",
+        "slug": "sinop-kible-yonu",
+        "distance": 128
+      },
+      {
+        "name": "Ordu",
+        "slug": "ordu-kible-yonu",
+        "distance": 134
+      },
+      {
+        "name": "Çorum",
+        "slug": "corum-kible-yonu",
+        "distance": 142
+      },
+      {
+        "name": "Giresun",
+        "slug": "giresun-kible-yonu",
+        "distance": 178
+      }
+    ]
   },
   {
     "name": "Siirt",
@@ -609,7 +2753,39 @@
     "lng": 41.95,
     "bearing": 186.9,
     "direction": "Güney",
-    "distance": 1847
+    "distance": 1847,
+    "nearby": [
+      {
+        "name": "Bitlis",
+        "slug": "bitlis-kible-yonu",
+        "distance": 54
+      },
+      {
+        "name": "Batman",
+        "slug": "batman-kible-yonu",
+        "distance": 72
+      },
+      {
+        "name": "Şırnak",
+        "slug": "sirnak-kible-yonu",
+        "distance": 74
+      },
+      {
+        "name": "Muş",
+        "slug": "mus-kible-yonu",
+        "distance": 114
+      },
+      {
+        "name": "Mardin",
+        "slug": "mardin-kible-yonu",
+        "distance": 128
+      },
+      {
+        "name": "Van",
+        "slug": "van-kible-yonu",
+        "distance": 139
+      }
+    ]
   },
   {
     "name": "Sinop",
@@ -618,7 +2794,39 @@
     "lng": 35.1531,
     "bearing": 167.8,
     "direction": "Güney",
-    "distance": 2332
+    "distance": 2332,
+    "nearby": [
+      {
+        "name": "Samsun",
+        "slug": "samsun-kible-yonu",
+        "distance": 128
+      },
+      {
+        "name": "Kastamonu",
+        "slug": "kastamonu-kible-yonu",
+        "distance": 134
+      },
+      {
+        "name": "Amasya",
+        "slug": "amasya-kible-yonu",
+        "distance": 163
+      },
+      {
+        "name": "Çorum",
+        "slug": "corum-kible-yonu",
+        "distance": 165
+      },
+      {
+        "name": "Çankırı",
+        "slug": "cankiri-kible-yonu",
+        "distance": 204
+      },
+      {
+        "name": "Tokat",
+        "slug": "tokat-kible-yonu",
+        "distance": 223
+      }
+    ]
   },
   {
     "name": "Sivas",
@@ -627,7 +2835,39 @@
     "lng": 37.0179,
     "bearing": 171.7,
     "direction": "Güney",
-    "distance": 2055
+    "distance": 2055,
+    "nearby": [
+      {
+        "name": "Tokat",
+        "slug": "tokat-kible-yonu",
+        "distance": 75
+      },
+      {
+        "name": "Amasya",
+        "slug": "amasya-kible-yonu",
+        "distance": 142
+      },
+      {
+        "name": "Ordu",
+        "slug": "ordu-kible-yonu",
+        "distance": 156
+      },
+      {
+        "name": "Giresun",
+        "slug": "giresun-kible-yonu",
+        "distance": 174
+      },
+      {
+        "name": "Kayseri",
+        "slug": "kayseri-kible-yonu",
+        "distance": 175
+      },
+      {
+        "name": "Samsun",
+        "slug": "samsun-kible-yonu",
+        "distance": 181
+      }
+    ]
   },
   {
     "name": "Şanlıurfa",
@@ -636,7 +2876,39 @@
     "lng": 38.7955,
     "bearing": 176.5,
     "direction": "Güney",
-    "distance": 1754
+    "distance": 1754,
+    "nearby": [
+      {
+        "name": "Adıyaman",
+        "slug": "adiyaman-kible-yonu",
+        "distance": 81
+      },
+      {
+        "name": "Gaziantep",
+        "slug": "gaziantep-kible-yonu",
+        "distance": 126
+      },
+      {
+        "name": "Malatya",
+        "slug": "malatya-kible-yonu",
+        "distance": 139
+      },
+      {
+        "name": "Diyarbakır",
+        "slug": "diyarbakir-kible-yonu",
+        "distance": 151
+      },
+      {
+        "name": "Kilis",
+        "slug": "kilis-kible-yonu",
+        "distance": 157
+      },
+      {
+        "name": "Kahramanmaraş",
+        "slug": "kahramanmaras-kible-yonu",
+        "distance": 172
+      }
+    ]
   },
   {
     "name": "Şırnak",
@@ -645,7 +2917,39 @@
     "lng": 42.4918,
     "bearing": 188.9,
     "direction": "Güney",
-    "distance": 1797
+    "distance": 1797,
+    "nearby": [
+      {
+        "name": "Siirt",
+        "slug": "siirt-kible-yonu",
+        "distance": 74
+      },
+      {
+        "name": "Hakkâri",
+        "slug": "hakkari-kible-yonu",
+        "distance": 112
+      },
+      {
+        "name": "Bitlis",
+        "slug": "bitlis-kible-yonu",
+        "distance": 114
+      },
+      {
+        "name": "Batman",
+        "slug": "batman-kible-yonu",
+        "distance": 130
+      },
+      {
+        "name": "Van",
+        "slug": "van-kible-yonu",
+        "distance": 143
+      },
+      {
+        "name": "Mardin",
+        "slug": "mardin-kible-yonu",
+        "distance": 157
+      }
+    ]
   },
   {
     "name": "Tekirdağ",
@@ -654,7 +2958,39 @@
     "lng": 27.511,
     "bearing": 148.2,
     "direction": "Güneydoğu",
-    "distance": 2464
+    "distance": 2464,
+    "nearby": [
+      {
+        "name": "Kırklareli",
+        "slug": "kirklareli-kible-yonu",
+        "distance": 87
+      },
+      {
+        "name": "Edirne",
+        "slug": "edirne-kible-yonu",
+        "distance": 111
+      },
+      {
+        "name": "İstanbul",
+        "slug": "istanbul-kible-yonu",
+        "distance": 123
+      },
+      {
+        "name": "Çanakkale",
+        "slug": "canakkale-kible-yonu",
+        "distance": 130
+      },
+      {
+        "name": "Balıkesir",
+        "slug": "balikesir-kible-yonu",
+        "distance": 151
+      },
+      {
+        "name": "Yalova",
+        "slug": "yalova-kible-yonu",
+        "distance": 152
+      }
+    ]
   },
   {
     "name": "Tokat",
@@ -663,7 +2999,39 @@
     "lng": 36.55,
     "bearing": 170.6,
     "direction": "Güney",
-    "distance": 2124
+    "distance": 2124,
+    "nearby": [
+      {
+        "name": "Amasya",
+        "slug": "amasya-kible-yonu",
+        "distance": 71
+      },
+      {
+        "name": "Sivas",
+        "slug": "sivas-kible-yonu",
+        "distance": 75
+      },
+      {
+        "name": "Samsun",
+        "slug": "samsun-kible-yonu",
+        "distance": 109
+      },
+      {
+        "name": "Ordu",
+        "slug": "ordu-kible-yonu",
+        "distance": 134
+      },
+      {
+        "name": "Çorum",
+        "slug": "corum-kible-yonu",
+        "distance": 137
+      },
+      {
+        "name": "Yozgat",
+        "slug": "yozgat-kible-yonu",
+        "distance": 158
+      }
+    ]
   },
   {
     "name": "Trabzon",
@@ -672,7 +3040,39 @@
     "lng": 39.7178,
     "bearing": 179.7,
     "direction": "Güney",
-    "distance": 2177
+    "distance": 2177,
+    "nearby": [
+      {
+        "name": "Gümüşhane",
+        "slug": "gumushane-kible-yonu",
+        "distance": 63
+      },
+      {
+        "name": "Rize",
+        "slug": "rize-kible-yonu",
+        "distance": 68
+      },
+      {
+        "name": "Bayburt",
+        "slug": "bayburt-kible-yonu",
+        "distance": 93
+      },
+      {
+        "name": "Giresun",
+        "slug": "giresun-kible-yonu",
+        "distance": 112
+      },
+      {
+        "name": "Erzincan",
+        "slug": "erzincan-kible-yonu",
+        "distance": 140
+      },
+      {
+        "name": "Ordu",
+        "slug": "ordu-kible-yonu",
+        "distance": 155
+      }
+    ]
   },
   {
     "name": "Tunceli",
@@ -681,7 +3081,39 @@
     "lng": 39.5401,
     "bearing": 179.1,
     "direction": "Güney",
-    "distance": 1967
+    "distance": 1967,
+    "nearby": [
+      {
+        "name": "Elazığ",
+        "slug": "elazig-kible-yonu",
+        "distance": 55
+      },
+      {
+        "name": "Erzincan",
+        "slug": "erzincan-kible-yonu",
+        "distance": 71
+      },
+      {
+        "name": "Bingöl",
+        "slug": "bingol-kible-yonu",
+        "distance": 86
+      },
+      {
+        "name": "Malatya",
+        "slug": "malatya-kible-yonu",
+        "distance": 136
+      },
+      {
+        "name": "Bayburt",
+        "slug": "bayburt-kible-yonu",
+        "distance": 140
+      },
+      {
+        "name": "Diyarbakır",
+        "slug": "diyarbakir-kible-yonu",
+        "distance": 146
+      }
+    ]
   },
   {
     "name": "Uşak",
@@ -690,7 +3122,39 @@
     "lng": 29.4082,
     "bearing": 149.6,
     "direction": "Güneydoğu",
-    "distance": 2162
+    "distance": 2162,
+    "nearby": [
+      {
+        "name": "Kütahya",
+        "slug": "kutahya-kible-yonu",
+        "distance": 96
+      },
+      {
+        "name": "Afyonkarahisar",
+        "slug": "afyonkarahisar-kible-yonu",
+        "distance": 100
+      },
+      {
+        "name": "Denizli",
+        "slug": "denizli-kible-yonu",
+        "distance": 105
+      },
+      {
+        "name": "Burdur",
+        "slug": "burdur-kible-yonu",
+        "distance": 132
+      },
+      {
+        "name": "Isparta",
+        "slug": "isparta-kible-yonu",
+        "distance": 143
+      },
+      {
+        "name": "Eskişehir",
+        "slug": "eskisehir-kible-yonu",
+        "distance": 155
+      }
+    ]
   },
   {
     "name": "Van",
@@ -699,7 +3163,39 @@
     "lng": 43.3729,
     "bearing": 191.1,
     "direction": "Güney",
-    "distance": 1929
+    "distance": 1929,
+    "nearby": [
+      {
+        "name": "Hakkâri",
+        "slug": "hakkari-kible-yonu",
+        "distance": 108
+      },
+      {
+        "name": "Bitlis",
+        "slug": "bitlis-kible-yonu",
+        "distance": 111
+      },
+      {
+        "name": "Ağrı",
+        "slug": "agri-kible-yonu",
+        "distance": 138
+      },
+      {
+        "name": "Siirt",
+        "slug": "siirt-kible-yonu",
+        "distance": 139
+      },
+      {
+        "name": "Şırnak",
+        "slug": "sirnak-kible-yonu",
+        "distance": 143
+      },
+      {
+        "name": "Muş",
+        "slug": "mus-kible-yonu",
+        "distance": 149
+      }
+    ]
   },
   {
     "name": "Yalova",
@@ -708,7 +3204,39 @@
     "lng": 29.2667,
     "bearing": 151.9,
     "direction": "Güneydoğu",
-    "distance": 2359
+    "distance": 2359,
+    "nearby": [
+      {
+        "name": "İstanbul",
+        "slug": "istanbul-kible-yonu",
+        "distance": 47
+      },
+      {
+        "name": "Bursa",
+        "slug": "bursa-kible-yonu",
+        "distance": 54
+      },
+      {
+        "name": "Kocaeli",
+        "slug": "kocaeli-kible-yonu",
+        "distance": 57
+      },
+      {
+        "name": "Bilecik",
+        "slug": "bilecik-kible-yonu",
+        "distance": 95
+      },
+      {
+        "name": "Sakarya",
+        "slug": "sakarya-kible-yonu",
+        "distance": 96
+      },
+      {
+        "name": "Eskişehir",
+        "slug": "eskisehir-kible-yonu",
+        "distance": 144
+      }
+    ]
   },
   {
     "name": "Yozgat",
@@ -717,7 +3245,39 @@
     "lng": 34.8147,
     "bearing": 165.4,
     "direction": "Güney",
-    "distance": 2100
+    "distance": 2100,
+    "nearby": [
+      {
+        "name": "Çorum",
+        "slug": "corum-kible-yonu",
+        "distance": 82
+      },
+      {
+        "name": "Kırşehir",
+        "slug": "kirsehir-kible-yonu",
+        "distance": 93
+      },
+      {
+        "name": "Kırıkkale",
+        "slug": "kirikkale-kible-yonu",
+        "distance": 111
+      },
+      {
+        "name": "Amasya",
+        "slug": "amasya-kible-yonu",
+        "distance": 127
+      },
+      {
+        "name": "Nevşehir",
+        "slug": "nevsehir-kible-yonu",
+        "distance": 133
+      },
+      {
+        "name": "Çankırı",
+        "slug": "cankiri-kible-yonu",
+        "distance": 134
+      }
+    ]
   },
   {
     "name": "Zonguldak",
@@ -726,6 +3286,38 @@
     "lng": 31.7987,
     "bearing": 158.9,
     "direction": "Güney",
-    "distance": 2352
+    "distance": 2352,
+    "nearby": [
+      {
+        "name": "Bartın",
+        "slug": "bartin-kible-yonu",
+        "distance": 57
+      },
+      {
+        "name": "Karabük",
+        "slug": "karabuk-kible-yonu",
+        "distance": 74
+      },
+      {
+        "name": "Bolu",
+        "slug": "bolu-kible-yonu",
+        "distance": 81
+      },
+      {
+        "name": "Düzce",
+        "slug": "duzce-kible-yonu",
+        "distance": 87
+      },
+      {
+        "name": "Sakarya",
+        "slug": "sakarya-kible-yonu",
+        "distance": 140
+      },
+      {
+        "name": "Kastamonu",
+        "slug": "kastamonu-kible-yonu",
+        "distance": 166
+      }
+    ]
   }
 ]

@@ -1,84 +1,32 @@
 #!/usr/bin/env python3
 from pathlib import Path
 import json, shutil, re, html
-
-ROOT = Path(__file__).resolve().parents[1]
-SRC = ROOT / "src"
-DIST = ROOT / "dist"
-
-def tr_number(value):
-    return f"{int(value):,}".replace(",", ".")
-
-def render(template, values):
-    for key, value in values.items():
-        template = template.replace("{{" + key + "}}", str(value))
-    unresolved = sorted(set(re.findall(r"\{\{([A-Z0-9_]+)\}\}", template)))
-    if unresolved:
-        raise ValueError("Çözümlenmemiş alanlar: " + ", ".join(unresolved))
-    return template
-
+ROOT=Path(__file__).resolve().parents[1]; SRC=ROOT/'src'; DIST=ROOT/'dist'
+def tr(v): return f"{int(v):,}".replace(',','.')
+def render(t,v):
+ for k,x in v.items(): t=t.replace('{{'+k+'}}',str(x))
+ u=re.findall(r'\{\{([A-Z0-9_]+)\}\}',t)
+ if u: raise ValueError(u)
+ return t
+def footer(): return '<footer><div class="container footer-grid"><div><strong>Kıble Yönü Hesapla</strong><p>Canlı pusula, harita ve şehir bazlı kıble rehberleri.</p></div><div><strong>Popüler şehirler</strong><a href="/istanbul-kible-yonu/">İstanbul</a><a href="/ankara-kible-yonu/">Ankara</a><a href="/izmir-kible-yonu/">İzmir</a><a href="/bursa-kible-yonu/">Bursa</a></div><div><strong>Keşfet</strong><a href="/sehirler/">81 İl</a><a href="/blog/">Kıble Rehberi</a><a href="/gizlilik.html">Gizlilik</a></div></div></footer>'
 def main():
-    if DIST.exists():
-        shutil.rmtree(DIST)
-    shutil.copytree(SRC / "site", DIST)
-
-    cities = json.loads((SRC / "data" / "cities.json").read_text(encoding="utf-8"))
-    city_template = (SRC / "templates" / "city.template.html").read_text(encoding="utf-8")
-    index_template = (SRC / "templates" / "cities-index.template.html").read_text(encoding="utf-8")
-
-    cards = []
-    for city in sorted(cities, key=lambda x: x["name"]):
-        values = {
-            "CITY_NAME": city["name"],
-            "CITY_NAME_UPPER": city["name"].upper(),
-            "CITY_SLUG": city["slug"],
-            "LAT": city["lat"],
-            "LNG": city["lng"],
-            "BEARING": city["bearing"],
-            "BEARING_TR": str(city["bearing"]).replace(".", ","),
-            "DIRECTION": city["direction"],
-            "DIRECTION_LOWER": city["direction"].lower(),
-            "DISTANCE": city["distance"],
-            "DISTANCE_TR": tr_number(city["distance"]),
-        }
-        page = render(city_template, values)
-        page_dir = DIST / city["slug"]
-        page_dir.mkdir(parents=True, exist_ok=True)
-        (page_dir / "index.html").write_text(page, encoding="utf-8")
-        cards.append(
-            f'<a href="/{city["slug"]}/"><strong>{html.escape(city["name"])}</strong>'
-            f'<span>{str(city["bearing"]).replace(".", ",")}° · {html.escape(city["direction"])}</span></a>'
-        )
-
-    city_index = index_template.replace("{{CITY_CARDS}}", "\n".join(cards))
-    city_index_dir = DIST / "sehirler"
-    city_index_dir.mkdir(parents=True, exist_ok=True)
-    (city_index_dir / "index.html").write_text(city_index, encoding="utf-8")
-
-    urls = [
-        ("https://kibleyonuhesapla.com/", "1.0", "weekly"),
-        ("https://kibleyonuhesapla.com/sehirler/", "0.9", "monthly"),
-        ("https://kibleyonuhesapla.com/gizlilik.html", "0.2", "yearly"),
-    ]
-    urls += [
-        (f'https://kibleyonuhesapla.com/{c["slug"]}/', "0.8", "monthly")
-        for c in cities
-    ]
-
-    sitemap = [
-        '<?xml version="1.0" encoding="UTF-8"?>',
-        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
-    ]
-    for url, priority, frequency in urls:
-        sitemap.append(
-            f'  <url><loc>{url}</loc><changefreq>{frequency}</changefreq>'
-            f'<priority>{priority}</priority></url>'
-        )
-    sitemap.append("</urlset>")
-    (DIST / "sitemap.xml").write_text("\n".join(sitemap), encoding="utf-8")
-
-    print(f"Build tamamlandı: {len(cities)} il sayfası, {len(urls)} sitemap URL'si")
-    print(f"Çıktı klasörü: {DIST}")
-
-if __name__ == "__main__":
-    main()
+ if DIST.exists(): shutil.rmtree(DIST)
+ shutil.copytree(SRC/'site',DIST)
+ cities=json.loads((SRC/'data/cities.json').read_text(encoding='utf-8')); posts=json.loads((SRC/'data/blog.json').read_text(encoding='utf-8'))
+ ct=(SRC/'templates/city.template.html').read_text(encoding='utf-8'); ci=(SRC/'templates/cities-index.template.html').read_text(encoding='utf-8'); bi=(SRC/'templates/blog-index.template.html').read_text(encoding='utf-8'); bp=(SRC/'templates/blog-post.template.html').read_text(encoding='utf-8')
+ cards=[]
+ for i,c in enumerate(sorted(cities,key=lambda x:x['name'])):
+  near=''.join(f'<a href="/{n["slug"]}/">{html.escape(n["name"])} kıble yönü<span>Yaklaşık {tr(n["distance"])} km</span></a>' for n in c['nearby'])
+  sel=[posts[(i+j)%len(posts)] for j in range(3)]; blogs=''.join(f'<a class="blog-mini-card" href="/blog/{p["slug"]}/"><span>REHBER</span><strong>{html.escape(p["title"])}</strong><p>{html.escape(p["excerpt"])}</p></a>' for p in sel)
+  vals={'CITY_NAME':c['name'],'CITY_NAME_UPPER':c['name'].upper(),'CITY_SLUG':c['slug'],'LAT':c['lat'],'LNG':c['lng'],'BEARING':c['bearing'],'BEARING_TR':str(c['bearing']).replace('.',','),'DIRECTION':c['direction'],'DIRECTION_LOWER':c['direction'].lower(),'DISTANCE':c['distance'],'DISTANCE_TR':tr(c['distance']),'NEARBY_CITY_LINKS':near,'CITY_BLOG_LINKS':blogs,'FOOTER':footer()}
+  d=DIST/c['slug']; d.mkdir(parents=True); (d/'index.html').write_text(render(ct,vals),encoding='utf-8'); cards.append(f'<a href="/{c["slug"]}/"><strong>{html.escape(c["name"])}</strong><span>{str(c["bearing"]).replace(".",",")}° · {html.escape(c["direction"])}</span></a>')
+ d=DIST/'sehirler'; d.mkdir(); (d/'index.html').write_text(ci.replace('{{CITY_CARDS}}',''.join(cards)),encoding='utf-8')
+ bc=[]
+ for p in posts:
+  bc.append(f'<a class="blog-card" href="/blog/{p["slug"]}/"><span class="meta">{p["reading_time"]} OKUMA</span><h2>{html.escape(p["title"])}</h2><p>{html.escape(p["excerpt"])}</p></a>')
+  content=''.join(f'<h2>{html.escape(h)}</h2>'+''.join(f'<p>{html.escape(x)}</p>' for x in ps) for h,ps in p['sections']); faq=''.join(f'<details><summary>{html.escape(q)}</summary><p>{html.escape(a)}</p></details>' for q,a in p['faq']); rel=''.join(f'<a href="/blog/{x["slug"]}/">{html.escape(x["title"])}</a>' for x in posts if x['slug']!=p['slug']); pop=''.join(f'<a href="/{s}-kible-yonu/">{n} kıble yönü</a>' for n,s in [('İstanbul','istanbul'),('Ankara','ankara'),('İzmir','izmir'),('Bursa','bursa')]); schema=json.dumps({'@context':'https://schema.org','@type':'Article','headline':p['title'],'description':p['description']},ensure_ascii=False)
+  vals={'TITLE':html.escape(p['title']),'DESCRIPTION':html.escape(p['description']),'SLUG':p['slug'],'READING_TIME':p['reading_time'],'ARTICLE_CONTENT':content,'RELATED_POSTS':rel,'POPULAR_CITIES':pop,'FAQ_HTML':faq,'SCHEMA':schema,'FOOTER':footer()}; d=DIST/'blog'/p['slug']; d.mkdir(parents=True); (d/'index.html').write_text(render(bp,vals),encoding='utf-8')
+ d=DIST/'blog'; d.mkdir(exist_ok=True); (d/'index.html').write_text(render(bi,{'BLOG_CARDS':''.join(bc),'FOOTER':footer()}),encoding='utf-8')
+ urls=['https://kibleyonuhesapla.com/','https://kibleyonuhesapla.com/sehirler/','https://kibleyonuhesapla.com/blog/','https://kibleyonuhesapla.com/gizlilik.html']+[f'https://kibleyonuhesapla.com/{c["slug"]}/' for c in cities]+[f'https://kibleyonuhesapla.com/blog/{p["slug"]}/' for p in posts]
+ (DIST/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+'\n'.join(f'<url><loc>{u}</loc></url>' for u in urls)+'\n</urlset>',encoding='utf-8'); print(f'Build tamamlandı: {len(cities)} il, {len(posts)} blog')
+if __name__=='__main__': main()
