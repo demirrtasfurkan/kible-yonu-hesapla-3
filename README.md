@@ -13,3 +13,9 @@ Cloudflare: `python build.py` ve `npx wrangler deploy`
 - Kullanıcının ilettiği ana sayfa metinleri birebir uygulandı.
 - H1, içerik bölümleri, SSS ve FAQ schema güncellendi.
 - Metinlerde editoryal değişiklik yapılmadı.
+
+
+## V11
+- Ana sayfadaki FAQ soruları H3 olarak işaretlendi.
+- H2 > H3 heading hiyerarşisi uygulandı.
+- Accordion görünümü korundu.
