@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <title>Kıble Yönü Hesapla | Canlı Pusula ve Harita</title>
-  <meta name="description" content="Konumunuzu kullanarak kıble yönünü, kıble açısını ve Kâbe'ye olan yaklaşık mesafeyi hesaplayın. Canlı pusula, harita ve şehir arama özelliği.">
+  <title>Kıble Yönü Hesaplama ve Canlı Kıble Pusulası</title>
+  <meta name="description" content="Bulunduğun konumu kullanarak kıble yönünü, kıble açısını ve Kabe'ye olan yaklaşık mesafeyi saniyeler içinde hesapla. Canlı kıble pusulası ve şehir bazlı hesaplama ile yönünü görüntüle.">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
   <meta name="theme-color" content="#f6f2e8">
   <link rel="canonical" href="https://kibleyonuhesapla.com/">
@@ -14,8 +14,8 @@
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="tr_TR">
-  <meta property="og:title" content="Kıble Yönü Hesapla">
-  <meta property="og:description" content="Canlı konum, pusula ve harita ile kıble yönünüzü anında bulun.">
+  <meta property="og:title" content="Kıble Yönü Hesaplama ve Canlı Kıble Pusulası">
+  <meta property="og:description" content="Bulunduğun konumu kullanarak kıble yönünü, kıble açısını ve Kabe'ye olan yaklaşık mesafeyi saniyeler içinde hesapla.">
   <meta property="og:url" content="https://kibleyonuhesapla.com/">
   <meta property="og:image" content="https://kibleyonuhesapla.com/assets/og/kible-yonu-hesapla.png">
   <meta name="twitter:card" content="summary_large_image">
@@ -56,21 +56,17 @@
       {
         "@type":"FAQPage",
         "mainEntity":[
-          {
-            "@type":"Question",
-            "name":"Kıble yönü nasıl hesaplanır?",
-            "acceptedAnswer":{"@type":"Answer","text":"Bulunduğunuz konum ile Mekke'deki Kâbe'nin koordinatları arasındaki başlangıç açısı hesaplanır ve gerçek kuzeye göre derece olarak gösterilir."}
-          },
-          {
-            "@type":"Question",
-            "name":"Telefonla kıble yönü bulunabilir mi?",
-            "acceptedAnswer":{"@type":"Answer","text":"Konum ve yön sensörü bulunan telefonlarda canlı pusula ile kıble yönü gösterilebilir."}
-          },
-          {
-            "@type":"Question",
-            "name":"Konum bilgim saklanıyor mu?",
-            "acceptedAnswer":{"@type":"Answer","text":"Hayır. Konum bilgisi tarayıcınızda hesaplama amacıyla kullanılır ve özel bir kullanıcı profiline bağlanmaz."}
-          }
+          {"@type":"Question","name":"Kıble nedir?","acceptedAnswer":{"@type":"Answer","text":"Kıble, Müslümanların namaz kılarken yöneldiği yön olup Mekke'de bulunan Kabe'yi ifade eder. Dünyanın neresinde olursan ol, namaz sırasında yönelmen gereken doğrultu bulunduğun konuma göre hesaplanır. Kıble yönü şehirden şehire hatta bulunduğun koordinata göre değişebilir. Bu nedenle günümüzde GPS destekli hesaplama yöntemleri en doğru kıble yönünü belirlemek için yaygın olarak kullanılmaktadır."}},
+          {"@type":"Question","name":"Kıble açısı ne anlama gelir?","acceptedAnswer":{"@type":"Answer","text":"Kıble açısı, bulunduğun konumdan Kâbe'ye yönelmek için gerçek kuzeye göre dönmen gereken dereceyi ifade eder."}},
+          {"@type":"Question","name":"Kıble yönü neden şehirden şehire değişir?","acceptedAnswer":{"@type":"Answer","text":"Kıble doğrultusu bulunduğun koordinata göre hesaplandığı için her şehirde kıble açısı farklıdır. Aynı il içinde bile küçük farklılıklar oluşabilir."}},
+          {"@type":"Question","name":"Canlı pusula neden hareket etmiyor?","acceptedAnswer":{"@type":"Answer","text":"Telefonunun pusula sensörü desteklenmiyorsa, konum izni verilmediyse veya sensör doğru kalibre edilmediyse canlı pusula doğru çalışmayabilir."}},
+          {"@type":"Question","name":"Telefon pusulası ne kadar doğrudur?","acceptedAnswer":{"@type":"Answer","text":"Kalibre edilmiş bir pusula sensörü ve doğru konum bilgisi ile telefonlar günlük kullanım için oldukça güvenilir sonuçlar sunar."}},
+          {"@type":"Question","name":"Konum izni vermeden kıble bulunur mu?","acceptedAnswer":{"@type":"Answer","text":"Evet. Şehir seçerek yaklaşık kıble yönünü öğrenebilirsin. Ancak en doğru sonuç için mevcut konumunu kullanman önerilir."}},
+          {"@type":"Question","name":"Şehir seçerek hesaplama ne kadar doğrudur?","acceptedAnswer":{"@type":"Answer","text":"Şehir bazlı hesaplama yaklaşık sonuç verir. GPS destekli hesaplama ise bulunduğun gerçek koordinatları kullandığı için daha hassastır."}},
+          {"@type":"Question","name":"Kabe’ye olan mesafe nasıl hesaplanır?","acceptedAnswer":{"@type":"Answer","text":"Bulunduğun konum ile Kabe arasındaki en kısa küresel mesafe hesaplanarak yaklaşık kilometre bilgisi gösterilir."}},
+          {"@type":"Question","name":"İnternet olmadan kıble bulunabilir mi?","acceptedAnswer":{"@type":"Answer","text":"Telefonunda pusula sensörü bulunuyorsa ve gerekli bilgiler daha önce alınmışsa bazı durumlarda yön tayini yapılabilir. Ancak en güncel ve doğru sonuç için internet bağlantısı ve konum bilgisi önerilir."}},
+          {"@type":"Question","name":"Konum bilgilerim saklanıyor mu?","acceptedAnswer":{"@type":"Answer","text":"Hayır. Konum bilgisi yalnızca cihazında kıble yönünü hesaplamak amacıyla kullanılır. Sunucularımızda saklanmaz veya üçüncü taraflarla paylaşılmaz."}},
+          {"@type":"Question","name":"Telefonumun pusulası neden yanlış gösteriyor?","acceptedAnswer":{"@type":"Answer","text":"Telefon kılıfındaki mıknatıslar metal yüzeyler veya kalibrasyon eksikliği pusula doğruluğunu etkileyebilir. Telefonu düz tutarak ve pusulayı yeniden kalibre ederek daha doğru sonuç alabilirsin."}}
         ]
       }
     ]
@@ -97,9 +93,9 @@
     <section class="hero" id="arac">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <span class="eyebrow">ÜCRETSİZ · GİZLİLİK ODAKLI · HIZLI</span>
-          <h1>Kıble yönünü bulunduğun konuma göre anında hesapla.</h1>
-          <p class="lead">Konumunu kullan, kıble açını öğren ve desteklenen telefonlarda canlı pusula ile doğru yönü takip et.</p>
+          <span class="eyebrow">Ücretsiz · Gizlilik Odaklı · Hızlı</span>
+          <h1>Kıble Yönü Hesaplama ve Canlı Kıble Pusulası</h1>
+          <p class="lead">Bulunduğun konumu kullanarak kıble yönünü, kıble açısını ve Kabe'ye olan yaklaşık mesafeyi saniyeler içinde hesapla. Canlı kıble pusulası sayesinde doğru yönü güvenle belirleyebilir şehir bazlı hesaplama ile bulunduğun konuma en uygun sonucu görüntüleyebilirsin.</p>
 
           <div class="actions">
             <button id="locationButton" class="btn btn-primary" type="button" aria-describedby="locationPrivacy">
@@ -270,46 +266,54 @@
       </div>
     </section>
 
-    <section class="how">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <span class="section-label">NASIL ÇALIŞIR?</span>
-            <h2>Üç adımda kıble yönünü bul</h2>
-          </div>
-        </div>
-
-        <div class="steps">
-          <article><span>1</span><h3>Konumunu seç</h3><p>GPS kullan veya şehir ve ilçe araması yap.</p></article>
-          <article><span>2</span><h3>Kıble açısını hesapla</h3><p>Küre geometrisi kullanılarak başlangıç açısı ve mesafe hesaplanır.</p></article>
-          <article><span>3</span><h3>Canlı pusulayı takip et</h3><p>Telefonunu döndür ve kıble doğrultusuna gelince yeşil uyarıyı takip et.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="guide" id="rehber">
-      <div class="container guide-grid">
-        <article>
-          <span class="section-label">KIBLE REHBERİ</span>
-          <h2>Kıble yönü nasıl hesaplanır?</h2>
-          <p>Kıble yönü, bulunduğunuz konum ile Mekke’deki Kâbe’nin koordinatları arasındaki en kısa büyük çember rotasının başlangıç açısıdır. Sonuç gerçek kuzeyden saat yönünde derece olarak ifade edilir.</p>
-          <p>Örneğin 151° sonucu, kuzeyden saat yönünde 151 derece dönülmesi gerektiğini gösterir. Türkiye’de kıble yönü çoğunlukla güneydoğu yönündedir; ancak doğru derece şehre ve ilçeye göre değişir.</p>
-          <h3>Telefonla kıble yönü bulunur mu?</h3>
-          <p>Konum ve yön sensörü bulunan telefonlarda kıble yönü hesaplanabilir. Sensörün doğru çalışması için telefonu düz tutmak, metal yüzeylerden uzaklaşmak ve gerektiğinde cihazı kalibre etmek gerekir.</p>
-          <h3>Harita ile kıble yönü nasıl doğrulanır?</h3>
-          <p>Harita üzerinde bulunduğunuz nokta ile Kâbe arasındaki çizgiyi inceleyerek pusula sonucunu görsel olarak doğrulayabilirsiniz.</p>
+    <section class="homepage-content" id="rehber">
+      <div class="container content-stack">
+        <article class="content-block">
+          <h2>Bulunduğum Yerde Kıble Hangi Tarafta?</h2>
+          <p>Bulunduğun yerde kıble yönü bulunduğun konuma göre hesaplanır. Türkiye'nin her şehrinde kıble aynı yönde değildir; İstanbul, Ankara, İzmir, Bursa veya diğer illerde kıble açısı farklılık gösterebilir.</p>
+          <p>Konum izni verdiğinde sistem bulunduğun koordinatları kullanarak kıble yönünü ve kıble açısını anında hesaplar. Böylece bulunduğun noktaya göre en doğru sonuca ulaşabilir, canlı pusula ile yönünü kolayca belirleyebilirsin.</p>
+          <p class="tip-box">💡 İpucu: En doğru kıble yönünü görmek için konum erişimine izin ver. Şehir seçerek yapılan hesaplamalar yaklaşık sonuç verirken mevcut konuma göre yapılan hesaplamalar çok daha hassastır.</p>
         </article>
 
-        <aside class="guide-aside">
-          <strong>En doğru kullanım</strong>
-          <ol>
+        <article class="content-block">
+          <h2>Kıble yönü nasıl hesaplanır?</h2>
+          <p>Kıble yönü, bulunduğun konum ile Mekke'deki Kabe arasındaki en kısa küresel rota dikkate alınarak hesaplanır. Hesaplama sonucunda gerçek kuzey referans alınır ve kıble açısı derece cinsinden belirlenir.</p>
+          <p>Bu yöntem sayesinde bulunduğun konuma özel kıble doğrultusu elde edilir. Telefonunun konum bilgisi ve pusula sensörü birlikte kullanıldığında çok daha hassas sonuç alınabilir.</p>
+          <p>Örneğin 151° sonucu, kuzeyden saat yönünde 151 derece dönülmesi gerektiğini gösterir. Türkiye'de kıble yönü çoğunlukla güneydoğu yönündedir ancak doğru derece şehir ve ilçeye göre değişir.</p>
+        </article>
+
+        <article class="content-block">
+          <h2>Telefonla kıble yönü bulunur mu?</h2>
+          <p>Evet, GPS ve pusula sensörü bulunan akıllı telefonlarda kıble yönü yüksek doğrulukla hesaplanabilir. Sensörün doğru çalışması için telefonu düz tutmak, metal yüzeylerden uzaklaşmak ve gerektiğinde cihazı kalibre etmek gerekir. Android ve iPhone cihazlarda bulunan pusula sensörü ve konum servisleri sayesinde kıble yönü yüksek doğrulukla hesaplanabilir.</p>
+          <p>En doğru sonuç için:</p>
+          <ul>
             <li>Konum servislerini aç.</li>
-            <li>Konum iznini onayla.</li>
-            <li>Telefonu düz tut.</li>
+            <li>Telefonunu düz tut.</li>
+            <li>Metal nesnelerden uzak dur.</li>
+            <li>Gerekirse pusulayı kalibre et.</li>
+          </ul>
+          <p>Canlı pusula özelliği sayesinde cihazını çevirdikçe kıble yönünü gerçek zamanlı olarak takip edebilirsin.</p>
+        </article>
+
+        <article class="content-block" id="sehirler-bilgi">
+          <h2>Şehirlere Göre Kıble Yönü</h2>
+          <p>Konum paylaşmak istemiyorsan şehir bazlı hesaplama yaparak yaklaşık kıble yönünü öğrenebilirsin.</p>
+          <p>Türkiye'nin 81 ili için hazırlanan şehir sayfalarında kıble yönünü, kıble açısını ve Kabe'ye olan yaklaşık mesafeyi görüntüleyebilirsin. İstanbul, Ankara, İzmir, Bursa, Antalya ve diğer tüm iller için güncel kıble bilgilerine tek tıkla ulaşabilirsin.</p>
+          <p><a class="btn btn-secondary" href="/sehirler/">Tüm Şehirleri Görüntüle</a></p>
+        </article>
+
+        <article class="content-block">
+          <h2>En Doğru Kıble Yönü Nasıl Bulunur?</h2>
+          <p>En doğru sonucu almak için aşağıdaki adımları takip edebilirsin.</p>
+          <ol>
+            <li>Konum servislerini etkinleştir.</li>
+            <li>Tarayıcıya konum erişim izni ver.</li>
+            <li>Telefonunu düz bir şekilde tut.</li>
             <li>Canlı pusulayı başlat.</li>
-            <li>Yeşil doğrultu uyarısını takip et.</li>
+            <li>Yeşil yön göstergesini takip ederek kıble doğrultusuna dön.</li>
           </ol>
-        </aside>
+          <p>Telefonunda konum servisleri açıksa canlı kıble pusulası en doğru sonucu sağlayacaktır. Bu yöntem şehir seçerek yapılan yaklaşık hesaplamaya göre çok daha hassas sonuç verir.</p>
+        </article>
       </div>
     </section>
 
@@ -318,16 +322,23 @@
         <div class="section-head">
           <div>
             <span class="section-label">SSS</span>
-            <h2>Kıble yönü hakkında merak edilenler</h2>
+            <h2>Sık Sorulan Sorular</h2>
           </div>
         </div>
-
         <div class="faq-list">
-          <details><summary>Kıble açısı ne anlama gelir?</summary><p>Gerçek kuzeyden saat yönünde ölçülen Kâbe yönüdür. 0° kuzeyi, 90° doğuyu ve 180° güneyi ifade eder.</p></details>
-          <details><summary>Canlı pusula neden hareket etmiyor?</summary><p>Masaüstü bilgisayarlarda yön sensörü bulunmayabilir. Canlı pusula özelliği en iyi mobil cihazlarda çalışır.</p></details>
-          <details><summary>Manuel şehir araması ne kadar hassastır?</summary><p>Seçilen şehir veya ilçenin merkez koordinatları kullanılır. Daha hassas sonuç için GPS konumunu kullanabilirsiniz.</p></details>
-          <details><summary>Konum verisi saklanıyor mu?</summary><p>Hayır. Hesaplama tarayıcıda yapılır ve konum özel bir kullanıcı profiline bağlanmaz.</p></details>
+          <details><summary>Kıble nedir?</summary><p>Kıble, Müslümanların namaz kılarken yöneldiği yön olup Mekke'de bulunan Kabe'yi ifade eder. Dünyanın neresinde olursan ol, namaz sırasında yönelmen gereken doğrultu bulunduğun konuma göre hesaplanır. Kıble yönü şehirden şehire hatta bulunduğun koordinata göre değişebilir. Bu nedenle günümüzde GPS destekli hesaplama yöntemleri en doğru kıble yönünü belirlemek için yaygın olarak kullanılmaktadır.</p></details>
+          <details><summary>Kıble açısı ne anlama gelir?</summary><p>Kıble açısı, bulunduğun konumdan Kâbe'ye yönelmek için gerçek kuzeye göre dönmen gereken dereceyi ifade eder.</p></details>
+          <details><summary>Kıble yönü neden şehirden şehire değişir?</summary><p>Kıble doğrultusu bulunduğun koordinata göre hesaplandığı için her şehirde kıble açısı farklıdır. Aynı il içinde bile küçük farklılıklar oluşabilir.</p></details>
+          <details><summary>Canlı pusula neden hareket etmiyor?</summary><p>Telefonunun pusula sensörü desteklenmiyorsa, konum izni verilmediyse veya sensör doğru kalibre edilmediyse canlı pusula doğru çalışmayabilir.</p></details>
+          <details><summary>Telefon pusulası ne kadar doğrudur?</summary><p>Kalibre edilmiş bir pusula sensörü ve doğru konum bilgisi ile telefonlar günlük kullanım için oldukça güvenilir sonuçlar sunar.</p></details>
+          <details><summary>Konum izni vermeden kıble bulunur mu?</summary><p>Evet. Şehir seçerek yaklaşık kıble yönünü öğrenebilirsin. Ancak en doğru sonuç için mevcut konumunu kullanman önerilir.</p></details>
+          <details><summary>Şehir seçerek hesaplama ne kadar doğrudur?</summary><p>Şehir bazlı hesaplama yaklaşık sonuç verir. GPS destekli hesaplama ise bulunduğun gerçek koordinatları kullandığı için daha hassastır.</p></details>
+          <details><summary>Kabe’ye olan mesafe nasıl hesaplanır?</summary><p>Bulunduğun konum ile Kabe arasındaki en kısa küresel mesafe hesaplanarak yaklaşık kilometre bilgisi gösterilir.</p></details>
+          <details><summary>İnternet olmadan kıble bulunabilir mi?</summary><p>Telefonunda pusula sensörü bulunuyorsa ve gerekli bilgiler daha önce alınmışsa bazı durumlarda yön tayini yapılabilir. Ancak en güncel ve doğru sonuç için internet bağlantısı ve konum bilgisi önerilir.</p></details>
+          <details><summary>Konum bilgilerim saklanıyor mu?</summary><p>Hayır. Konum bilgisi yalnızca cihazında kıble yönünü hesaplamak amacıyla kullanılır. Sunucularımızda saklanmaz veya üçüncü taraflarla paylaşılmaz.</p></details>
+          <details><summary>Telefonumun pusulası neden yanlış gösteriyor?</summary><p>Telefon kılıfındaki mıknatıslar metal yüzeyler veya kalibrasyon eksikliği pusula doğruluğunu etkileyebilir. Telefonu düz tutarak ve pusulayı yeniden kalibre ederek daha doğru sonuç alabilirsin.</p></details>
         </div>
+        <p class="closing-copy">Kıble Yönü Hesapla, bulunduğun konuma göre kıble yönünü ve kıble açısını hızlı, ücretsiz ve gizlilik odaklı şekilde hesaplamanı sağlar. Konum bilgilerin yalnızca cihazında hesaplama yapmak amacıyla kullanılır ve hiçbir şekilde kaydedilmez veya üçüncü taraflarla paylaşılmaz. İster canlı kıble pusulasını kullanarak ister şehir bazlı hesaplama ile bulunduğun yer için kıble yönünü saniyeler içinde öğrenebilirsin.</p>
       </div>
     </section>
   </main>
