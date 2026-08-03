@@ -1,21 +1,11 @@
-# V9
+# V13 — Technical SEO + Expanded Blog
 
-- Yakındaki 6 şehir otomatik iç linkleme
-- 4 blog yazısı ve blog şablonu
-- Footer sitemap/robots linkleri kaldırıldı
-- Footer popüler şehirler ve blog linkleri eklendi
+- Gizlilik canonical: `https://kibleyonuhesapla.com/gizlilik`
+- `/gizlilik.html` ve `/gizlilik/` → `/gizlilik` 301
+- Footer ve sitemap gizlilik linkleri temiz URL ile güncellendi
+- Logo olarak kullanılan favicon SVG görsellerine açıklayıcı alt eklendi
+- 4 blog yazısı kapsamlı biçimde genişletildi
+- Blog liste sayfasına açıklayıcı içerik eklendi
+- Cloudflare ayarlarında değişiklik yok
 
-Cloudflare: `python build.py` ve `npx wrangler deploy`
-
-
-## V10 Ana Sayfa İçerik Güncellemesi
-
-- Kullanıcının ilettiği ana sayfa metinleri birebir uygulandı.
-- H1, içerik bölümleri, SSS ve FAQ schema güncellendi.
-- Metinlerde editoryal değişiklik yapılmadı.
-
-
-## V11
-- Ana sayfadaki FAQ soruları H3 olarak işaretlendi.
-- H2 > H3 heading hiyerarşisi uygulandı.
-- Accordion görünümü korundu.
+Commit: `Fix technical SEO and expand blog content`
