@@ -2,6 +2,8 @@
   "name": "kibleyonuhesapla",
   "compatibility_date": "2026-07-29",
   "assets": {
-    "directory": "./dist"
+    "directory": "./dist",
+    "html_handling": "force-trailing-slash",
+    "not_found_handling": "404-page"
   }
 }

@@ -1,14 +1,20 @@
-# V14 — Kurumsal Sayfalar
+# V14.1 — Redirect Loop Fix
 
-Eklenenler:
-- `/hakkimizda`
-- `/kullanim-sartlari`
-- Footer bağlantıları
-- Canonical, Open Graph ve Breadcrumb schema
-- Sitemap entegrasyonu
-- `.html` ve trailing-slash URL'lerden temiz URL'lere 301
-- Eski yinelenen `gizlilik.html` kaynak dosyası kaldırıldı
+Bu sürüm, kurumsal sayfalardaki trailing-slash yönlendirme döngüsünü giderir.
 
-Cloudflare ayarlarında değişiklik yoktur.
+Canonical URL standardı:
 
-Commit mesajı: `Add about and terms pages`
+- `/gizlilik/`
+- `/hakkimizda/`
+- `/kullanim-sartlari/`
+
+Yönlendirmeler:
+
+- Slash olmayan URL → slash olan URL (`301`)
+- `.html` URL → slash olan URL (`301`)
+
+`/sayfa/ → /sayfa` kuralları kaldırılmıştır. Cloudflare Static Assets için `html_handling: force-trailing-slash` açıkça tanımlanmıştır.
+
+Commit mesajı:
+
+`Fix institutional page redirect loops`
