@@ -8,7 +8,8 @@ def render(t,v):
  u=re.findall(r'\{\{([A-Z0-9_]+)\}\}',t)
  if u: raise ValueError(u)
  return t
-def footer(): return '<footer><div class="container footer-grid"><div><strong>Kıble Yönü Hesapla</strong><p>Canlı pusula, harita ve şehir bazlı kıble rehberleri.</p></div><div><strong>Popüler şehirler</strong><a href="/istanbul-kible-yonu/">İstanbul</a><a href="/ankara-kible-yonu/">Ankara</a><a href="/izmir-kible-yonu/">İzmir</a><a href="/bursa-kible-yonu/">Bursa</a></div><div><strong>Keşfet</strong><a href="/sehirler/">81 İl</a><a href="/blog/">Kıble Rehberi</a><a href="/gizlilik">Gizlilik</a></div></div></footer>'
+def footer():
+ return '<footer><div class="container footer-grid">\n<div><strong>Kıble Yönü Hesapla</strong><p>Canlı pusula, harita ve şehir bazlı kıble rehberleri.</p></div>\n<div><strong>Popüler şehirler</strong><a href="/istanbul-kible-yonu/">İstanbul</a><a href="/ankara-kible-yonu/">Ankara</a><a href="/izmir-kible-yonu/">İzmir</a><a href="/bursa-kible-yonu/">Bursa</a></div>\n<div><strong>Keşfet</strong><a href="/sehirler/">81 İl</a><a href="/blog/">Kıble Rehberi</a><a href="/hakkimizda">Hakkımızda</a><a href="/kullanim-sartlari">Kullanım Şartları</a><a href="/gizlilik">Gizlilik Politikası</a></div>\n</div></footer>'
 def main():
  if DIST.exists(): shutil.rmtree(DIST)
  shutil.copytree(SRC/'site',DIST)
@@ -27,6 +28,6 @@ def main():
   content=''.join(f'<h2>{html.escape(h)}</h2>'+''.join(f'<p>{html.escape(x)}</p>' for x in ps) for h,ps in p['sections']); faq=''.join(f'<details><summary>{html.escape(q)}</summary><p>{html.escape(a)}</p></details>' for q,a in p['faq']); rel=''.join(f'<a href="/blog/{x["slug"]}/">{html.escape(x["title"])}</a>' for x in posts if x['slug']!=p['slug']); pop=''.join(f'<a href="/{s}-kible-yonu/">{n} kıble yönü</a>' for n,s in [('İstanbul','istanbul'),('Ankara','ankara'),('İzmir','izmir'),('Bursa','bursa')]); schema=json.dumps({'@context':'https://schema.org','@type':'Article','headline':p['title'],'description':p['description']},ensure_ascii=False)
   vals={'TITLE':html.escape(p['title']),'DESCRIPTION':html.escape(p['description']),'SLUG':p['slug'],'READING_TIME':p['reading_time'],'ARTICLE_CONTENT':content,'RELATED_POSTS':rel,'POPULAR_CITIES':pop,'FAQ_HTML':faq,'SCHEMA':schema,'FOOTER':footer()}; d=DIST/'blog'/p['slug']; d.mkdir(parents=True); (d/'index.html').write_text(render(bp,vals),encoding='utf-8')
  d=DIST/'blog'; d.mkdir(exist_ok=True); (d/'index.html').write_text(render(bi,{'BLOG_CARDS':''.join(bc),'FOOTER':footer()}),encoding='utf-8')
- urls=['https://kibleyonuhesapla.com/','https://kibleyonuhesapla.com/sehirler/','https://kibleyonuhesapla.com/blog/','https://kibleyonuhesapla.com/gizlilik']+[f'https://kibleyonuhesapla.com/{c["slug"]}/' for c in cities]+[f'https://kibleyonuhesapla.com/blog/{p["slug"]}/' for p in posts]
+ urls=['https://kibleyonuhesapla.com/','https://kibleyonuhesapla.com/sehirler/','https://kibleyonuhesapla.com/blog/','https://kibleyonuhesapla.com/gizlilik','https://kibleyonuhesapla.com/hakkimizda','https://kibleyonuhesapla.com/kullanim-sartlari']+[f'https://kibleyonuhesapla.com/{c["slug"]}/' for c in cities]+[f'https://kibleyonuhesapla.com/blog/{p["slug"]}/' for p in posts]
  (DIST/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+'\n'.join(f'<url><loc>{u}</loc></url>' for u in urls)+'\n</urlset>',encoding='utf-8'); print(f'Build tamamlandı: {len(cities)} il, {len(posts)} blog')
 if __name__=='__main__': main()
