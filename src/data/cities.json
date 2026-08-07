@@ -1,4 +1,4 @@
-[
+{"cities": [
   {
     "name": "Adana",
     "slug": "adana-kible-yonu",
@@ -3320,4 +3320,4 @@
       }
     ]
   }
-]
+]}

@@ -3,4 +3,8 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(self), accelerometer=(self), gyroscope=(self), magnetometer=(self)
   X-Frame-Options: SAMEORIGIN
-  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.tile.openstreetmap.org; connect-src 'self' https://nominatim.openstreetmap.org; frame-src https://www.openstreetmap.org; manifest-src 'self'; worker-src 'self';
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com https://cdn.jsdelivr.net; img-src 'self' data: blob: https://*.tile.openstreetmap.org https://avatars.githubusercontent.com; connect-src 'self' https://nominatim.openstreetmap.org https://api.github.com https://github.com https://raw.githubusercontent.com https://uploads.github.com; frame-src https://www.openstreetmap.org; manifest-src 'self'; worker-src 'self' blob:;
+
+/admin/*
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-store

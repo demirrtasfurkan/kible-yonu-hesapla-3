@@ -1,0 +1,30 @@
+KIBLE YÖNÜ HESAPLA — İÇERİK PANELİ KULLANIM REHBERİ
+
+Panel adresi
+https://kibleyonuhesapla.com/admin/
+
+Giriş
+1. Paneli açın.
+2. “Access Token” giriş yöntemini seçin.
+3. GitHub kullanıcı adınızı ve daha önce oluşturduğunuz fine-grained token'ı girin.
+4. Token'ın bu repo için Contents: Read and write yetkisi olmalıdır.
+
+Metin düzenleme
+1. “Site İçerikleri” bölümünü açın.
+2. Ana Sayfa, Blog Yazıları veya Şehir Verileri bölümünü seçin.
+3. İstediğiniz alanı değiştirin.
+4. Kaydedin/yayınlayın. Panel değişikliği doğrudan GitHub reposuna commit eder.
+5. GitHub'a bağlı Cloudflare build'i tamamlanınca değişiklik yayına gelir.
+
+Dikkat
+- Blog ve şehir slug alanlarını değiştirmek mevcut URL'leri değiştirir.
+- Şehir enlem, boylam, kıble açısı ve mesafe değerleri hesaplama sonucunu etkiler.
+- Bu alanları yalnızca doğrulanmış yeni değerler varsa düzenleyin.
+- Panel arama motorlarına kapalıdır: robots.txt ve X-Robots-Tag ile /admin/ engellenmiştir.
+- Panel dosyaları service worker önbelleğine alınmaz.
+
+Build komutu
+python build.py
+
+Cloudflare çıktı klasörü
+dist

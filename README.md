@@ -1,20 +1,19 @@
-# V14.1 — Redirect Loop Fix
+# Kıble Yönü Hesapla
 
-Bu sürüm, kurumsal sayfalardaki trailing-slash yönlendirme döngüsünü giderir.
+Statik site, Python ile `src/` klasöründen üretilir. İçerikler Sveltia CMS üzerinden GitHub'a kaydedilir; GitHub'a bağlı Cloudflare dağıtımı değişiklikleri otomatik olarak yayınlar.
 
-Canonical URL standardı:
+## Yerel build
 
-- `/gizlilik/`
-- `/hakkimizda/`
-- `/kullanim-sartlari/`
+```bash
+python build.py
+```
 
-Yönlendirmeler:
+Çıktı `dist/` klasörüne yazılır. Cloudflare yapılandırmasındaki çıktı dizini de `dist` olarak ayarlıdır.
 
-- Slash olmayan URL → slash olan URL (`301`)
-- `.html` URL → slash olan URL (`301`)
+## İçerik paneli
 
-`/sayfa/ → /sayfa` kuralları kaldırılmıştır. Cloudflare Static Assets için `html_handling: force-trailing-slash` açıkça tanımlanmıştır.
+Yayındaki panel adresi: `https://kibleyonuhesapla.com/admin/`
 
-Commit mesajı:
+Panelden ana sayfa metinleri, blog yazıları ve şehir verileri düzenlenebilir. Girişte GitHub access token yöntemi kullanılır. Şehir koordinatları, kıble açısı, mesafe ve slug alanları yalnızca doğrulanmış değerlerle değiştirilmelidir.
 
-`Fix institutional page redirect loops`
+Ayrıntılı kullanım adımları için `CMS-KULLANIM-REHBERI.txt` dosyasına bakın.
