@@ -122,3 +122,17 @@ collections:
                   - {name: name, label: Şehir Adı, widget: string}
                   - {name: slug, label: URL Slug, widget: string}
                   - {name: distance, label: Mesafe (km), widget: number, value_type: float}
+              - name: districts
+                label: İlçeler
+                widget: list
+                collapsed: true
+                summary: "{{fields.name}} · {{fields.bearing}}°"
+                hint: İlçe koordinatları ve kıble değerleri şehir sayfasındaki tabloyu ve yerel aramayı besler.
+                fields:
+                  - {name: name, label: İlçe Adı, widget: string}
+                  - {name: slug, label: İlçe Slug, widget: string}
+                  - {name: lat, label: Enlem, widget: number, value_type: float}
+                  - {name: lng, label: Boylam, widget: number, value_type: float}
+                  - {name: bearing, label: Kıble Açısı, widget: number, value_type: float}
+                  - {name: direction, label: Yön, widget: string}
+                  - {name: distance, label: Kâbe Mesafesi (km), widget: number, value_type: float}

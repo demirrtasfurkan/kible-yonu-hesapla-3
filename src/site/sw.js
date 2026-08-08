@@ -1,1 +1,52 @@
-const CACHE="kible-v15-cms";const CORE=["/","/sehirler/","/assets/css/style.css","/assets/js/qibla.js","/assets/js/app.js","/data/locations.json","/data/cities.json","/manifest.webmanifest","/gizlilik/","/hakkimizda/","/kullanim-sartlari/"];self.addEventListener("install",e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(CORE))));self.addEventListener("activate",e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k))))));self.addEventListener("fetch",e=>{if(e.request.method!=="GET"||new URL(e.request.url).pathname.startsWith("/admin/"))return;e.respondWith(caches.match(e.request).then(c=>c||fetch(e.request).then(r=>{if(!r||r.status!==200||r.type==="opaque")return r;const copy=r.clone();caches.open(CACHE).then(cache=>cache.put(e.request,copy));return r}).catch(()=>e.request.mode==="navigate"?caches.match("/"):undefined)))})
+const CACHE = "kible-v16-city-data";
+const CORE = [
+  "/",
+  "/sehirler/",
+  "/assets/css/style.css",
+  "/assets/js/qibla.js",
+  "/assets/js/app.js",
+  "/data/locations.json",
+  "/data/cities.json",
+  "/manifest.webmanifest",
+  "/gizlilik/",
+  "/hakkimizda/",
+  "/kullanim-sartlari/",
+  "/hesaplama-yontemi/",
+  "/iletisim/",
+];
+self.addEventListener("install", (event) =>
+  event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(CORE))),
+);
+self.addEventListener("activate", (event) =>
+  event.waitUntil(
+    caches
+      .keys()
+      .then((keys) =>
+        Promise.all(keys.filter((key) => key !== CACHE).map((key) => caches.delete(key))),
+      ),
+  ),
+);
+self.addEventListener("fetch", (event) => {
+  if (
+    event.request.method !== "GET" ||
+    new URL(event.request.url).pathname.startsWith("/admin/")
+  )
+    return;
+  event.respondWith(
+    caches.match(event.request).then(
+      (cached) =>
+        cached ||
+        fetch(event.request)
+          .then((response) => {
+            if (!response || response.status !== 200 || response.type === "opaque")
+              return response;
+            const copy = response.clone();
+            caches.open(CACHE).then((cache) => cache.put(event.request, copy));
+            return response;
+          })
+          .catch(() =>
+            event.request.mode === "navigate" ? caches.match("/") : undefined,
+          ),
+    ),
+  );
+});

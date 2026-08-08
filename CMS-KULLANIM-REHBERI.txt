@@ -28,3 +28,5 @@ python build.py
 
 Cloudflare çıktı klasörü
 dist
+V2 NOTU
+Şehir Verileri bölümünde her ilin altında İlçeler listesi de bulunur. İlçe koordinatı, kıble açısı, yön veya mesafe alanlarını yalnızca doğrulanmış veriyle değiştirin. Bu alanlar şehir sayfasındaki ilçe tablosunu ve site içi şehir/ilçe aramasını doğrudan besler.
