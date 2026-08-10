@@ -1,21 +1,21 @@
 {
-  "seo_title": "Kıble Yönü Hesaplama ve Canlı Kıble Pusulası",
-  "meta_description": "Bulunduğun konumu kullanarak kıble yönünü, kıble açısını ve Kabe'ye olan yaklaşık mesafeyi saniyeler içinde hesapla. Canlı kıble pusulası ve şehir bazlı hesaplama ile yönünü görüntüle.",
-  "hero_eyebrow": "Ücretsiz · Gizlilik Odaklı · Hızlı",
-  "h1": "Kıble Yönü Hesaplama ve Canlı Kıble Pusulası",
-  "hero_lead": "Bulunduğun konumu kullanarak kıble yönünü, kıble açısını ve Kabe'ye olan yaklaşık mesafeyi saniyeler içinde hesapla. Canlı kıble pusulası sayesinde doğru yönü güvenle belirleyebilir şehir bazlı hesaplama ile bulunduğun konuma en uygun sonucu görüntüleyebilirsin.",
+  "seo_title": "Kıble Bul – Canlı Pusula ile Kıble Yönünü Bul",
+  "meta_description": "Online ve ücretsiz kıble bulma aracıyla bulunduğun konumdan kıble yönünü bul. Canlı kıble pusulasını, haritayı veya şehir ve ilçe seçimini kullan.",
+  "hero_eyebrow": "Online · Ücretsiz · Gizlilik Odaklı",
+  "h1": "Bulunduğun Yerden Kıbleyi Bul",
+  "hero_lead": "Konumunu kullanarak kıble yönünü saniyeler içinde bul. Ücretsiz online kıble pusulası, bulunduğun noktadan Kâbe yönünü ve kıble açısını hesaplar; sonucu canlı pusula ve harita üzerinde gösterir.",
   "status_message": "Başlamak için konumunu kullanabilir veya bir yer arayabilirsin.",
   "privacy_note": "Konumun yalnızca cihazında hesaplama yapmak için kullanılır.",
   "footer_description": "Canlı pusula, harita ve şehir bazlı kıble rehberleri.",
   "guide_sections": [
     {
-      "heading": "Bulunduğum Yerde Kıble Hangi Tarafta?",
+      "heading": "Konumdan kıble yönü nasıl bulunur?",
       "tip": "💡 İpucu: En doğru kıble yönünü görmek için konum erişimine izin ver. Şehir seçerek yapılan hesaplamalar yaklaşık sonuç verirken mevcut konuma göre yapılan hesaplamalar çok daha hassastır.",
       "list_type": "none",
       "list_items": [],
       "paragraphs_before": [
         "Bulunduğun yerde kıble yönü bulunduğun konuma göre hesaplanır. Türkiye'nin her şehrinde kıble aynı yönde değildir; İstanbul, Ankara, İzmir, Bursa veya diğer illerde kıble açısı farklılık gösterebilir.",
-        "Konum izni verdiğinde sistem bulunduğun koordinatları kullanarak kıble yönünü ve kıble açısını anında hesaplar. Böylece bulunduğun noktaya göre en doğru sonuca ulaşabilir, canlı pusula ile yönünü kolayca belirleyebilirsin."
+        "Konum izni verdiğinde online kıble bulma aracı bulunduğun koordinatları kullanarak kıble yönünü ve açısını anında hesaplar. Böylece bulunduğun noktaya göre sonucu görebilir, canlı pusula ile yönünü kolayca belirleyebilirsin."
       ],
       "paragraphs_after": []
     },
@@ -32,7 +32,7 @@
       "paragraphs_after": []
     },
     {
-      "heading": "Telefonla kıble yönü bulunur mu?",
+      "heading": "Canlı pusula ile kıble nasıl bulunur?",
       "tip": "",
       "list_type": "unordered",
       "list_items": [
@@ -42,7 +42,7 @@
         "Gerekirse pusulayı kalibre et."
       ],
       "paragraphs_before": [
-        "Evet, GPS ve pusula sensörü bulunan akıllı telefonlarda kıble yönü yüksek doğrulukla hesaplanabilir. Sensörün doğru çalışması için telefonu düz tutmak, metal yüzeylerden uzaklaşmak ve gerektiğinde cihazı kalibre etmek gerekir. Android ve iPhone cihazlarda bulunan pusula sensörü ve konum servisleri sayesinde kıble yönü yüksek doğrulukla hesaplanabilir.",
+        "Telefonla kıble bulmak için GPS ve pusula sensörünü birlikte kullanabilirsin. Sensörün doğru çalışması için telefonu düz tutmak, metal yüzeylerden uzaklaşmak ve gerektiğinde cihazı kalibre etmek gerekir. Android ve iPhone cihazlarda konum servisleri açıldığında canlı kıble pusulası bulunduğun noktaya göre çalışır.",
         "En doğru sonuç için:"
       ],
       "paragraphs_after": [
@@ -50,7 +50,7 @@
       ]
     },
     {
-      "heading": "Şehirlere Göre Kıble Yönü",
+      "heading": "Şehir ve ilçeye göre kıble bulma",
       "tip": "",
       "list_type": "none",
       "list_items": [],
@@ -63,7 +63,7 @@
       "paragraphs_after": []
     },
     {
-      "heading": "En Doğru Kıble Yönü Nasıl Bulunur?",
+      "heading": "Online kıble bulma aracı nasıl kullanılır?",
       "tip": "",
       "list_type": "ordered",
       "list_items": [
@@ -84,8 +84,8 @@
   "faq_heading": "Sık Sorulan Sorular",
   "faqs": [
     {
-      "question": "Kıble nedir?",
-      "answer": "Kıble, Müslümanların namaz kılarken yöneldiği yön olup Mekke'de bulunan Kabe'yi ifade eder. Dünyanın neresinde olursan ol, namaz sırasında yönelmen gereken doğrultu bulunduğun konuma göre hesaplanır. Kıble yönü şehirden şehire hatta bulunduğun koordinata göre değişebilir. Bu nedenle günümüzde GPS destekli hesaplama yöntemleri en doğru kıble yönünü belirlemek için yaygın olarak kullanılmaktadır."
+      "question": "Online kıble nasıl bulunur?",
+      "answer": "Konumumdan Kıbleyi Bul düğmesine basıp tarayıcıya konum izni ver. Araç koordinatlarından Kâbe yönünü hesaplar ve kıble açısını canlı pusula ile harita üzerinde gösterir. Konum izni vermek istemezsen şehir veya ilçe araması da yapabilirsin."
     },
     {
       "question": "Kıble açısı ne anlama gelir?",
@@ -128,5 +128,5 @@
       "answer": "Telefon kılıfındaki mıknatıslar metal yüzeyler veya kalibrasyon eksikliği pusula doğruluğunu etkileyebilir. Telefonu düz tutarak ve pusulayı yeniden kalibre ederek daha doğru sonuç alabilirsin."
     }
   ],
-  "closing_copy": "Kıble Yönü Hesapla, bulunduğun konuma göre kıble yönünü ve kıble açısını hızlı, ücretsiz ve gizlilik odaklı şekilde hesaplamanı sağlar. Konum bilgilerin yalnızca cihazında hesaplama yapmak amacıyla kullanılır ve hiçbir şekilde kaydedilmez veya üçüncü taraflarla paylaşılmaz. İster canlı kıble pusulasını kullanarak ister şehir bazlı hesaplama ile bulunduğun yer için kıble yönünü saniyeler içinde öğrenebilirsin."
+  "closing_copy": "Kıble Bul aracı, bulunduğun konuma göre kıble yönünü ve açısını hızlı, ücretsiz ve gizlilik odaklı biçimde hesaplar. Konum bilgilerin yalnızca cihazında kıble yönünü bulmak için kullanılır; kaydedilmez veya üçüncü taraflarla paylaşılmaz. Canlı kıble pusulasını kullanabilir ya da şehir ve ilçe seçerek Kâbe yönünü saniyeler içinde görüntüleyebilirsin."
 }
