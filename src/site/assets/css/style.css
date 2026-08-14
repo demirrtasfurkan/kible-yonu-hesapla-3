@@ -107,7 +107,6 @@
 .city-page-result{padding:0 0 80px;background:#f3efe5}.city-page-result .result-section{margin-top:0}
 .city-content{padding:80px 0;background:#fbf9f4}.city-content-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:44px}.city-content article p{color:#657a74}.city-content article h2{font-size:38px;line-height:1.15}.city-content article h3{font-size:25px;margin-top:32px}.city-nearby{background:#fff;border:1px solid #ded9ce;border-radius:22px;padding:22px;align-self:start}.city-nearby a{display:block;color:#0b7a68;text-decoration:none;font-weight:800;padding:9px 0;border-bottom:1px solid #edf0ec}.city-nearby a:last-child{border:0}
 .all-cities{padding:76px 0;background:#eef5f2}.all-city-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:25px}.all-city-grid a{background:#fff;border:1px solid #dce5e1;border-radius:13px;padding:12px 14px;color:#173b36;text-decoration:none;font-weight:800}.all-city-grid a:hover{border-color:#0b7a68;color:#0b7a68}
-@media(min-width:1100px) and (hover:hover) and (pointer:fine){.city-page-grid{grid-template-columns:minmax(0,1.05fr) minmax(340px,.95fr)}}
 @media(max-width:940px){.city-content-grid{grid-template-columns:1fr}.all-city-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:620px){.city-page-hero{padding-top:26px}.city-page-copy h1{font-size:40px;letter-spacing:-1.8px}.city-static-summary{grid-template-columns:1fr 1fr}.city-static-summary div:last-child{grid-column:1/-1}.all-city-grid{grid-template-columns:1fr 1fr}.city-content{padding:56px 0}.city-content article h2{font-size:31px}}
 
@@ -177,11 +176,13 @@
 @media(max-width:760px){.district-picker-box{grid-template-columns:1fr}.angle-groups{grid-template-columns:1fr}.footer-city-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:620px){.city-stat-grid{grid-template-columns:repeat(2,1fr)}.district-section,.comparison-section,.district-extremes{padding:56px 0}.footer-city-grid{grid-template-columns:repeat(2,1fr)}.angle-card-list a{display:block}.angle-card-list span{display:block;margin-top:2px}}
 
-/* V19: city pages default to one column; two columns are desktop-only */
+/* V20: city hero is one column on every device */
 .city-page-grid>*{min-width:0}
 .city-page-copy,.city-page-result,.district-section,.comparison-section,.district-extremes{max-width:100%;overflow-x:clip}
 .table-scroll{width:100%;max-width:100%;min-width:0}
-.city-page-grid>.preview-card{position:relative;top:auto;width:100%;max-width:100%}
+.city-page-grid{grid-template-columns:minmax(0,1fr)!important}
+.city-page-grid>.city-page-copy{grid-column:1/-1!important;width:100%!important;max-width:100%!important}
+.city-page-grid>.preview-card{grid-column:1/-1!important;position:relative!important;inset:auto!important;top:auto!important;width:100%!important;max-width:620px!important}
 @media(max-width:760px){
  html,body{width:100%;max-width:100%;overflow-x:hidden;-webkit-text-size-adjust:100%}
  .city-page-grid,.result-grid{grid-template-columns:minmax(0,1fr)!important;width:100%}
