@@ -175,3 +175,16 @@
 @media(max-width:1000px){.city-stat-grid{grid-template-columns:repeat(3,1fr)}.footer-city-grid{grid-template-columns:repeat(4,1fr)}}
 @media(max-width:760px){.district-picker-box{grid-template-columns:1fr}.angle-groups{grid-template-columns:1fr}.footer-city-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:620px){.city-stat-grid{grid-template-columns:repeat(2,1fr)}.district-section,.comparison-section,.district-extremes{padding:56px 0}.footer-city-grid{grid-template-columns:repeat(2,1fr)}.angle-card-list a{display:block}.angle-card-list span{display:block;margin-top:2px}}
+
+/* V18: city pages must never widen the mobile layout */
+.city-page-grid>*{min-width:0}
+.city-page-copy,.city-page-result,.district-section,.comparison-section,.district-extremes{max-width:100%;overflow-x:clip}
+.table-scroll{width:100%;max-width:100%;min-width:0}
+@media screen and (max-width:760px),screen and (max-device-width:760px),screen and (hover:none) and (pointer:coarse){
+  html,body{width:100%;max-width:100%;overflow-x:hidden;-webkit-text-size-adjust:100%}
+  .city-page-grid,.result-grid{grid-template-columns:minmax(0,1fr)!important;width:100%}
+  .city-page-grid>*{width:100%;max-width:100%;min-width:0}
+  .city-page-grid .preview-card{display:block;position:relative;inset:auto;top:auto}
+  .city-page-copy .actions{flex-direction:column}
+  .city-page-copy .actions .btn,.city-page-copy .search-form{width:100%;max-width:100%}
+}

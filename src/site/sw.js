@@ -1,10 +1,10 @@
-const CACHE = "kible-v17-responsive-fix";
+const CACHE = "kible-v18-city-mobile-fix";
 const CORE = [
   "/",
   "/sehirler/",
-  "/assets/css/style.css?v=17",
+  "/assets/css/style.css?v=18",
   "/assets/js/qibla.js",
-  "/assets/js/app.js?v=17",
+  "/assets/js/app.js?v=18",
   "/data/locations.json",
   "/data/cities.json",
   "/manifest.webmanifest",

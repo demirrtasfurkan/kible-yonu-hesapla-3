@@ -18,7 +18,29 @@
 <meta property="og:url" content="https://kibleyonuhesapla.com/{{CITY_SLUG}}/">
 <meta property="og:image" content="https://kibleyonuhesapla.com/assets/og/kible-yonu-hesapla.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="/assets/css/style.css?v=17">
+<link rel="stylesheet" href="/assets/css/style.css?v=18">
+<style>
+/* Şehir sayfaları için kritik mobil yerleşim. Dış CSS gecikse veya uygulama içi
+   tarayıcı layout viewport'u farklı yorumlasa da sayfayı tek sütunda tutar. */
+@media screen and (max-width:760px),screen and (max-device-width:760px),screen and (hover:none) and (pointer:coarse){
+ html,body{width:100%;max-width:100%;overflow-x:hidden;-webkit-text-size-adjust:100%}
+ .site-header,.city-page-hero,.city-page-result,.district-section,.comparison-section,.district-extremes,.city-blog-links,.faq,footer{width:100%;max-width:100%}
+ .container{width:calc(100% - 22px)!important;max-width:100%!important;margin-left:auto!important;margin-right:auto!important;min-width:0!important}
+ .city-page-grid,.result-grid{display:grid!important;grid-template-columns:minmax(0,1fr)!important;width:100%!important;gap:18px!important}
+ .city-page-copy,.preview-card,.result-section,.compass-card,.info-card,.map-card,.table-scroll{width:100%!important;max-width:100%!important;min-width:0!important}
+ .preview-card{display:block!important;position:relative!important;inset:auto!important;top:auto!important}
+ .city-page-copy h1{font-size:40px!important;line-height:1.04!important;letter-spacing:-1.8px!important}
+ .city-page-copy .lead{font-size:17px!important;line-height:1.65!important}
+ .actions{display:flex!important;flex-direction:column!important;width:100%!important}
+ .actions .btn,.search-form,.search-row,.search-row input,.search-row button{width:100%!important;max-width:100%!important}
+ .search-row{display:grid!important;grid-template-columns:minmax(0,1fr)!important}
+ .mini-ring{width:min(250px,72vw)!important;height:min(250px,72vw)!important}
+ .result-heading{align-items:flex-start!important;gap:12px!important}
+ .compass-face{width:min(280px,78vw)!important;max-width:100%!important}
+ .table-scroll{display:block!important;overflow-x:auto!important;-webkit-overflow-scrolling:touch}
+ .data-table{min-width:760px!important}
+}
+</style>
 <script>window.dataLayer=window.dataLayer||[];</script>
 <script type="application/ld+json">
 {
@@ -183,6 +205,6 @@
 </main>
 {{FOOTER}}
 <script src="/assets/js/qibla.js" defer></script>
-<script src="/assets/js/app.js?v=17" defer></script>
+<script src="/assets/js/app.js?v=18" defer></script>
 </body>
 </html>
