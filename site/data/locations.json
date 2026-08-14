@@ -1,0 +1,254 @@
+[
+  {
+    "name": "İstanbul",
+    "type": "İl",
+    "parent": "",
+    "lat": 41.0082,
+    "lng": 28.9784
+  },
+  {
+    "name": "Kadıköy",
+    "type": "İlçe",
+    "parent": "İstanbul",
+    "lat": 40.9917,
+    "lng": 29.0277
+  },
+  {
+    "name": "Üsküdar",
+    "type": "İlçe",
+    "parent": "İstanbul",
+    "lat": 41.0256,
+    "lng": 29.015
+  },
+  {
+    "name": "Beşiktaş",
+    "type": "İlçe",
+    "parent": "İstanbul",
+    "lat": 41.043,
+    "lng": 29.0094
+  },
+  {
+    "name": "Şişli",
+    "type": "İlçe",
+    "parent": "İstanbul",
+    "lat": 41.0605,
+    "lng": 28.9872
+  },
+  {
+    "name": "Bakırköy",
+    "type": "İlçe",
+    "parent": "İstanbul",
+    "lat": 40.9804,
+    "lng": 28.8724
+  },
+  {
+    "name": "Ankara",
+    "type": "İl",
+    "parent": "",
+    "lat": 39.9334,
+    "lng": 32.8597
+  },
+  {
+    "name": "Çankaya",
+    "type": "İlçe",
+    "parent": "Ankara",
+    "lat": 39.9179,
+    "lng": 32.8627
+  },
+  {
+    "name": "Keçiören",
+    "type": "İlçe",
+    "parent": "Ankara",
+    "lat": 40.0211,
+    "lng": 32.831
+  },
+  {
+    "name": "İzmir",
+    "type": "İl",
+    "parent": "",
+    "lat": 38.4237,
+    "lng": 27.1428
+  },
+  {
+    "name": "Konak",
+    "type": "İlçe",
+    "parent": "İzmir",
+    "lat": 38.4189,
+    "lng": 27.1287
+  },
+  {
+    "name": "Karşıyaka",
+    "type": "İlçe",
+    "parent": "İzmir",
+    "lat": 38.455,
+    "lng": 27.109
+  },
+  {
+    "name": "Bursa",
+    "type": "İl",
+    "parent": "",
+    "lat": 40.1885,
+    "lng": 29.061
+  },
+  {
+    "name": "Antalya",
+    "type": "İl",
+    "parent": "",
+    "lat": 36.8969,
+    "lng": 30.7133
+  },
+  {
+    "name": "Konya",
+    "type": "İl",
+    "parent": "",
+    "lat": 37.8746,
+    "lng": 32.4932
+  },
+  {
+    "name": "Adana",
+    "type": "İl",
+    "parent": "",
+    "lat": 37.0,
+    "lng": 35.3213
+  },
+  {
+    "name": "Gaziantep",
+    "type": "İl",
+    "parent": "",
+    "lat": 37.0662,
+    "lng": 37.3833
+  },
+  {
+    "name": "Şanlıurfa",
+    "type": "İl",
+    "parent": "",
+    "lat": 37.1674,
+    "lng": 38.7955
+  },
+  {
+    "name": "Mersin",
+    "type": "İl",
+    "parent": "",
+    "lat": 36.8121,
+    "lng": 34.6415
+  },
+  {
+    "name": "Diyarbakır",
+    "type": "İl",
+    "parent": "",
+    "lat": 37.9144,
+    "lng": 40.2306
+  },
+  {
+    "name": "Kayseri",
+    "type": "İl",
+    "parent": "",
+    "lat": 38.7205,
+    "lng": 35.4826
+  },
+  {
+    "name": "Samsun",
+    "type": "İl",
+    "parent": "",
+    "lat": 41.2867,
+    "lng": 36.33
+  },
+  {
+    "name": "Trabzon",
+    "type": "İl",
+    "parent": "",
+    "lat": 41.0015,
+    "lng": 39.7178
+  },
+  {
+    "name": "Eskişehir",
+    "type": "İl",
+    "parent": "",
+    "lat": 39.7767,
+    "lng": 30.5206
+  },
+  {
+    "name": "Kocaeli",
+    "type": "İl",
+    "parent": "",
+    "lat": 40.8533,
+    "lng": 29.8815
+  },
+  {
+    "name": "Sakarya",
+    "type": "İl",
+    "parent": "",
+    "lat": 40.7731,
+    "lng": 30.3948
+  },
+  {
+    "name": "Tekirdağ",
+    "type": "İl",
+    "parent": "",
+    "lat": 40.978,
+    "lng": 27.511
+  },
+  {
+    "name": "Balıkesir",
+    "type": "İl",
+    "parent": "",
+    "lat": 39.6484,
+    "lng": 27.8826
+  },
+  {
+    "name": "Manisa",
+    "type": "İl",
+    "parent": "",
+    "lat": 38.6191,
+    "lng": 27.4289
+  },
+  {
+    "name": "Denizli",
+    "type": "İl",
+    "parent": "",
+    "lat": 37.7765,
+    "lng": 29.0864
+  },
+  {
+    "name": "Muğla",
+    "type": "İl",
+    "parent": "",
+    "lat": 37.2153,
+    "lng": 28.3636
+  },
+  {
+    "name": "Aydın",
+    "type": "İl",
+    "parent": "",
+    "lat": 37.856,
+    "lng": 27.8416
+  },
+  {
+    "name": "Hatay",
+    "type": "İl",
+    "parent": "",
+    "lat": 36.2023,
+    "lng": 36.1613
+  },
+  {
+    "name": "Malatya",
+    "type": "İl",
+    "parent": "",
+    "lat": 38.3552,
+    "lng": 38.3095
+  },
+  {
+    "name": "Erzurum",
+    "type": "İl",
+    "parent": "",
+    "lat": 39.9043,
+    "lng": 41.2679
+  },
+  {
+    "name": "Van",
+    "type": "İl",
+    "parent": "",
+    "lat": 38.5012,
+    "lng": 43.3729
+  }
+]

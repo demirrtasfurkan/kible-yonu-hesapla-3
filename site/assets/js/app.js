@@ -1,0 +1,408 @@
+(() => {
+  const $ = (id) => document.getElementById(id),
+    e = {
+      locationButton: $("locationButton"),
+      searchForm: $("searchForm"),
+      locationSearch: $("locationSearch"),
+      searchResults: $("searchResults"),
+      status: $("statusMessage"),
+      result: $("resultSection"),
+      resultTitle: $("resultTitle"),
+      bearing: $("bearingValue"),
+      direction: $("directionValue"),
+      distance: $("distanceValue"),
+      accuracy: $("accuracyValue"),
+      place: $("placeValue"),
+      heading: $("headingValue"),
+      needle: $("qiblaNeedle"),
+      previewNeedle: $("previewNeedle"),
+      previewPlace: $("previewPlace"),
+      previewBearing: $("previewBearing"),
+      previewDirection: $("previewDirection"),
+      previewDistance: $("previewDistance"),
+      previewAccuracy: $("previewAccuracy"),
+      compassButton: $("compassButton"),
+      compassStatus: $("compassStatus"),
+      alignment: $("alignmentMessage"),
+      fitMapButton: $("fitMapButton"),
+      shareButton: $("shareButton"),
+    };
+  let s = {
+    lat: null,
+    lng: null,
+    bearing: null,
+    place: "",
+    vibrated: false,
+    locations: [],
+    leafletPromise: null,
+  };
+  function track(action, params = {}) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "custom_event",
+      event_category: "qibla_tool",
+      event_action: action,
+      ...params,
+    });
+  }
+  function status(m, err = false) {
+    e.status.textContent = m;
+    e.status.classList.toggle("error", err);
+  }
+  function fmt(v, d = 0) {
+    return v.toLocaleString("tr-TR", {
+      minimumFractionDigits: d,
+      maximumFractionDigits: d,
+    });
+  }
+  function normText(v) {
+    return String(v || "")
+      .toLocaleLowerCase("tr-TR")
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "");
+  }
+  async function loadLocations() {
+    try {
+      s.locations = await fetch("/data/locations.json").then((r) => r.json());
+    } catch {
+      s.locations = [];
+    }
+  }
+  function buildMapUrl() {
+    const padLat = Math.max(4, Math.abs(KAABA.lat - s.lat) * 0.18);
+    const padLng = Math.max(4, Math.abs(KAABA.lng - s.lng) * 0.18);
+    const left = Math.min(s.lng, KAABA.lng) - padLng;
+    const right = Math.max(s.lng, KAABA.lng) + padLng;
+    const bottom = Math.min(s.lat, KAABA.lat) - padLat;
+    const top = Math.max(s.lat, KAABA.lat) + padLat;
+    return `https://www.openstreetmap.org/export/embed.html?bbox=${encodeURIComponent([left, bottom, right, top].join(","))}&layer=mapnik&marker=${encodeURIComponent(`${s.lat},${s.lng}`)}`;
+  }
+  function updateMap() {
+    const frame = document.getElementById("mapFrame"),
+      placeholder = document.getElementById("mapPlaceholder");
+    if (!frame || s.lat === null) return;
+    frame.src = buildMapUrl();
+    frame.hidden = false;
+    placeholder.hidden = true;
+  }
+  function fitMap() {
+    updateMap();
+  }
+  function render({
+    lat,
+    lng,
+    accuracy = null,
+    place = "Mevcut konum",
+    source = "gps",
+    scrollResult = false,
+    updateMapFrame = true,
+  }) {
+    s.lat = lat;
+    s.lng = lng;
+    s.place = place;
+    s.bearing = calculateQiblaBearing(lat, lng);
+    const distance = calculateDistanceToKaaba(lat, lng),
+      deg = `${fmt(s.bearing, 1)}°`,
+      dir = getDirectionName(s.bearing),
+      dist = `${fmt(Math.round(distance))} km`,
+      acc = accuracy ? `±${fmt(Math.round(accuracy))} m` : "Merkez koordinatı";
+    e.bearing.textContent = deg;
+    e.direction.textContent = dir;
+    e.distance.textContent = dist;
+    e.accuracy.textContent = acc;
+    e.place.textContent = place;
+    e.heading.textContent = "Bekleniyor";
+    e.resultTitle.textContent = `${place} için kıble yönü`;
+    e.needle.style.transform = `translate(-50%,-100%) rotate(${s.bearing}deg)`;
+    e.previewNeedle.style.transform = `translate(-50%,-100%) rotate(${s.bearing}deg)`;
+    e.previewPlace.textContent = place;
+    e.previewBearing.textContent = deg;
+    e.previewDirection.textContent = dir;
+    e.previewDistance.textContent = dist;
+    e.previewAccuracy.textContent = acc;
+    document.getElementById("quickCompass")?.classList.add("is-calculated");
+    e.result.hidden = false;
+    if (updateMapFrame) updateMap();
+    status("Kıble yönü başarıyla hesaplandı.");
+    track("qibla_calculated", {
+      calculation_source: source,
+      qibla_bearing: Number(s.bearing.toFixed(1)),
+      place_name: place,
+    });
+    if (scrollResult) {
+      setTimeout(() => {
+        const y = e.result.getBoundingClientRect().top + window.scrollY - 78;
+        window.scrollTo({ top: y, behavior: "smooth" });
+      }, 120);
+    }
+  }
+  e.locationButton.addEventListener("click", () => {
+    track("location_permission_requested");
+    if (!navigator.geolocation) {
+      status("Tarayıcın konum özelliğini desteklemiyor.", true);
+      return;
+    }
+    e.locationButton.disabled = true;
+    e.locationButton.textContent = "Konum alınıyor…";
+    navigator.geolocation.getCurrentPosition(
+      (p) => {
+        const { latitude, longitude, accuracy } = p.coords;
+        render({
+          lat: latitude,
+          lng: longitude,
+          accuracy,
+          place: "Mevcut konum",
+          source: "gps",
+        });
+        e.locationButton.disabled = false;
+        e.locationButton.innerHTML = "<span>✓</span> Konumu yeniden hesapla";
+        track("location_permission_granted");
+      },
+      (err) => {
+        const m = {
+          1: "Konum izni verilmedi. Şehir veya ilçe aramasını kullanabilirsin.",
+          2: "Konum bilgisi alınamadı.",
+          3: "Konum isteği zaman aşımına uğradı.",
+        };
+        status(m[err.code] || "Konum alınamadı.", true);
+        e.locationButton.disabled = false;
+        e.locationButton.textContent = "Tekrar dene";
+        track("location_permission_denied", { error_code: err.code });
+      },
+      { enableHighAccuracy: true, timeout: 15000, maximumAge: 30000 },
+    );
+  });
+  async function remoteSearch(q) {
+    const u = new URL("https://nominatim.openstreetmap.org/search");
+    u.searchParams.set("format", "jsonv2");
+    u.searchParams.set("limit", "5");
+    u.searchParams.set("countrycodes", "tr");
+    u.searchParams.set("accept-language", "tr");
+    u.searchParams.set("q", q);
+    const r = await fetch(u, { headers: { Accept: "application/json" } });
+    if (!r.ok) throw new Error();
+    return r.json();
+  }
+  function localSearch(q) {
+    const n = normText(q);
+    return s.locations
+      .filter((x) => normText(`${x.name} ${x.parent}`).includes(n))
+      .slice(0, 5)
+      .map((x) => ({
+        lat: x.lat,
+        lon: x.lng,
+        name: x.name,
+        display_name: [x.name, x.parent, x.type].filter(Boolean).join(", "),
+      }));
+  }
+  function showResults(rs) {
+    e.searchResults.innerHTML = "";
+    if (!rs.length) {
+      e.searchResults.innerHTML =
+        '<div class="search-result">Sonuç bulunamadı.</div>';
+      e.searchResults.hidden = false;
+      return;
+    }
+    rs.forEach((i) => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "search-result";
+      const t = i.name || i.display_name.split(",")[0];
+      b.innerHTML = `<strong>${t}</strong><small>${i.display_name}</small>`;
+      b.onclick = () => {
+        render({ lat: +i.lat, lng: +i.lon, place: t, source: "manual_search" });
+        e.locationSearch.value = i.display_name;
+        e.searchResults.hidden = true;
+      };
+      e.searchResults.appendChild(b);
+    });
+    e.searchResults.hidden = false;
+  }
+  e.searchForm.addEventListener("submit", async (ev) => {
+    ev.preventDefault();
+    const q = e.locationSearch.value.trim();
+    if (q.length < 2) {
+      status("En az iki karakter yazmalısın.", true);
+      return;
+    }
+    status("Konum aranıyor…");
+    track("manual_search", { search_term: q });
+    let rs = localSearch(q);
+    try {
+      if (!rs.length) rs = await remoteSearch(q);
+      showResults(rs);
+      status(rs.length ? "Bir konum seç." : "Sonuç bulunamadı.", !rs.length);
+    } catch {
+      showResults(rs);
+      status(
+        rs.length ? "Bir konum seç." : "Konum araması şu anda kullanılamıyor.",
+        !rs.length,
+      );
+    }
+  });
+  e.locationSearch.addEventListener("input", () => {
+    const q = e.locationSearch.value.trim();
+    if (q.length < 2) {
+      e.searchResults.hidden = true;
+      return;
+    }
+    const rs = localSearch(q);
+    if (rs.length) showResults(rs);
+  });
+  document.addEventListener("click", (ev) => {
+    if (!e.searchForm.contains(ev.target)) e.searchResults.hidden = true;
+  });
+  document.querySelectorAll(".city-card").forEach((b) =>
+    b.addEventListener("click", () => {
+      track("popular_city_clicked", { city_name: b.dataset.place });
+      render({
+        lat: +b.dataset.lat,
+        lng: +b.dataset.lng,
+        place: b.dataset.place,
+        source: "popular_city",
+      });
+    }),
+  );
+  function useDistrict(element, source) {
+    const option = element.selectedOptions
+      ? element.selectedOptions[0]
+      : element;
+    if (!option || !option.dataset.lat || !option.dataset.lng) return;
+    render({
+      lat: Number(option.dataset.lat),
+      lng: Number(option.dataset.lng),
+      place: option.dataset.name,
+      source,
+    });
+  }
+  const districtSelect = document.getElementById("districtSelect");
+  if (districtSelect) {
+    districtSelect.addEventListener("change", () => {
+      if (districtSelect.value) useDistrict(districtSelect, "district_select");
+    });
+  }
+  document.querySelectorAll(".district-use").forEach((button) => {
+    button.addEventListener("click", () => useDistrict(button, "district_table"));
+  });
+  function getHeading(ev) {
+    if (typeof ev.webkitCompassHeading === "number")
+      return ev.webkitCompassHeading;
+    if (typeof ev.alpha === "number") return normalizeDegree(360 - ev.alpha);
+    return null;
+  }
+  function orient(ev) {
+    if (s.bearing === null) return;
+    const h = getHeading(ev);
+    if (h === null) return;
+    const rel = normalizeDegree(s.bearing - h),
+      diff = angularDifference(h, s.bearing);
+    e.needle.style.transform = `translate(-50%,-100%) rotate(${rel}deg)`;
+    e.previewNeedle.style.transform = `translate(-50%,-100%) rotate(${rel}deg)`;
+    e.heading.textContent = `${fmt(h, 0)}°`;
+    e.compassStatus.textContent =
+      diff <= 4
+        ? "Kıble doğrultusundasınız."
+        : `Kıbleye fark: ${fmt(diff, 0)}°`;
+    document
+      .querySelector(".compass-face")
+      .classList.toggle("aligned", diff <= 4);
+    e.alignment.hidden = diff > 4;
+    if (diff <= 4 && !s.vibrated && navigator.vibrate) {
+      navigator.vibrate(120);
+      s.vibrated = true;
+      track("qibla_aligned");
+    } else if (diff > 7) s.vibrated = false;
+  }
+  e.compassButton.addEventListener("click", async () => {
+    if (s.bearing === null) {
+      status("Önce konumunu hesapla.", true);
+      return;
+    }
+    try {
+      if (
+        typeof DeviceOrientationEvent !== "undefined" &&
+        typeof DeviceOrientationEvent.requestPermission === "function"
+      ) {
+        const p = await DeviceOrientationEvent.requestPermission();
+        if (p !== "granted") throw new Error("Sensör izni verilmedi.");
+      }
+      if (typeof DeviceOrientationEvent === "undefined")
+        throw new Error("Bu cihazda yön sensörü bulunamadı.");
+      window.addEventListener("deviceorientationabsolute", orient, true);
+      window.addEventListener("deviceorientation", orient, true);
+      e.compassButton.textContent = "Canlı pusula aktif";
+      e.compassButton.disabled = true;
+      track("compass_started");
+    } catch (err) {
+      e.compassStatus.textContent = err.message;
+    }
+  });
+  e.fitMapButton.addEventListener("click", () => {
+    fitMap();
+    track("map_opened");
+  });
+  e.shareButton.addEventListener("click", async () => {
+    if (s.bearing === null) return;
+    const text = `${s.place} için kıble açısı ${fmt(s.bearing, 1)}° (${getDirectionName(s.bearing)}).`;
+    try {
+      if (navigator.share)
+        await navigator.share({
+          title: "Kıble Yönü Hesapla",
+          text,
+          url: location.origin,
+        });
+      else {
+        await navigator.clipboard.writeText(`${text} ${location.origin}`);
+        e.shareButton.textContent = "Kopyalandı";
+      }
+      track("share_result");
+    } catch {}
+  });
+  document.querySelectorAll(".faq-list details").forEach((d) =>
+    d.addEventListener("toggle", () => {
+      if (d.open)
+        track("faq_opened", {
+          faq_question: d.querySelector("summary").textContent,
+        });
+    }),
+  );
+  let sent75 = false,
+    sent100 = false;
+  window.addEventListener("scroll", () => {
+    const h = document.documentElement.scrollHeight - innerHeight,
+      p = h > 0 ? scrollY / h : 0;
+    if (p >= 0.75 && !sent75) {
+      sent75 = true;
+      track("scroll_75");
+    }
+    if (p >= 0.98 && !sent100) {
+      sent100 = true;
+      track("scroll_100");
+    }
+  });
+  loadLocations();
+  const cityPage = document.body.dataset.cityPage === "true";
+  if (cityPage) {
+    const lat = Number(document.body.dataset.cityLat),
+      lng = Number(document.body.dataset.cityLng),
+      name = document.body.dataset.cityName;
+    if (Number.isFinite(lat) && Number.isFinite(lng)) {
+      setTimeout(
+        () =>
+          render({
+            lat,
+            lng,
+            place: name,
+            source: "city_page",
+            scrollResult: false,
+            updateMapFrame: false,
+          }),
+        80,
+      );
+    }
+  }
+  if ("serviceWorker" in navigator)
+    window.addEventListener("load", () =>
+      navigator.serviceWorker.register("/sw.js").catch(() => {}),
+    );
+})();

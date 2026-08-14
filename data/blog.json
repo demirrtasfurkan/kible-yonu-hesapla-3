@@ -1,0 +1,274 @@
+{
+  "posts": [
+    {
+      "slug": "kible-nasil-bulunur",
+      "title": "Kıble Nasıl Bulunur? En Güvenilir Yöntemler",
+      "description": "Kıbleyi telefon, pusula, harita ve çevresel işaretlerle bulmanın güvenilir yöntemlerini adım adım öğrenin.",
+      "excerpt": "Telefon pusulasından haritaya kadar kıble yönünü bulabileceğiniz pratik ve güvenilir yöntemler.",
+      "reading_time": "9 dk",
+      "sections": [
+        {
+          "heading": "Kıble yönü nedir?",
+          "paragraphs": [
+            "Kıble, Müslümanların namaz sırasında yöneldiği Mekke’deki Kâbe doğrultusudur. Bulunduğunuz yer ile Kâbe arasındaki yön, Dünya yüzeyi üzerindeki en kısa küresel rota dikkate alınarak belirlenir. Bu nedenle kıble yönü yalnızca doğu, batı, kuzey veya güney gibi genel bir tariften ibaret değildir; bulunduğunuz koordinata özel bir derece değeriyle ifade edilir.",
+            "Türkiye’de kıble çoğunlukla güneydoğu yönünde görünür. Bununla birlikte İstanbul, Ankara, İzmir veya başka bir şehirde hesaplanan derece aynı değildir. İlçeler ve mahalleler arasında da küçük farklar oluşabilir. Bu yüzden en güvenilir sonuç, bulunduğunuz noktanın koordinatları kullanılarak elde edilir."
+          ]
+        },
+        {
+          "heading": "Telefonla kıble nasıl bulunur?",
+          "paragraphs": [
+            "GPS ve pusula sensörü bulunan Android ve iPhone cihazlarda kıble yönü kolayca hesaplanabilir. Önce konum servislerini açın ve tarayıcının konum izni isteğini onaylayın. Sistem bulunduğunuz koordinatı kullanarak Kâbe yönündeki başlangıç açısını hesaplar. Canlı pusula başlatıldığında telefonun yön sensörü bu açıyla karşılaştırılır ve ekrandaki ok doğru doğrultuyu gösterir.",
+            "Telefonu mümkün olduğunca düz tutmak önemlidir. Manyetik telefon kılıfları, araç içi tutucular, hoparlörler, bilgisayarlar ve metal masalar pusula sensörünü etkileyebilir. Ok tutarsız hareket ediyorsa metal nesnelerden uzaklaşın ve telefonu havada sekiz çizer gibi birkaç kez hareket ettirerek kalibre edin.",
+            "Canlı pusula masaüstü bilgisayarlarda veya yön sensörü bulunmayan bazı cihazlarda çalışmayabilir. Böyle bir durumda şehir seçerek yaklaşık dereceyi görüntüleyebilir ve harita üzerindeki Kâbe doğrultusunu kullanabilirsiniz."
+          ]
+        },
+        {
+          "heading": "Haritayla kıble bulma",
+          "paragraphs": [
+            "Harita yöntemi, telefon pusulasını doğrulamak veya sensör bulunmayan bir cihazda yön tayin etmek için kullanılabilir. Harita üzerinde bulunduğunuz nokta ile Kâbe arasındaki doğrultu gösterilir. Evinizin, odanızın, sokağınızın veya binanızın yönünü bu çizgiyle karşılaştırarak kıbleyi fiziksel çevrenize uyarlayabilirsiniz.",
+            "Harita düz bir yüzey üzerinde gösterildiği için çok uzun mesafelerde çizgi ilk bakışta beklediğiniz yönden farklı görünebilir. Bunun nedeni Dünya’nın küresel olması ve harita projeksiyonlarının yüzeyi düzleştirmesidir. Hesaplamada esas alınan kıble açısı, gerçek kuzeye göre belirlenen küresel başlangıç yönüdür."
+          ]
+        },
+        {
+          "heading": "Pusula ile kıble bulma",
+          "paragraphs": [
+            "Klasik bir pusula kullanıyorsanız önce pusulanın kuzey yönünü sabitleyin. Daha sonra bulunduğunuz şehir için hesaplanan kıble açısını kuzeyden saat yönünde ölçün. Örneğin sonuç 151 dereceyse, kuzeyden saat yönünde 151 derece döndüğünüz doğrultu kıbleyi gösterir.",
+            "Manyetik pusula gerçek kuzey yerine manyetik kuzeyi gösterir. Bulunduğunuz bölgedeki manyetik sapma nedeniyle birkaç derecelik fark oluşabilir. Günlük kullanımda telefonların konum ve sensör verilerini birlikte işlemesi bu farkı azaltmaya yardımcı olur."
+          ]
+        },
+        {
+          "heading": "Pusulasız kıble bulunabilir mi?",
+          "paragraphs": [
+            "Pusula bulunmadığında harita, cami mihrapları ve bilinen bina yönleri yardımcı olabilir. Yakınınızdaki bir caminin mihrabı genel olarak güvenilir bir fiziksel referanstır. Aynı doğrultuyu paralel duvarlar, zemin çizgileri veya cadde yönleri üzerinden bulunduğunuz alana taşıyabilirsiniz.",
+            "Güneşin doğuş ve batış yönleri yalnızca yaklaşık bir referans sağlar. Güneş yıl boyunca tam olarak aynı noktadan doğup batmadığı için tek başına kesin sonuç olarak kullanılmamalıdır. En sağlıklı yaklaşım, şehir açısı, harita ve mevcut fiziksel referansları birlikte değerlendirmektir."
+          ]
+        },
+        {
+          "heading": "En doğru sonucu almak için kontrol listesi",
+          "paragraphs": [
+            "Konum servislerinin açık olduğundan emin olun, tarayıcıya konum izni verin ve telefonu düz tutun. Manyetik kılıf veya metal aksesuar kullanıyorsanız çıkarın. Canlı pusulayı başlattıktan sonra cihazı yavaşça döndürün ve yön farkı azalana kadar hareket edin.",
+            "Aynı noktada birkaç ölçüm yapın. Sonuçlar tutarlıysa ve haritadaki doğrultuyla uyum gösteriyorsa yönü güvenle kullanabilirsiniz. Şehir merkezi verisine dayalı sonuçların yaklaşık olduğunu, mevcut konumla yapılan GPS hesabının daha hassas olduğunu unutmayın."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "question": "Kıble yönü her şehirde aynı mı?",
+          "answer": "Hayır. Kıble açısı bulunduğunuz enlem ve boylama göre değişir."
+        },
+        {
+          "question": "Telefon pusulası kesin sonuç verir mi?",
+          "answer": "Kalibre edilmiş, manyetik etkilerden uzak bir cihazda güvenilir sonuç verir."
+        },
+        {
+          "question": "Konum izni vermeden kıble bulunur mu?",
+          "answer": "Evet. Şehir seçimiyle yaklaşık yön bulunabilir; GPS hesabı daha hassastır."
+        },
+        {
+          "question": "Harita ile pusula farklı yön gösterirse ne yapılmalı?",
+          "answer": "Telefonu kalibre edin, metal nesnelerden uzaklaşın ve ölçümü yeniden yapın."
+        }
+      ]
+    },
+    {
+      "slug": "telefon-kible-pusulasi-dogru-mu",
+      "title": "Telefon Kıble Pusulası Doğru mu?",
+      "description": "Telefon kıble pusulasının doğruluğunu etkileyen sensör, kalibrasyon, kılıf ve çevresel faktörleri ayrıntılı öğrenin.",
+      "excerpt": "Telefon pusulasının ne kadar güvenilir olduğunu ve daha doğru kullanım için nelere dikkat edilmesi gerektiğini öğrenin.",
+      "reading_time": "8 dk",
+      "sections": [
+        {
+          "heading": "Telefon pusulası nasıl çalışır?",
+          "paragraphs": [
+            "Akıllı telefonlar yön tayini için manyetometre, ivmeölçer, jiroskop ve konum verilerini birlikte kullanır. Manyetometre Dünya’nın manyetik alanını algılar, ivmeölçer cihazın eğimini belirler ve jiroskop hareket değişikliklerini takip eder. Kıble uygulaması ise bulunduğunuz koordinata göre hesaplanan Kâbe açısını cihazın mevcut yönüyle karşılaştırır.",
+            "Bu sistem uygun koşullarda oldukça kullanışlıdır. Ancak telefon pusulası bağımsız bir ölçüm cihazı değildir; çevredeki manyetik alanlardan ve sensör kalibrasyonundan etkilenebilir. Bu nedenle ekranda görülen yönün istikrarlı olup olmadığını kontrol etmek gerekir."
+          ]
+        },
+        {
+          "heading": "Telefon kıble pusulası ne kadar doğrudur?",
+          "paragraphs": [
+            "Konum doğruluğu iyi, pusula sensörü kalibre edilmiş ve çevrede manyetik parazit yoksa telefon pusulası günlük kıble tayini için güvenilir sonuç sunar. Birkaç derecelik küçük sapmalar oluşabilir. Telefonun gösterdiği yön sabit duruyor ve harita doğrultusuyla uyumlu görünüyorsa sonuç genellikle yeterlidir.",
+            "Şehir seçilerek yapılan hesaplama il merkezi koordinatına dayanır. Mevcut konum kullanıldığında enlem ve boylam bulunduğunuz noktaya göre güncellenir. Bu nedenle GPS tabanlı hesaplama özellikle büyük şehirlerde ve il merkezinden uzakta daha hassastır."
+          ]
+        },
+        {
+          "heading": "Pusulayı bozan etkenler",
+          "paragraphs": [
+            "Manyetik telefon kılıfları, MagSafe aksesuarları, araç tutucuları, hoparlörler, mıknatıslı çantalar, metal masalar ve yoğun elektronik ekipman pusula sensöründe sapmaya neden olabilir. Betonarme yapılardaki metal yoğunluğu da iç mekânda ölçümü etkileyebilir.",
+            "Ölçüm sırasında telefonu bu nesnelerden uzaklaştırın. Mümkünse pencere kenarında veya açık bir alanda tekrar deneyin. Telefonun yanında ikinci bir telefon, tablet veya güçlü bir elektronik cihaz bulundurmamak da sensör kararlılığını artırabilir."
+          ]
+        },
+        {
+          "heading": "Kalibrasyon nasıl yapılır?",
+          "paragraphs": [
+            "Pusula oku hızlı şekilde sıçrıyor, aynı yerde farklı sonuçlar gösteriyor veya yön değişikliğine geç tepki veriyorsa kalibrasyon gerekebilir. Telefonu elinizde sekiz çizer gibi birkaç kez hareket ettirin. Bazı cihazlarda harita uygulamasını açıp yön ışınının daralmasını beklemek de kalibrasyon durumunu anlamaya yardımcı olur.",
+            "Kalibrasyondan sonra telefonu düz tutarak yeniden ölçüm yapın. Cihazı dik tutmak veya çok hızlı çevirmek hatalı yön algısına yol açabilir. Sonucu birkaç kez kontrol etmek, tek bir ölçüme güvenmekten daha sağlıklıdır."
+          ]
+        },
+        {
+          "heading": "iPhone ve Android arasında fark var mı?",
+          "paragraphs": [
+            "Her iki platformda da sensör kalitesi cihaz modeline göre değişir. iPhone’da yön sensörü izni tarayıcı tarafından ayrıca istenebilir. Android cihazlarda ise tarayıcı ve üreticiye göre sensör erişimi farklı davranabilir. Her iki durumda da güvenli bağlantı, konum izni ve sensör desteği gereklidir.",
+            "Masaüstü tarayıcılarında veya sensörsüz telefonlarda canlı pusula hareket etmeyebilir. Kıble açısı yine hesaplanabilir; ancak cihaz yönü gerçek zamanlı takip edilemez."
+          ]
+        },
+        {
+          "heading": "Sonuç nasıl doğrulanır?",
+          "paragraphs": [
+            "Telefon pusulasını harita üzerindeki Kâbe doğrultusuyla karşılaştırın. Evinizin veya sokağınızın yönünü haritada gördüğünüz çizgiyle eşleştirin. Yakın bir caminin mihrap yönü de ek bir referans olarak kullanılabilir.",
+            "Farklı yöntemler birbirine yakın sonuç veriyorsa ölçüm daha güvenilirdir. Büyük bir fark varsa kalibrasyonu yenileyin, manyetik kılıfı çıkarın ve farklı bir noktada ölçüm yapın."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "question": "Manyetik kılıf kıble pusulasını etkiler mi?",
+          "answer": "Evet. Mıknatıslı kılıf ve aksesuarlar belirgin sapmaya neden olabilir."
+        },
+        {
+          "question": "Telefonu düz tutmak gerekir mi?",
+          "answer": "Evet. Cihazı mümkün olduğunca yatay ve sabit tutmak gerekir."
+        },
+        {
+          "question": "Canlı pusula neden hareket etmiyor?",
+          "answer": "Cihazda yön sensörü bulunmayabilir veya tarayıcı sensör izni almamış olabilir."
+        },
+        {
+          "question": "Telefon pusulası internetsiz çalışır mı?",
+          "answer": "Sensör çalışabilir; ancak konum ve harita verilerinin güncellenmesi için internet gerekebilir."
+        }
+      ]
+    },
+    {
+      "slug": "kible-yonu-neden-degisir",
+      "title": "Kıble Yönü Neden Şehirden Şehre Değişir?",
+      "description": "Kıble açısının koordinatlara göre neden değiştiğini, gerçek kuzey ve küresel rota ilişkisini anlaşılır biçimde öğrenin.",
+      "excerpt": "Kıble açısının bulunduğunuz şehir ve koordinata göre neden farklılaştığını açıklıyoruz.",
+      "reading_time": "7 dk",
+      "sections": [
+        {
+          "heading": "Dünya yüzeyindeki en kısa rota",
+          "paragraphs": [
+            "Kıble yönü düz bir harita üzerinde Kâbe’ye çizilen basit bir doğruyla değil, Dünya’nın küresel yüzeyi üzerindeki en kısa rota dikkate alınarak hesaplanır. Bu rota büyük çember doğrultusu olarak adlandırılır. Hesaplanan değer, bulunduğunuz noktadan hareket ederken gerçek kuzeye göre hangi açıyla yönelmeniz gerektiğini gösterir.",
+            "Düz harita projeksiyonları küresel yüzeyi açarak gösterdiği için Kâbe’ye uzanan çizgi bazen beklenenden farklı görünebilir. Bu durum hesaplamanın yanlış olduğu anlamına gelmez; küresel bir rotanın düz ekrana aktarılmasından kaynaklanır."
+          ]
+        },
+        {
+          "heading": "Koordinatlar sonucu değiştirir",
+          "paragraphs": [
+            "Enlem ve boylam değiştikçe Kâbe’ye olan başlangıç açısı da değişir. İstanbul ile Ankara farklı koordinatlarda olduğu için kıble dereceleri aynı değildir. Aynı şekilde İzmir, Antalya, Trabzon veya Van için hesaplanan yönlerde de farklılık görülür.",
+            "Aynı il içinde ilçeler ve mahalleler arasında fark genellikle küçüktür. Buna rağmen büyükşehirlerin geniş yüzölçümü ve şehir merkezinden uzak noktalar dikkate alındığında birkaç derecelik değişim oluşabilir. Mevcut konumu kullanmak bu nedenle şehir merkezi sonucundan daha hassastır."
+          ]
+        },
+        {
+          "heading": "Gerçek kuzey ve manyetik kuzey",
+          "paragraphs": [
+            "Kıble açısı çoğunlukla gerçek kuzeye göre hesaplanır. Gerçek kuzey, coğrafi Kuzey Kutbu yönüdür. Manyetik pusula ise Dünya’nın manyetik alanını algılar ve manyetik kuzeyi gösterir. Bu iki yön arasında bulunduğunuz yere göre değişen bir sapma vardır.",
+            "Akıllı telefonlar konum ve yazılım düzeltmeleriyle bu farkı azaltmaya çalışır. Ancak sensör kalibrasyonu bozuksa veya çevrede manyetik parazit varsa ekranda ilave sapma görülebilir."
+          ]
+        },
+        {
+          "heading": "Türkiye’de kıble neden genellikle güneydoğudur?",
+          "paragraphs": [
+            "Türkiye, Mekke’nin kuzeybatısında yer aldığı için çoğu şehirden Kâbe’ye başlangıç yönü güneydoğu tarafındadır. Bununla birlikte ülkenin doğusu ve batısı arasında derece farklılıkları oluşur. Genel yön tarifi bir fikir verse de namaz kılınacak noktaya özel derece hesabı daha doğru sonuç sağlar.",
+            "Kuzey, doğu, güney ve batı gibi ana yönler geniş aralıkları ifade eder. Kıble açısı ise yönü daha hassas biçimde dereceyle gösterir. Örneğin iki şehir için sonuç güneydoğu olsa bile derece değerleri aynı olmayabilir."
+          ]
+        },
+        {
+          "heading": "Şehir ve ilçe sonuçları nasıl kullanılmalı?",
+          "paragraphs": [
+            "Şehir sayfalarında gösterilen sonuçlar il merkezi koordinatına göre hazırlanır. Konum paylaşmak istemeyen kullanıcılar için pratik bir yaklaşık değer sunar. Bulunduğunuz ilçe şehir merkezinden uzaktaysa canlı konumla yeniden hesaplama yapmak daha uygundur.",
+            "Telefon pusulasını başlatmadan da derece ve harita bilgisi kullanılabilir. Cihaz sensörü çalışıyorsa canlı pusula, hesaplanan şehir veya GPS açısını telefonun yönüyle birleştirir."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "question": "Aynı şehir içinde kıble yönü değişir mi?",
+          "answer": "İlçeler ve mahalleler arasında küçük derece farkları oluşabilir."
+        },
+        {
+          "question": "Kıble açısı kuzeyden mi ölçülür?",
+          "answer": "Evet. Gerçek kuzeyden saat yönünde derece olarak ifade edilir."
+        },
+        {
+          "question": "Genel yön ile derece arasındaki fark nedir?",
+          "answer": "Genel yön geniş bir aralıktır; derece daha hassas doğrultuyu gösterir."
+        },
+        {
+          "question": "Haritadaki çizgi neden farklı görünebilir?",
+          "answer": "Küresel rota düz harita projeksiyonuna aktarıldığı için görsel fark oluşabilir."
+        }
+      ]
+    },
+    {
+      "slug": "pusulasiz-kible-bulma-yontemleri",
+      "title": "Pusulasız Kıble Bulma Yöntemleri",
+      "description": "Pusula olmadan harita, cami mihrabı, güneş ve çevresel işaretlerle kıble yönünü bulma yöntemlerini öğrenin.",
+      "excerpt": "Pusula sensörü çalışmadığında kullanabileceğiniz harita ve fiziksel yön referansı yöntemleri.",
+      "reading_time": "8 dk",
+      "sections": [
+        {
+          "heading": "Harita üzerinden yön belirleme",
+          "paragraphs": [
+            "Pusula sensörü bulunmayan veya doğru çalışmayan bir cihazda harita en kullanışlı alternatiflerden biridir. Bulunduğunuz konumu harita üzerinde belirleyin ve Kâbe’ye uzanan doğrultuyu inceleyin. Daha sonra evinizin, odanızın, sokağınızın veya binanızın haritadaki yönünü bu çizgiyle karşılaştırın.",
+            "Örneğin binanın uzun cephesi haritada kuzey-güney doğrultusunda görünüyorsa kıble çizgisinin bu cepheyle yaptığı açıyı fiziksel alana aktarabilirsiniz. Sabit mekânlarda bir kez doğru yön belirlendikten sonra zemine veya duvara küçük bir işaret koymak sonraki kullanımları kolaylaştırır."
+          ]
+        },
+        {
+          "heading": "Şehir kıble açısını kullanma",
+          "paragraphs": [
+            "Bulunduğunuz şehir için verilen kıble derecesini kullanarak ana yönlerden yararlanabilirsiniz. Şehir sonucu il merkezi için yaklaşık değer verir. Konumunuz merkeze yakınsa günlük kullanım için yararlı bir referans olabilir.",
+            "Bir yön pusulanız yoksa binanın veya caddenin harita üzerindeki yönünü tespit edip şehir açısıyla karşılaştırabilirsiniz. Bu yöntem pusula olmadan da derece bilgisinden yararlanmanızı sağlar."
+          ]
+        },
+        {
+          "heading": "Cami mihraplarını referans almak",
+          "paragraphs": [
+            "Yakınınızdaki bir caminin mihrabı kıble yönü için pratik bir fiziksel referanstır. Caminin duvar veya saf doğrultusunu harita üzerinde inceleyebilir, aynı paralelliği bulunduğunuz binaya uyarlayabilirsiniz.",
+            "Eski yapılarda veya çevresel şartlarda küçük sapmalar bulunabileceği için imkân varsa mihrap yönünü harita ve şehir açısıyla birlikte doğrulamak daha güvenlidir."
+          ]
+        },
+        {
+          "heading": "Güneşten yararlanma",
+          "paragraphs": [
+            "Güneş doğudan doğar ve batıdan batar şeklindeki genel bilgi, kabaca ana yönleri bulmaya yardımcı olur. Ancak doğuş ve batış noktaları mevsime ve enleme göre değişir. Bu nedenle güneş tek başına kesin kıble tayini için yeterli değildir.",
+            "Güneşin yönünü şehir kıble açısı veya harita bilgisiyle birlikte kullanabilirsiniz. Gündüz saatlerinde gölge yönleri de ana yönler hakkında yaklaşık fikir verebilir, ancak hassas sonuç için başka bir yöntemle kontrol edilmelidir."
+          ]
+        },
+        {
+          "heading": "Yıldızlar ve çevresel işaretler",
+          "paragraphs": [
+            "Gece açık havada Kutup Yıldızı kuzey yönünü belirlemeye yardımcı olabilir. Kuzeyi bulduktan sonra şehir kıble açısını saat yönünde uygulamak mümkündür. Bu yöntem gökyüzü bilgisi ve uygun hava koşulları gerektirir.",
+            "Yol tabelaları, bina cepheleri ve düzgün cadde hatları yalnızca yönleri haritayla karşılaştırmak için yardımcı referanslardır. Tek başlarına kıbleyi göstermezler."
+          ]
+        },
+        {
+          "heading": "Birden fazla yöntemle doğrulama",
+          "paragraphs": [
+            "Harita, şehir açısı, cami mihrabı ve ana yön bilgilerini birlikte değerlendirmek tek bir yönteme güvenmekten daha sağlıklıdır. İki veya daha fazla yöntem birbirine yakın doğrultu veriyorsa sonuç daha güvenilir hale gelir.",
+            "Telefon sensörü daha sonra çalışır hale geldiğinde canlı pusulayla son kontrol yapabilirsiniz. Büyük bir fark görürseniz manyetik etkileri ortadan kaldırıp ölçümü tekrarlayın."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "question": "Güneşe bakarak kıble bulunur mu?",
+          "answer": "Yaklaşık yön bulunabilir; ancak güneş tek başına kesin bir yöntem değildir."
+        },
+        {
+          "question": "Cami mihrabı güvenilir mi?",
+          "answer": "Genellikle güçlü bir fiziksel referanstır ve başka yöntemlerle doğrulanabilir."
+        },
+        {
+          "question": "Pusula sensörü olmayan telefonda ne yapılır?",
+          "answer": "Harita üzerindeki Kâbe doğrultusu ve şehir açısı kullanılabilir."
+        },
+        {
+          "question": "Kutup Yıldızı ile kıble bulunur mu?",
+          "answer": "Önce kuzey belirlenebilir, ardından şehir kıble açısı uygulanabilir."
+        }
+      ]
+    }
+  ]
+}
