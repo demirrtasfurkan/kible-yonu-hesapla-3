@@ -94,46 +94,14 @@
     <section class="hero" id="arac">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <span class="eyebrow">Ücretsiz · Gizlilik Odaklı · Hızlı</span>
-          <h1>Kıble Yönü Hesaplama ve Canlı Kıble Pusulası</h1>
-          <p class="lead">Bulunduğun konumu kullanarak kıble yönünü, kıble açısını ve Kabe'ye olan yaklaşık mesafeyi saniyeler içinde hesapla. Canlı kıble pusulası sayesinde doğru yönü güvenle belirleyebilir şehir bazlı hesaplama ile bulunduğun konuma en uygun sonucu görüntüleyebilirsin.</p>
-
-          <div class="actions">
-            <button id="locationButton" class="btn btn-primary" type="button" aria-describedby="locationPrivacy">
-              <span>⌖</span>
-              Konumumdan Kıbleyi Bul
-            </button>
-            <a class="btn btn-secondary" href="#sehirler">Şehir veya İlçe ile Kıble Bul</a>
-          </div>
-
-          <form id="searchForm" class="search-form" autocomplete="off">
-            <label for="locationSearch">Şehir veya ilçe ile kıble bul</label>
-            <div class="search-row">
-              <input id="locationSearch" type="search" placeholder="Örn. Kadıköy, İstanbul" minlength="2">
-              <button type="submit">Kıbleyi Bul</button>
-            </div>
-            <div id="searchResults" class="search-results" hidden></div>
-          </form>
-
-          <p id="statusMessage" class="status" role="status" aria-live="polite">Başlamak için konumunu kullanabilir veya bir yer arayabilirsin.</p>
-          <p id="locationPrivacy" class="privacy-inline">Konumun yalnızca cihazında hesaplama yapmak için kullanılır.</p>
-
-          <div class="hero-visual-cue" aria-hidden="true">
-            <span class="hero-orbit"></span>
-            <span class="hero-arrow">↑</span>
-            <span class="hero-kaaba">◆</span>
-          </div>
-
-          <div class="trust-strip">
-            <span>✓ Konum kaydedilmez</span>
-            <span>✓ Hesaplama cihazında yapılır</span>
-            <span>✓ Üyelik gerekmez</span>
-          </div>
+          <span class="eyebrow">Online · Ücretsiz · Gizlilik Odaklı</span>
+          <h1>Bulunduğun Yerden Kıbleyi Bul</h1>
+          <p class="lead">Konumunu kullanarak canlı pusula üzerinde kıble yönünü ve açısını saniyeler içinde bul.</p>
         </div>
 
-        <div class="preview-card">
+        <div class="preview-card" id="quickCompass">
           <div class="preview-top">
-            <span>Canlı sonuç önizlemesi</span>
+            <span>CANLI KIBLE PUSULASI</span>
             <strong id="previewPlace">Konum bekleniyor</strong>
           </div>
 
@@ -156,6 +124,32 @@
           <div class="preview-metrics">
             <div><span>Mesafe</span><strong id="previewDistance">—</strong></div>
             <div><span>Doğruluk</span><strong id="previewAccuracy">—</strong></div>
+          </div>
+
+          <button id="locationButton" class="btn btn-primary full preview-action" type="button" aria-describedby="locationPrivacy">
+            <span>⌖</span>
+            Konumumdan Kıbleyi Bul
+          </button>
+          <p id="statusMessage" class="status preview-status" role="status" aria-live="polite">Başlamak için konumunu kullan.</p>
+          <p id="locationPrivacy" class="privacy-inline">Konumun kaydedilmez; hesaplama yalnızca cihazında yapılır.</p>
+        </div>
+
+        <div class="hero-controls">
+          <a class="btn btn-secondary full" href="#locationSearch">Şehir veya İlçe ile Kıble Bul</a>
+
+          <form id="searchForm" class="search-form" autocomplete="off">
+            <label for="locationSearch">Şehir veya ilçe ile kıble bul</label>
+            <div class="search-row">
+              <input id="locationSearch" type="search" placeholder="Örn. Kadıköy, İstanbul" minlength="2">
+              <button type="submit">Kıbleyi Bul</button>
+            </div>
+            <div id="searchResults" class="search-results" hidden></div>
+          </form>
+
+          <div class="trust-strip">
+            <span>✓ Konum kaydedilmez</span>
+            <span>✓ Hesaplama cihazında yapılır</span>
+            <span>✓ Üyelik gerekmez</span>
           </div>
         </div>
       </div>

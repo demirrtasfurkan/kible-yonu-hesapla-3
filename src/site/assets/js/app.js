@@ -94,7 +94,7 @@
     accuracy = null,
     place = "Mevcut konum",
     source = "gps",
-    scrollResult = true,
+    scrollResult = false,
     updateMapFrame = true,
   }) {
     s.lat = lat;
@@ -120,6 +120,7 @@
     e.previewDirection.textContent = dir;
     e.previewDistance.textContent = dist;
     e.previewAccuracy.textContent = acc;
+    document.getElementById("quickCompass")?.classList.add("is-calculated");
     e.result.hidden = false;
     if (updateMapFrame) updateMap();
     status("Kıble yönü başarıyla hesaplandı.");
@@ -154,7 +155,7 @@
           source: "gps",
         });
         e.locationButton.disabled = false;
-        e.locationButton.innerHTML = "<span>✓</span> Yeniden hesapla";
+        e.locationButton.innerHTML = "<span>✓</span> Konumu yeniden hesapla";
         track("location_permission_granted");
       },
       (err) => {
