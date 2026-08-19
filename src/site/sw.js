@@ -1,11 +1,11 @@
-const CACHE = "kible-v22-unified-tool-mobile-navigation";
+const CACHE = "kible-v24-tool-first-layout";
 const CORE = [
   "/",
   "/sehirler/",
-  "/assets/css/style.css?v=22",
+  "/assets/css/style.css?v=24",
   "/assets/js/qibla.js",
-  "/assets/js/app.js?v=22",
-  "/assets/js/nav.js?v=22",
+  "/assets/js/app.js?v=24",
+  "/assets/js/nav.js?v=24",
   "/data/locations.json",
   "/data/cities.json",
   "/manifest.webmanifest",

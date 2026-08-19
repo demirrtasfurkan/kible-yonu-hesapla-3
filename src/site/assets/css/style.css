@@ -120,9 +120,9 @@
 .faq-list summary h3{display:inline;margin:0;font:inherit;font-weight:900;color:inherit}
 
 /* V12: tool-first homepage */
-.hero-grid{grid-template-areas:"intro tool" "controls tool";grid-template-columns:minmax(0,1.1fr) minmax(360px,.9fr);align-items:start}
+.hero-grid{grid-template-areas:"tool tool" "intro controls";grid-template-columns:minmax(0,1fr) minmax(360px,.82fr);align-items:start}
 .hero-copy{grid-area:intro}
-.preview-card{grid-area:tool;position:sticky;top:96px}
+.preview-card{grid-area:tool;position:relative;top:auto;width:100%;max-width:760px;justify-self:center}
 .hero-controls{grid-area:controls;max-width:720px}
 .hero-controls>.btn-secondary{margin-top:26px}
 .preview-action{margin-top:18px}
@@ -130,13 +130,13 @@
 .preview-card.is-calculated{border-color:#acd8cc;box-shadow:0 24px 70px rgba(11,122,104,.13)}
 
 @media(max-width:940px){
-  .hero-grid{grid-template-areas:"intro" "tool" "controls";grid-template-columns:1fr}
+  .hero-grid{grid-template-areas:"tool" "intro" "controls";grid-template-columns:1fr}
   .preview-card{position:relative;top:auto}
   .hero-controls{max-width:620px}
 }
 
 @media(max-width:620px){
-  .hero{padding:20px 0 42px}
+  .hero{padding:14px 0 42px}
   .hero-grid{gap:16px}
   .hero-copy .eyebrow{font-size:11px}
   .hero h1{font-size:34px;line-height:1.02;letter-spacing:-1.5px;margin:10px 0 12px}

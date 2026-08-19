@@ -141,11 +141,22 @@
       }, 120);
     }
   }
-  e.locationButton.addEventListener("click", () => {
+  e.locationButton.addEventListener("click", async () => {
     track("location_permission_requested");
     if (!navigator.geolocation) {
       status("Tarayıcın konum özelliğini desteklemiyor.", true);
       return;
+    }
+    let orientationPermission = "not-required";
+    if (
+      typeof DeviceOrientationEvent !== "undefined" &&
+      typeof DeviceOrientationEvent.requestPermission === "function"
+    ) {
+      try {
+        orientationPermission = await DeviceOrientationEvent.requestPermission();
+      } catch {
+        orientationPermission = "denied";
+      }
     }
     e.locationButton.disabled = true;
     e.locationButton.textContent = "Konum alınıyor…";
@@ -159,8 +170,9 @@
           place: "Mevcut konum",
           source: "gps",
         });
+        if (orientationPermission !== "denied") startCompass(true);
         e.locationButton.disabled = false;
-        e.locationButton.innerHTML = "<span>✓</span> Konumu yeniden hesapla";
+        e.locationButton.textContent = "Konumu yeniden hesapla";
         track("location_permission_granted");
       },
       (err) => {
@@ -318,7 +330,7 @@
       track("qibla_aligned");
     } else if (diff > 7) s.vibrated = false;
   }
-  e.compassButton.addEventListener("click", async () => {
+  async function startCompass(permissionAlreadyRequested = false) {
     if (s.bearing === null) {
       status("Önce konumunu hesapla.", true);
       return;
@@ -326,7 +338,8 @@
     try {
       if (
         typeof DeviceOrientationEvent !== "undefined" &&
-        typeof DeviceOrientationEvent.requestPermission === "function"
+        typeof DeviceOrientationEvent.requestPermission === "function" &&
+        !permissionAlreadyRequested
       ) {
         const p = await DeviceOrientationEvent.requestPermission();
         if (p !== "granted") throw new Error("Sensör izni verilmedi.");
@@ -335,13 +348,17 @@
         throw new Error("Bu cihazda yön sensörü bulunamadı.");
       window.addEventListener("deviceorientationabsolute", orient, true);
       window.addEventListener("deviceorientation", orient, true);
-      e.compassButton.textContent = "Canlı pusula aktif";
-      e.compassButton.disabled = true;
+      if (e.compassButton) {
+        e.compassButton.textContent = "Canlı pusula aktif";
+        e.compassButton.disabled = true;
+      }
+      e.compassStatus.textContent = "Canlı pusula aktif. Telefonu düz tutup yavaşça döndür.";
       track("compass_started");
     } catch (err) {
       e.compassStatus.textContent = err.message;
     }
-  });
+  }
+  e.compassButton?.addEventListener("click", () => startCompass(false));
   e.fitMapButton.addEventListener("click", () => {
     fitMap();
     track("map_opened");
@@ -422,6 +439,6 @@
   }
   if ("serviceWorker" in navigator)
     window.addEventListener("load", () =>
-      navigator.serviceWorker.register("/sw.js?v=22").catch(() => {}),
+      navigator.serviceWorker.register("/sw.js?v=24").catch(() => {}),
     );
 })();
