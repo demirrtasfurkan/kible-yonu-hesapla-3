@@ -1,10 +1,11 @@
-const CACHE = "kible-v20-city-forced-single-column";
+const CACHE = "kible-v22-unified-tool-mobile-navigation";
 const CORE = [
   "/",
   "/sehirler/",
-  "/assets/css/style.css?v=20",
+  "/assets/css/style.css?v=22",
   "/assets/js/qibla.js",
-  "/assets/js/app.js?v=20",
+  "/assets/js/app.js?v=22",
+  "/assets/js/nav.js?v=22",
   "/data/locations.json",
   "/data/cities.json",
   "/manifest.webmanifest",

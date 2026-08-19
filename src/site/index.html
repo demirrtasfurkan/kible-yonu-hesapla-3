@@ -99,31 +99,53 @@
           <p class="lead">Konumunu kullanarak canlı pusula üzerinde kıble yönünü ve açısını saniyeler içinde bul.</p>
         </div>
 
-        <div class="preview-card" id="quickCompass">
+        <div class="preview-card unified-tool" id="quickCompass">
           <div class="preview-top">
             <span>CANLI KIBLE PUSULASI</span>
-            <strong id="previewPlace">Konum bekleniyor</strong>
+            <button id="shareButton" class="tool-share" type="button" hidden>Sonucu paylaş</button>
           </div>
 
-          <div class="mini-compass">
-            <div class="mini-ring">
-              <span class="north">K</span>
-              <div id="previewNeedle" class="preview-needle">
-                <span class="preview-tip"></span>
-                <span class="preview-line"></span>
-              </div>
-              <span class="mini-center"></span>
+          <div class="tool-summary">
+            <div>
+              <span>Kıble açısı</span>
+              <strong id="previewBearing">—</strong>
             </div>
+            <span id="previewDirection" class="direction-badge">Kıble yönü</span>
           </div>
 
-          <div class="preview-result">
-            <strong id="previewBearing">—</strong>
-            <span id="previewDirection">Kıble yönü</span>
+          <div class="tool-view-tabs" role="tablist" aria-label="Araç görünümü">
+            <button id="compassViewButton" class="active" type="button" role="tab" aria-selected="true">Pusula</button>
+            <button id="mapViewButton" type="button" role="tab" aria-selected="false">Harita</button>
+          </div>
+
+          <div id="compassPanel" class="tool-panel">
+            <div class="compass-wrap">
+              <div class="compass-face">
+                <span class="dir n">K</span><span class="dir e">D</span><span class="dir s">G</span><span class="dir w">B</span>
+                <div class="inner-circle"></div>
+                <div id="qiblaNeedle" class="needle"><span class="needle-tip"></span><span class="needle-line"></span></div>
+                <span class="center-dot"></span>
+              </div>
+            </div>
+            <button id="compassButton" class="btn btn-secondary full tool-secondary-action" type="button">Canlı pusulayı başlat</button>
+            <p id="compassStatus" class="helper">Önce konumunu belirle; ardından telefonu düz tutup yavaşça döndür.</p>
+            <div id="alignmentMessage" class="alignment" hidden><strong>Kıble doğrultusundasınız</strong><span>Cihazı sabit tutun.</span></div>
+          </div>
+
+          <div id="mapPanel" class="tool-panel" hidden>
+            <div id="map" class="map-shell compact-map" aria-label="Konum ile Kâbe arasındaki kıble yönü haritası">
+              <iframe id="mapFrame" title="Kıble yönü haritası" loading="lazy" referrerpolicy="no-referrer" hidden></iframe>
+              <div id="mapPlaceholder" class="map-placeholder"><span>Harita sonuçtan sonra yüklenir</span><small>Önce konumunu kullan veya şehir seç.</small></div>
+              <div class="map-route-card" aria-hidden="true"><span class="route-point">Sen</span><span class="route-line"></span><span class="route-point kaaba">Kâbe</span></div>
+            </div>
+            <button id="fitMapButton" class="btn btn-secondary full tool-secondary-action" type="button">Haritayı yenile</button>
           </div>
 
           <div class="preview-metrics">
             <div><span>Mesafe</span><strong id="previewDistance">—</strong></div>
             <div><span>Doğruluk</span><strong id="previewAccuracy">—</strong></div>
+            <div><span>Konum</span><strong id="previewPlace">Bekleniyor</strong></div>
+            <div><span>Cihaz yönü</span><strong id="headingValue">Bekleniyor</strong></div>
           </div>
 
           <button id="locationButton" class="btn btn-primary full preview-action" type="button" aria-describedby="locationPrivacy">
@@ -155,83 +177,6 @@
       </div>
 
       <div class="container">
-        <section id="resultSection" class="result-section" hidden>
-          <div class="result-heading">
-            <div>
-              <span class="section-label">HESAPLAMA SONUCU</span>
-              <h2 id="resultTitle">Kıble yönünüz</h2>
-            </div>
-            <button id="shareButton" class="share-button" type="button">Sonucu paylaş</button>
-          </div>
-
-          <div class="result-grid">
-            <article class="compass-card">
-              <div class="bearing-row">
-                <div>
-                  <span>Kıble açısı</span>
-                  <strong id="bearingValue">—</strong>
-                </div>
-                <span id="directionValue" class="direction-badge">—</span>
-              </div>
-
-              <div class="compass-wrap">
-                <div class="compass-face">
-                  <span class="dir n">K</span>
-                  <span class="dir e">D</span>
-                  <span class="dir s">G</span>
-                  <span class="dir w">B</span>
-                  <div class="inner-circle"></div>
-                  <div id="qiblaNeedle" class="needle">
-                    <span class="needle-tip"></span>
-                    <span class="needle-line"></span>
-                  </div>
-                  <span class="center-dot"></span>
-                </div>
-              </div>
-
-              <button id="compassButton" class="btn btn-primary full" type="button">Canlı pusulayı başlat</button>
-              <p id="compassStatus" class="helper">Telefonu düz tutup yavaşça döndür.</p>
-
-              <div id="alignmentMessage" class="alignment" hidden>
-                <strong>Kıble doğrultusundasınız</strong>
-                <span>Cihazı sabit tutun.</span>
-              </div>
-            </article>
-
-            <article class="info-card">
-              <div class="metric"><span>Kâbe’ye mesafe</span><strong id="distanceValue">—</strong></div>
-              <div class="metric"><span>Konum doğruluğu</span><strong id="accuracyValue">—</strong></div>
-              <div class="metric"><span>Seçilen konum</span><strong id="placeValue">—</strong></div>
-              <div class="metric"><span>Cihaz yönü</span><strong id="headingValue">Bekleniyor</strong></div>
-              <div class="info-note">
-                <strong>Daha doğru sonuç için</strong>
-                <p>Telefonu metal yüzeylerden uzak tut ve gerekiyorsa cihazı sekiz çizerek kalibre et.</p>
-              </div>
-            </article>
-          </div>
-
-          <article class="map-card">
-            <div class="map-header">
-              <div>
-                <span class="section-label">HARİTA</span>
-                <h3>Konumdan Kâbe’ye yön çizgisi</h3>
-              </div>
-              <button id="fitMapButton" type="button">Haritayı yenile</button>
-            </div>
-            <div id="map" class="map-shell" aria-label="Seçilen konum ile Kâbe arasındaki kıble yönü haritası">
-              <iframe id="mapFrame" title="Kıble yönü haritası" loading="lazy" referrerpolicy="no-referrer" hidden></iframe>
-              <div id="mapPlaceholder" class="map-placeholder">
-                <span>Harita sonuçtan sonra yüklenir</span>
-                <small>İlk açılışı hızlandırmak için harita gecikmeli açılır.</small>
-              </div>
-              <div class="map-route-card" aria-hidden="true">
-                <span class="route-point">Sen</span>
-                <span class="route-line"></span>
-                <span class="route-point kaaba">Kâbe</span>
-              </div>
-            </div>
-          </article>
-        </section>
         <section class="confidence-band" aria-label="Kullanım güvenceleri">
           <div><strong>Konum kaydedilmez</strong><span>Hesaplama tarayıcıda yapılır.</span></div>
           <div><strong>Canlı sensör desteği</strong><span>Uyumlu telefonlarda yönü takip eder.</span></div>

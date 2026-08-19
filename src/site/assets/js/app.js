@@ -8,14 +8,14 @@
       status: $("statusMessage"),
       result: $("resultSection"),
       resultTitle: $("resultTitle"),
-      bearing: $("bearingValue"),
-      direction: $("directionValue"),
-      distance: $("distanceValue"),
-      accuracy: $("accuracyValue"),
-      place: $("placeValue"),
+      bearing: $("bearingValue") || $("previewBearing"),
+      direction: $("directionValue") || $("previewDirection"),
+      distance: $("distanceValue") || $("previewDistance"),
+      accuracy: $("accuracyValue") || $("previewAccuracy"),
+      place: $("placeValue") || $("previewPlace"),
       heading: $("headingValue"),
       needle: $("qiblaNeedle"),
-      previewNeedle: $("previewNeedle"),
+      previewNeedle: $("previewNeedle") || $("qiblaNeedle"),
       previewPlace: $("previewPlace"),
       previewBearing: $("previewBearing"),
       previewDirection: $("previewDirection"),
@@ -26,6 +26,10 @@
       alignment: $("alignmentMessage"),
       fitMapButton: $("fitMapButton"),
       shareButton: $("shareButton"),
+      compassViewButton: $("compassViewButton"),
+      mapViewButton: $("mapViewButton"),
+      compassPanel: $("compassPanel"),
+      mapPanel: $("mapPanel"),
     };
   let s = {
     lat: null,
@@ -112,7 +116,7 @@
     e.accuracy.textContent = acc;
     e.place.textContent = place;
     e.heading.textContent = "Bekleniyor";
-    e.resultTitle.textContent = `${place} için kıble yönü`;
+    if (e.resultTitle) e.resultTitle.textContent = `${place} için kıble yönü`;
     e.needle.style.transform = `translate(-50%,-100%) rotate(${s.bearing}deg)`;
     e.previewNeedle.style.transform = `translate(-50%,-100%) rotate(${s.bearing}deg)`;
     e.previewPlace.textContent = place;
@@ -121,7 +125,8 @@
     e.previewDistance.textContent = dist;
     e.previewAccuracy.textContent = acc;
     document.getElementById("quickCompass")?.classList.add("is-calculated");
-    e.result.hidden = false;
+    if (e.result) e.result.hidden = false;
+    if (e.shareButton) e.shareButton.hidden = false;
     if (updateMapFrame) updateMap();
     status("Kıble yönü başarıyla hesaplandı.");
     track("qibla_calculated", {
@@ -129,7 +134,7 @@
       qibla_bearing: Number(s.bearing.toFixed(1)),
       place_name: place,
     });
-    if (scrollResult) {
+    if (scrollResult && e.result) {
       setTimeout(() => {
         const y = e.result.getBoundingClientRect().top + window.scrollY - 78;
         window.scrollTo({ top: y, behavior: "smooth" });
@@ -341,7 +346,21 @@
     fitMap();
     track("map_opened");
   });
-  e.shareButton.addEventListener("click", async () => {
+  function setToolView(view) {
+    if (!e.compassPanel || !e.mapPanel) return;
+    const showMap = view === "map";
+    e.compassPanel.hidden = showMap;
+    e.mapPanel.hidden = !showMap;
+    e.compassViewButton?.classList.toggle("active", !showMap);
+    e.mapViewButton?.classList.toggle("active", showMap);
+    e.compassViewButton?.setAttribute("aria-selected", String(!showMap));
+    e.mapViewButton?.setAttribute("aria-selected", String(showMap));
+    if (showMap && s.lat !== null) updateMap();
+    track(showMap ? "map_view_selected" : "compass_view_selected");
+  }
+  e.compassViewButton?.addEventListener("click", () => setToolView("compass"));
+  e.mapViewButton?.addEventListener("click", () => setToolView("map"));
+  e.shareButton?.addEventListener("click", async () => {
     if (s.bearing === null) return;
     const text = `${s.place} için kıble açısı ${fmt(s.bearing, 1)}° (${getDirectionName(s.bearing)}).`;
     try {
@@ -403,6 +422,6 @@
   }
   if ("serviceWorker" in navigator)
     window.addEventListener("load", () =>
-      navigator.serviceWorker.register("/sw.js?v=20").catch(() => {}),
+      navigator.serviceWorker.register("/sw.js?v=22").catch(() => {}),
     );
 })();
