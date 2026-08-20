@@ -1,0 +1,28 @@
+KIBLE HARITASI GUNCELLEMESI
+
+ZIP'i acip icindeki klasorleri GitHub reposunun kokune yukleyin.
+Mevcut dosyalar icin Replace/Overwrite secenegini kullanin.
+
+Degisen dosyalar:
+- scripts/generate.py
+- src/site/assets/js/app.js
+- src/site/assets/css/style.css
+- src/site/sw.js
+
+Yeni klasor:
+- src/site/assets/vendor/leaflet/
+
+qibla.js dosyasinda degisiklik yoktur.
+
+Onerilen commit mesaji:
+Fix interactive Qibla map and Kaaba route line
+
+Deploy sonrasi kontrol:
+1. Ana sayfada konum hesaplamasini calistirin.
+2. /istanbul-kible-yonu/ sayfasini acin.
+3. Haritada Konumun ve Kabe isaretlerinin gorundugunu kontrol edin.
+4. Iki nokta arasindaki yesil kesik kible hattini kontrol edin.
+5. Haritayi yenile dugmesinin iki noktayi tekrar kadraja aldigini kontrol edin.
+
+Tarayici eski dosyayi tutarsa sayfayi bir kez sert yenileyin.
+Servis calisani onbellegi bu pakette yeni surume yukseltildi.
