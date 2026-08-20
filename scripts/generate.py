@@ -71,7 +71,8 @@ def district_options(city):
         '<option '
         f'value="{html.escape(item["slug"], quote=True)}" '
         f'data-name="{html.escape(item["name"], quote=True)}" '
-        f'data-lat="{item["lat"]}" data-lng="{item["lng"]}">'
+        f'data-lat="{item["lat"]}" data-lng="{item["lng"]}" '
+        f'data-bearing="{item["bearing"]}" data-distance="{item["distance"]}">'
         f'{html.escape(item["name"])} · {decimal_tr(item["bearing"])}°</option>'
         for item in city.get("districts", [])
     )
@@ -85,12 +86,11 @@ def district_table(city):
             '<tr>'
             f'<th scope="row">{html.escape(item["name"])}</th>'
             f'<td>{decimal_tr(item["bearing"])}°</td>'
-            f'<td>{html.escape(direction_16(item["bearing"]))}</td>'
             f'<td>{tr(item["distance"])} km</td>'
             f'<td>{signed_degree(difference)}</td>'
-            '<td><button type="button" class="district-use" '
+            '<td><button type="button" class="district-use" aria-label="Haritada göster" '
             f'data-name="{html.escape(item["name"], quote=True)}" '
-            f'data-lat="{item["lat"]}" data-lng="{item["lng"]}">Hesapla</button></td>'
+            f'data-lat="{item["lat"]}" data-lng="{item["lng"]}">↗</button></td>'
             '</tr>'
         )
     return "".join(rows)

@@ -50,6 +50,7 @@
     });
   }
   function status(m, err = false) {
+    if (!e.status) return;
     e.status.textContent = m;
     e.status.classList.toggle("error", err);
   }
@@ -118,12 +119,12 @@
     e.heading.textContent = "Bekleniyor";
     if (e.resultTitle) e.resultTitle.textContent = `${place} için kıble yönü`;
     e.needle.style.transform = `translate(-50%,-100%) rotate(${s.bearing}deg)`;
-    e.previewNeedle.style.transform = `translate(-50%,-100%) rotate(${s.bearing}deg)`;
-    e.previewPlace.textContent = place;
-    e.previewBearing.textContent = deg;
-    e.previewDirection.textContent = dir;
-    e.previewDistance.textContent = dist;
-    e.previewAccuracy.textContent = acc;
+    if (e.previewNeedle) e.previewNeedle.style.transform = `translate(-50%,-100%) rotate(${s.bearing}deg)`;
+    if (e.previewPlace) e.previewPlace.textContent = place;
+    if (e.previewBearing) e.previewBearing.textContent = deg;
+    if (e.previewDirection) e.previewDirection.textContent = dir;
+    if (e.previewDistance) e.previewDistance.textContent = dist;
+    if (e.previewAccuracy) e.previewAccuracy.textContent = acc;
     document.getElementById("quickCompass")?.classList.add("is-calculated");
     if (e.result) e.result.hidden = false;
     if (e.shareButton) e.shareButton.hidden = false;
@@ -141,7 +142,7 @@
       }, 120);
     }
   }
-  e.locationButton.addEventListener("click", async () => {
+  e.locationButton?.addEventListener("click", async () => {
     track("location_permission_requested");
     if (!navigator.geolocation) {
       status("Tarayıcın konum özelliğini desteklemiyor.", true);
@@ -235,7 +236,7 @@
     });
     e.searchResults.hidden = false;
   }
-  e.searchForm.addEventListener("submit", async (ev) => {
+  e.searchForm?.addEventListener("submit", async (ev) => {
     ev.preventDefault();
     const q = e.locationSearch.value.trim();
     if (q.length < 2) {
@@ -257,7 +258,7 @@
       );
     }
   });
-  e.locationSearch.addEventListener("input", () => {
+  e.locationSearch?.addEventListener("input", () => {
     const q = e.locationSearch.value.trim();
     if (q.length < 2) {
       e.searchResults.hidden = true;
@@ -267,7 +268,7 @@
     if (rs.length) showResults(rs);
   });
   document.addEventListener("click", (ev) => {
-    if (!e.searchForm.contains(ev.target)) e.searchResults.hidden = true;
+    if (e.searchForm && !e.searchForm.contains(ev.target)) e.searchResults.hidden = true;
   });
   document.querySelectorAll(".city-card").forEach((b) =>
     b.addEventListener("click", () => {
@@ -314,7 +315,7 @@
     const rel = normalizeDegree(s.bearing - h),
       diff = angularDifference(h, s.bearing);
     e.needle.style.transform = `translate(-50%,-100%) rotate(${rel}deg)`;
-    e.previewNeedle.style.transform = `translate(-50%,-100%) rotate(${rel}deg)`;
+    if (e.previewNeedle) e.previewNeedle.style.transform = `translate(-50%,-100%) rotate(${rel}deg)`;
     e.heading.textContent = `${fmt(h, 0)}°`;
     e.compassStatus.textContent =
       diff <= 4
@@ -359,7 +360,7 @@
     }
   }
   e.compassButton?.addEventListener("click", () => startCompass(false));
-  e.fitMapButton.addEventListener("click", () => {
+  e.fitMapButton?.addEventListener("click", () => {
     fitMap();
     track("map_opened");
   });
