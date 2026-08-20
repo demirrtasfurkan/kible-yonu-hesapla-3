@@ -1,11 +1,11 @@
-const CACHE = "kible-v24-tool-first-layout";
+const CACHE = "kible-v26-single-navigation";
 const CORE = [
   "/",
   "/sehirler/",
-  "/assets/css/style.css?v=24",
+  "/assets/css/style.css?v=26",
   "/assets/js/qibla.js",
-  "/assets/js/app.js?v=24",
-  "/assets/js/nav.js?v=24",
+  "/assets/js/app.js?v=26",
+  "/assets/js/nav.js?v=26",
   "/data/locations.json",
   "/data/cities.json",
   "/manifest.webmanifest",

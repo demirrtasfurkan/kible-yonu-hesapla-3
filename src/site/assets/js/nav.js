@@ -10,14 +10,16 @@
   }
   nav.classList.add("site-nav");
   if (!nav.id) nav.id = "siteNavigation";
-  const button = document.createElement("button");
+  const existingButtons = [...header.querySelectorAll(".nav-toggle")];
+  const button = existingButtons.shift() || document.createElement("button");
+  existingButtons.forEach((extraButton) => extraButton.remove());
   button.className = "nav-toggle";
   button.type = "button";
   button.setAttribute("aria-controls", nav.id);
   button.setAttribute("aria-expanded", "false");
   button.setAttribute("aria-label", "Menüyü aç");
   button.innerHTML = '<span class="nav-toggle-lines" aria-hidden="true"></span>';
-  header.insertBefore(button, nav);
+  if (!button.isConnected) header.insertBefore(button, nav);
   const close = () => {
     nav.classList.remove("is-open");
     button.setAttribute("aria-expanded", "false");
