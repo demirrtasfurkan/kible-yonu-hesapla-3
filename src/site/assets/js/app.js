@@ -1,4 +1,27 @@
-(() => {
+(async () => {
+  if ("serviceWorker" in navigator) {
+    try {
+      const registrations = await navigator.serviceWorker.getRegistrations(),
+        controlled = Boolean(navigator.serviceWorker.controller);
+      if (registrations.length) {
+        await Promise.all(registrations.map((registration) => registration.unregister()));
+        if ("caches" in window) {
+          const cacheNames = await window.caches.keys();
+          await Promise.all(
+            cacheNames
+              .filter((name) => name.startsWith("kible-"))
+              .map((name) => window.caches.delete(name)),
+          );
+        }
+        if (controlled) {
+          window.location.reload();
+          return;
+        }
+      }
+    } catch (error) {
+      console.warn("Eski çevrimdışı önbellek temizlenemedi.", error);
+    }
+  }
   const $ = (id) => document.getElementById(id),
     e = {
       locationButton: $("locationButton"),
@@ -668,8 +691,4 @@
       );
     }
   }
-  if ("serviceWorker" in navigator)
-    window.addEventListener("load", () =>
-      navigator.serviceWorker.register("/sw.js?v=29").catch(() => {}),
-    );
 })();
