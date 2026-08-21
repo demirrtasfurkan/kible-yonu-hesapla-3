@@ -549,11 +549,11 @@ def main():
         page = path.read_text(encoding="utf-8")
         if re.search(r"<footer\b.*?</footer>", page, flags=re.DOTALL):
             page = re.sub(r"<footer\b.*?</footer>", footer_html, page, count=1, flags=re.DOTALL)
-        page = re.sub(r'/assets/css/style\.css(?:\?v=\d+)?', '/assets/css/style.css?v=32', page)
-        page = re.sub(r'/assets/js/app\.js(?:\?v=\d+)?', '/assets/js/app.js?v=32', page)
-        page = re.sub(r'/assets/js/qibla-map\.js(?:\?v=\d+)?', '/assets/js/qibla-map.js?v=32', page)
+        page = re.sub(r'/assets/css/style\.css(?:\?v=\d+)?', '/assets/css/style.css?v=33', page)
+        page = re.sub(r'/assets/js/app\.js(?:\?v=\d+)?', '/assets/js/app.js?v=33', page)
+        page = re.sub(r'/assets/js/qibla-map\.js(?:\?v=\d+)?', '/assets/js/qibla-map.js?v=33', page)
         if '/assets/js/nav.js' not in page:
-            page = page.replace('</body>', '<script src="/assets/js/nav.js?v=32" defer></script>\n</body>')
+            page = page.replace('</body>', '<script src="/assets/js/nav.js?v=33" defer></script>\n</body>')
         path.write_text(page, encoding="utf-8")
     print(f"Build tamamlandı: {len(cities)} il, {len(posts)} blog")
 
