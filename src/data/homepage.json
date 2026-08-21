@@ -4,7 +4,7 @@
   "hero_eyebrow": "Online · Ücretsiz · Gizlilik Odaklı",
   "h1": "Kıble Bul",
   "hero_lead": "Kıble ne tarafta? GPS konumunu kullan; kıble açısını canlı pusula ve harita üzerinde saniyeler içinde gör.",
-  "status_message": "Örnek İstanbul sonucu gösteriliyor; bulunduğun noktayı hesaplamak için konumunu kullan.",
+  "status_message": "Kıble yönünü görmek için konumunu kullan.",
   "privacy_note": "Konumun yalnızca cihazında hesaplama yapmak için kullanılır.",
   "footer_description": "GPS, canlı pusula, harita ve şehir verileriyle kıble yönünü bulma aracı.",
   "guide_sections": [
@@ -104,6 +104,10 @@
   ],
   "faq_heading": "Sık Sorulan Sorular",
   "faqs": [
+    {
+      "question": "Kıble nedir?",
+      "answer": "Kıble, Müslümanların namaz kılarken yöneldiği, Mekke'deki Kâbe'nin bulunduğu yöndür. Kâbe'ye olan doğrultu bulunduğun koordinata göre değiştiği için kıble açısı her konum için ayrı hesaplanır."
+    },
     {
       "question": "Online kıble nasıl bulunur?",
       "answer": "Konumumdan Kıbleyi Bul düğmesine basıp tarayıcıya konum izni ver. Araç koordinatlarından Kâbe yönünü hesaplar ve kıble açısını canlı pusula ile harita üzerinde gösterir. Konum izni vermek istemezsen şehir veya ilçe araması da yapabilirsin."
