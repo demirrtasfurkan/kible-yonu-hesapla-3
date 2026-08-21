@@ -30,7 +30,6 @@
       mapViewButton: $("mapViewButton"),
       compassPanel: $("compassPanel"),
       mapPanel: $("mapPanel"),
-      defaultResultLabel: $("defaultResultLabel"),
     };
   let s = {
     lat: null,
@@ -138,9 +137,9 @@
     if (e.previewDistance) e.previewDistance.textContent = dist;
     if (e.previewAccuracy) e.previewAccuracy.textContent = acc;
     document.getElementById("quickCompass")?.classList.add("is-calculated");
+    if (e.mapViewButton) e.mapViewButton.disabled = false;
     if (e.result) e.result.hidden = false;
     if (e.shareButton) e.shareButton.hidden = false;
-    if (e.defaultResultLabel) e.defaultResultLabel.hidden = true;
     window.dispatchEvent(
       new CustomEvent("qibla:location", {
         detail: { lat, lng, name: place, qibla: s.bearing },
@@ -439,17 +438,6 @@
     }
   });
   loadLocations();
-  const defaultTool = document.getElementById("quickCompass")?.dataset;
-  if (defaultTool && !document.body.dataset.cityPage) {
-    const lat = Number(defaultTool.defaultLat),
-      lng = Number(defaultTool.defaultLng);
-    if (Number.isFinite(lat) && Number.isFinite(lng)) {
-      s.lat = lat;
-      s.lng = lng;
-      s.place = defaultTool.defaultPlace || "İstanbul merkez";
-      s.bearing = calculateQiblaBearing(lat, lng);
-    }
-  }
   const cityPage = document.body.dataset.cityPage === "true";
   if (cityPage) {
     const lat = Number(document.body.dataset.cityLat),
