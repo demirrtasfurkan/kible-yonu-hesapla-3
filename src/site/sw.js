@@ -1,11 +1,11 @@
-const CACHE = "kible-v28-map-csp-hotfix";
+const CACHE = "kible-v29-competitor-map";
 const CORE = [
   "/",
   "/sehirler/",
-  "/assets/css/style.css?v=28",
+  "/assets/css/style.css?v=29",
   "/assets/js/qibla.js",
-  "/assets/js/app.js?v=28",
-  "/assets/js/nav.js?v=28",
+  "/assets/js/app.js?v=29",
+  "/assets/js/nav.js?v=29",
   "/assets/vendor/leaflet/leaflet.css",
   "/assets/vendor/leaflet/leaflet.js",
   "/data/locations.json",

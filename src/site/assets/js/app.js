@@ -30,6 +30,7 @@
       mapViewButton: $("mapViewButton"),
       compassPanel: $("compassPanel"),
       mapPanel: $("mapPanel"),
+      mapLayerButtons: document.querySelectorAll(".map-layers button"),
     };
   let s = {
     lat: null,
@@ -43,6 +44,8 @@
     userMarker: null,
     kaabaMarker: null,
     routeLine: null,
+    streetLayer: null,
+    satelliteLayer: null,
     mapResizeObserver: null,
   };
   function track(action, params = {}) {
@@ -117,62 +120,94 @@
 
     return s.leafletPromise;
   }
-  function greatCirclePoints(start, end, segmentCount = 80) {
-    const toVector = ({ lat, lng }) => {
-        const phi = toRadians(lat),
-          lambda = toRadians(lng),
-          cosPhi = Math.cos(phi);
-        return [cosPhi * Math.cos(lambda), cosPhi * Math.sin(lambda), Math.sin(phi)];
-      },
-      a = toVector(start),
-      b = toVector(end),
-      dot = Math.max(-1, Math.min(1, a[0] * b[0] + a[1] * b[1] + a[2] * b[2])),
-      omega = Math.acos(dot),
-      sinOmega = Math.sin(omega);
-
-    if (sinOmega < 1e-8) return [[start.lat, start.lng], [end.lat, end.lng]];
-
-    return Array.from({ length: segmentCount + 1 }, (_, index) => {
-      const t = index / segmentCount,
-        scaleA = Math.sin((1 - t) * omega) / sinOmega,
-        scaleB = Math.sin(t * omega) / sinOmega,
-        x = scaleA * a[0] + scaleB * b[0],
-        y = scaleA * a[1] + scaleB * b[1],
-        z = scaleA * a[2] + scaleB * b[2];
-      return [
-        toDegrees(Math.atan2(z, Math.hypot(x, y))),
-        toDegrees(Math.atan2(y, x)),
-      ];
-    });
-  }
-  function createMapIcon(L, type, label) {
+  function createMapIcon(L, type) {
     return L.divIcon({
       className: "qibla-map-div-icon",
-      html: `<div class="qibla-map-marker ${type}"><span>${label}</span></div>`,
-      iconSize: [26, 26],
-      iconAnchor: [13, 13],
+      html: `<span class="qibla-map-pin ${type}" aria-hidden="true"></span>`,
+      iconSize: [18, 18],
+      iconAnchor: [9, 9],
     });
   }
-  function fitRoute() {
-    if (!s.map || !s.routeLine) return;
-    s.map.invalidateSize({ pan: false });
-    s.map.fitBounds(s.routeLine.getBounds(), {
-      paddingTopLeft: [42, 42],
-      paddingBottomRight: [42, 48],
-      maxZoom: 6,
-      animate: false,
-    });
-  }
-  async function ensureMap() {
+  function mapElements() {
     const frame = document.getElementById("mapFrame"),
       placeholder = document.getElementById("mapPlaceholder"),
       root =
         document.getElementById("map") ||
         frame?.closest(".city-map-shell") ||
         frame?.parentElement;
-    if (!root) return null;
+    return { frame, placeholder, root };
+  }
+  function mapVisible(root = mapElements().root) {
+    return Boolean(root && root.offsetParent !== null && root.clientHeight > 40);
+  }
+  function escapeMapText(value) {
+    const element = document.createElement("span");
+    element.textContent = String(value || "");
+    return element.innerHTML;
+  }
+  function drawMap(keepView = false) {
+    if (!s.map || !window.L || s.lat === null || s.lng === null) return;
+    const L = window.L,
+      here = [s.lat, s.lng],
+      there = [KAABA.lat, KAABA.lng];
+
+    if (s.userMarker) s.map.removeLayer(s.userMarker);
+    if (s.kaabaMarker) s.map.removeLayer(s.kaabaMarker);
+    if (s.routeLine) s.map.removeLayer(s.routeLine);
+
+    s.userMarker = L.marker(here, {
+      icon: createMapIcon(L, "user"),
+      title: s.place || "Konumunuz",
+      alt: `${s.place || "Konumunuz"} konumu`,
+      keyboard: true,
+    })
+      .addTo(s.map)
+      .bindPopup(
+        `<strong>${escapeMapText(s.place || "Konumunuz")}</strong><br>Kıble: ${Math.round(s.bearing)}°`,
+      );
+    s.userMarker
+      .getElement()
+      ?.setAttribute("aria-label", `${s.place || "Konumunuz"} konumu`);
+
+    s.kaabaMarker = L.marker(there, {
+      icon: createMapIcon(L, "kaaba"),
+      title: "Kâbe",
+      alt: "Kâbe, Mekke",
+      keyboard: true,
+    })
+      .addTo(s.map)
+      .bindPopup("<strong>Kâbe</strong><br>Mekke");
+    s.kaabaMarker.getElement()?.setAttribute("aria-label", "Kâbe, Mekke");
+
+    s.routeLine = L.polyline([here, there], {
+      color: "#c9a24e",
+      weight: 3,
+      opacity: 0.95,
+      dashArray: "10 8",
+    }).addTo(s.map);
+
+    if (!keepView) s.map.fitBounds(L.latLngBounds(here, there).pad(0.18));
+  }
+  function invalidateMap() {
+    if (!s.map) return;
+    const run = () => {
+      if (!mapVisible()) return;
+      s.map.invalidateSize({ animate: false });
+      drawMap(true);
+    };
+    requestAnimationFrame(() => {
+      run();
+      setTimeout(run, 50);
+      setTimeout(run, 200);
+      setTimeout(run, 450);
+    });
+  }
+  async function ensureMap() {
+    const { frame, placeholder, root } = mapElements();
+    if (!root || !mapVisible(root)) return null;
 
     const L = await loadLeaflet();
+    if (!mapVisible(root)) return null;
     let canvas = document.getElementById("mapCanvas");
     if (!canvas) {
       canvas = document.createElement("div");
@@ -198,24 +233,27 @@
       s.map = L.map(canvas, {
         zoomControl: true,
         attributionControl: true,
-        scrollWheelZoom: false,
-        worldCopyJump: true,
+        scrollWheelZoom: true,
       });
-      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      s.streetLayer = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         maxZoom: 19,
-        attribution:
-          '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> katkıda bulunanlar',
-      }).addTo(s.map);
+        attribution: "&copy; OpenStreetMap",
+        detectRetina: true,
+      });
+      s.satelliteLayer = L.tileLayer(
+        "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+        {
+          maxZoom: 19,
+          attribution: "Tiles &copy; Esri",
+          detectRetina: true,
+        },
+      );
+      s.streetLayer.addTo(s.map);
 
       if ("ResizeObserver" in window) {
-        let previousWidth = canvas.offsetWidth;
         s.mapResizeObserver = new ResizeObserver(([entry]) => {
-          const width = entry.contentRect.width;
-          if (width > 0) {
-            s.map.invalidateSize({ pan: false });
-            if (previousWidth === 0) fitRoute();
-          }
-          previousWidth = width;
+          if (entry.contentRect.width > 0 && entry.contentRect.height > 40)
+            invalidateMap();
         });
         s.mapResizeObserver.observe(canvas);
       }
@@ -239,47 +277,8 @@
     try {
       const mapContext = await ensureMap();
       if (!mapContext) return;
-      const { L, map } = mapContext,
-        userLatLng = [s.lat, s.lng],
-        kaabaLatLng = [KAABA.lat, KAABA.lng],
-        routePoints = greatCirclePoints(
-          { lat: s.lat, lng: s.lng },
-          { lat: KAABA.lat, lng: KAABA.lng },
-        );
-
-      if (!s.userMarker) {
-        s.userMarker = L.marker(userLatLng, {
-          icon: createMapIcon(L, "user", "Konumun"),
-          keyboard: true,
-          title: "Konumunuz",
-        }).addTo(map);
-      } else {
-        s.userMarker.setLatLng(userLatLng);
-      }
-
-      if (!s.kaabaMarker) {
-        s.kaabaMarker = L.marker(kaabaLatLng, {
-          icon: createMapIcon(L, "kaaba", "Kâbe"),
-          keyboard: true,
-          title: "Kâbe",
-        }).addTo(map);
-      }
-
-      if (!s.routeLine) {
-        s.routeLine = L.polyline(routePoints, {
-          color: "#0b7a68",
-          weight: 4,
-          opacity: 0.95,
-          dashArray: "11 10",
-          lineCap: "round",
-          lineJoin: "round",
-          interactive: false,
-        }).addTo(map);
-      } else {
-        s.routeLine.setLatLngs(routePoints);
-      }
-
-      if (refit) fitRoute();
+      drawMap(!refit);
+      invalidateMap();
     } catch (error) {
       if (placeholder) {
         placeholder.hidden = false;
@@ -294,8 +293,26 @@
     }
   }
   function fitMap() {
-    if (s.map && s.routeLine) fitRoute();
-    else updateMap();
+    if (s.map && s.routeLine) {
+      drawMap(false);
+      invalidateMap();
+    } else updateMap();
+  }
+  async function setMapLayer(kind) {
+    if (!s.map) await updateMap();
+    if (!s.map || !s.streetLayer || !s.satelliteLayer) return;
+    const satellite = kind === "satellite";
+    if (satellite) {
+      if (s.map.hasLayer(s.streetLayer)) s.map.removeLayer(s.streetLayer);
+      if (!s.map.hasLayer(s.satelliteLayer)) s.satelliteLayer.addTo(s.map);
+    } else {
+      if (s.map.hasLayer(s.satelliteLayer)) s.map.removeLayer(s.satelliteLayer);
+      if (!s.map.hasLayer(s.streetLayer)) s.streetLayer.addTo(s.map);
+    }
+    e.mapLayerButtons.forEach((button, index) =>
+      button.classList.toggle("active", satellite ? index === 1 : index === 0),
+    );
+    invalidateMap();
   }
   function render({
     lat,
@@ -332,7 +349,7 @@
     document.getElementById("quickCompass")?.classList.add("is-calculated");
     if (e.result) e.result.hidden = false;
     if (e.shareButton) e.shareButton.hidden = false;
-    if (updateMapFrame) updateMap();
+    if (updateMapFrame && mapVisible()) updateMap();
     status("Kıble yönü başarıyla hesaplandı.");
     track("qibla_calculated", {
       calculation_source: source,
@@ -568,6 +585,11 @@
     fitMap();
     track("map_opened");
   });
+  e.mapLayerButtons.forEach((button, index) =>
+    button.addEventListener("click", () =>
+      setMapLayer(index === 1 ? "satellite" : "street"),
+    ),
+  );
   function setToolView(view) {
     if (!e.compassPanel || !e.mapPanel) return;
     const showMap = view === "map";
@@ -577,7 +599,8 @@
     e.mapViewButton?.classList.toggle("active", showMap);
     e.compassViewButton?.setAttribute("aria-selected", String(!showMap));
     e.mapViewButton?.setAttribute("aria-selected", String(showMap));
-    if (showMap && s.lat !== null) updateMap();
+    if (showMap && s.lat !== null)
+      requestAnimationFrame(() => updateMap().then(() => invalidateMap()));
     track(showMap ? "map_view_selected" : "compass_view_selected");
   }
   e.compassViewButton?.addEventListener("click", () => setToolView("compass"));
@@ -621,6 +644,9 @@
       track("scroll_100");
     }
   });
+  window.addEventListener("resize", () => {
+    if (s.map && mapVisible()) invalidateMap();
+  });
   loadLocations();
   const cityPage = document.body.dataset.cityPage === "true";
   if (cityPage) {
@@ -644,6 +670,6 @@
   }
   if ("serviceWorker" in navigator)
     window.addEventListener("load", () =>
-      navigator.serviceWorker.register("/sw.js?v=28").catch(() => {}),
+      navigator.serviceWorker.register("/sw.js?v=29").catch(() => {}),
     );
 })();
