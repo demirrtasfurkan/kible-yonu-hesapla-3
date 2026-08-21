@@ -99,24 +99,23 @@
           <p class="lead">Konumunu kullanarak canlı pusula üzerinde kıble yönünü ve açısını saniyeler içinde bul.</p>
         </div>
 
-        <div class="preview-card unified-tool is-calculated" id="quickCompass" data-default-lat="41.0082" data-default-lng="28.9784" data-default-place="İstanbul merkez">
+        <div class="preview-card unified-tool" id="quickCompass">
           <div class="preview-top">
             <span>CANLI KIBLE PUSULASI</span>
-            <small class="default-result-label" id="defaultResultLabel">İstanbul örnek sonucu</small>
             <button id="shareButton" class="tool-share" type="button" hidden>Sonucu paylaş</button>
           </div>
 
           <div class="tool-summary">
             <div>
               <span>Kıble açısı</span>
-              <strong id="previewBearing">151,6°</strong>
+              <strong id="previewBearing">—</strong>
             </div>
-            <span id="previewDirection" class="direction-badge">Güney-Güneydoğu</span>
+            <span id="previewDirection" class="direction-badge">Konum bekleniyor</span>
           </div>
 
           <div class="tool-view-tabs" role="tablist" aria-label="Araç görünümü">
             <button id="compassViewButton" class="active" type="button" role="tab" aria-selected="true">Pusula</button>
-            <button id="mapViewButton" type="button" role="tab" aria-selected="false">Harita</button>
+            <button id="mapViewButton" type="button" role="tab" aria-selected="false" disabled>Harita</button>
           </div>
 
           <div id="compassPanel" class="tool-panel">
@@ -124,7 +123,7 @@
               <div class="compass-face">
                 <span class="dir n">K</span><span class="dir e">D</span><span class="dir s">G</span><span class="dir w">B</span>
                 <div class="inner-circle"></div>
-                <div id="qiblaNeedle" class="needle" style="transform:translate(-50%,-100%) rotate(151.6deg)"><span class="needle-tip"></span><span class="needle-line"></span></div>
+                <div id="qiblaNeedle" class="needle"><span class="needle-tip"></span><span class="needle-line"></span></div>
                 <span class="center-dot"></span>
               </div>
             </div>
@@ -140,16 +139,16 @@
           </div>
 
           <div class="preview-metrics">
-            <div><span>Mesafe</span><strong id="previewDistance">2.405 km</strong></div>
-            <div><span>Doğruluk</span><strong id="previewAccuracy">Merkez koordinatı</strong></div>
-            <div><span>Konum</span><strong id="previewPlace">İstanbul merkez</strong></div>
+            <div><span>Mesafe</span><strong id="previewDistance">—</strong></div>
+            <div><span>Doğruluk</span><strong id="previewAccuracy">—</strong></div>
+            <div><span>Konum</span><strong id="previewPlace">Henüz belirlenmedi</strong></div>
             <div><span>Cihaz yönü</span><strong id="headingValue">Bekleniyor</strong></div>
           </div>
 
           <button id="locationButton" class="btn btn-primary full preview-action" type="button" aria-describedby="locationPrivacy">
-            Konumumdan kıbleyi bul
+            Konumdan Kıbleyi Bul
           </button>
-          <p id="statusMessage" class="status preview-status" role="status" aria-live="polite">Örnek sonuç gösteriliyor; bulunduğun noktayı hesaplamak için konumunu kullan.</p>
+          <p id="statusMessage" class="status preview-status" role="status" aria-live="polite">Kıble yönünü görmek için konumunu kullan.</p>
           <p id="locationPrivacy" class="privacy-inline">Konumun kaydedilmez; hesaplama yalnızca cihazında yapılır.</p>
         </div>
 
