@@ -39,6 +39,7 @@
     place: "",
     vibrated: false,
     locations: [],
+    locationsPromise: null,
   };
   function track(action, params = {}) {
     window.dataLayer = window.dataLayer || [];
@@ -66,12 +67,44 @@
       .normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "");
   }
-  async function loadLocations() {
-    try {
-      s.locations = await fetch("/data/locations.json").then((r) => r.json());
-    } catch {
-      s.locations = [];
+  function loadLocations() {
+    if (s.locationsPromise) return s.locationsPromise;
+    s.locationsPromise = fetch("/data/locations.json")
+      .then((r) => {
+        if (!r.ok) throw new Error("Konum listesi yüklenemedi.");
+        return r.json();
+      })
+      .then((locations) => {
+        s.locations = locations;
+        return locations;
+      })
+      .catch(() => {
+        s.locations = [];
+        return [];
+      });
+    return s.locationsPromise;
+  }
+  function distanceBetween(lat1, lng1, lat2, lng2) {
+    const radius = 6371.0088,
+      dLat = toRadians(lat2 - lat1),
+      dLng = toRadians(lng2 - lng1),
+      a =
+        Math.sin(dLat / 2) ** 2 +
+        Math.cos(toRadians(lat1)) *
+          Math.cos(toRadians(lat2)) *
+          Math.sin(dLng / 2) ** 2;
+    return radius * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  }
+  async function nearestDistrictName(lat, lng) {
+    const locations = await loadLocations();
+    let nearest = null;
+    for (const location of locations) {
+      if (location.type !== "İlçe") continue;
+      const distance = distanceBetween(lat, lng, Number(location.lat), Number(location.lng));
+      if (!nearest || distance < nearest.distance) nearest = { ...location, distance };
     }
+    // Türkiye dışındaki veya veri kapsamından uzak konumlara yanlış ilçe adı vermeyelim.
+    return nearest && nearest.distance <= 60 ? nearest.name : "";
   }
   function render({
     lat,
@@ -146,13 +179,14 @@
     e.locationButton.disabled = true;
     e.locationButton.textContent = "Konum alınıyor…";
     navigator.geolocation.getCurrentPosition(
-      (p) => {
+      async (p) => {
         const { latitude, longitude, accuracy } = p.coords;
+        const place = (await nearestDistrictName(latitude, longitude)) || "Mevcut konum";
         render({
           lat: latitude,
           lng: longitude,
           accuracy,
-          place: "Mevcut konum",
+          place,
           source: "gps",
         });
         if (orientationPermission !== "denied") startCompass(true);
