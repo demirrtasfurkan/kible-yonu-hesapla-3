@@ -372,7 +372,11 @@
     document.getElementById("quickCompass")?.classList.add("is-calculated");
     if (e.result) e.result.hidden = false;
     if (e.shareButton) e.shareButton.hidden = false;
-    if (updateMapFrame && mapVisible()) updateMap();
+    window.dispatchEvent(
+      new CustomEvent("qibla:location", {
+        detail: { lat, lng, name: place, qibla: s.bearing },
+      }),
+    );
     status("Kıble yönü başarıyla hesaplandı.");
     track("qibla_calculated", {
       calculation_source: source,
@@ -605,14 +609,9 @@
   }
   e.compassButton?.addEventListener("click", () => startCompass(false));
   e.fitMapButton?.addEventListener("click", () => {
-    fitMap();
+    window.dispatchEvent(new CustomEvent("qibla:map-fit"));
     track("map_opened");
   });
-  e.mapLayerButtons.forEach((button, index) =>
-    button.addEventListener("click", () =>
-      setMapLayer(index === 1 ? "satellite" : "street"),
-    ),
-  );
   function setToolView(view) {
     if (!e.compassPanel || !e.mapPanel) return;
     const showMap = view === "map";
@@ -623,7 +622,9 @@
     e.compassViewButton?.setAttribute("aria-selected", String(!showMap));
     e.mapViewButton?.setAttribute("aria-selected", String(showMap));
     if (showMap && s.lat !== null)
-      requestAnimationFrame(() => updateMap().then(() => invalidateMap()));
+      requestAnimationFrame(() =>
+        window.dispatchEvent(new CustomEvent("qibla:map-visible")),
+      );
     track(showMap ? "map_view_selected" : "compass_view_selected");
   }
   e.compassViewButton?.addEventListener("click", () => setToolView("compass"));

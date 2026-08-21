@@ -213,16 +213,12 @@ body[data-city-page="true"] .faq{padding:88px 0;background:#fff}
 @media(max-width:900px){.city-stat-cards,.city-statistics-grid{grid-template-columns:repeat(2,1fr)}.city-compass-grid{grid-template-columns:1fr;gap:36px}.sensor-copy{max-width:650px}.map-toolbar{grid-template-columns:1fr auto}.map-layers{grid-column:1/-1;width:max-content}.city-map-shell{height:430px}}
 @media(max-width:620px){body[data-city-page="true"] .city-page-hero{padding:36px 0 14px}body[data-city-page="true"] .city-page-hero h1{font-size:41px;letter-spacing:-1.6px}.city-hero-summary{font-size:17px;line-height:1.65}.city-stats{padding:8px 0 52px}.city-stat-cards{gap:12px}.city-stat-card{min-height:142px;padding:16px}.city-stat-card i{width:36px;height:36px}.city-stat-card small{font-size:10px}.city-stat-card strong{font-size:20px}.city-map-section,.city-table-section,.city-statistics-section,.city-angle-section,.city-compass-section,.city-neighbor-section,.city-district-differences,body[data-city-page="true"] .faq{padding:58px 0}.section-title h2,.sensor-copy h2{font-size:34px}.city-map-panel{padding:12px;border-radius:18px}.map-toolbar{grid-template-columns:1fr}.map-toolbar>b{display:none}.map-layers{grid-column:auto}.city-map-shell{height:360px}.city-compass-tool{padding:16px}.city-compass-tool h3{font-size:21px}.city-compass-tool>header button{padding:9px 12px}.city-compass-tool .compass-face{width:min(290px,76vw)}.city-statistics-grid{gap:12px}.city-statistics-grid article{padding:16px}.city-statistics-grid strong{font-size:27px}}
 
-/* V27: interactive Qibla map — layout rules above remain unchanged */
+/* Rakip harita bileşeni */
 .map-shell,.city-map-shell{position:relative}
-.qibla-map-ready iframe,.qibla-map-ready .map-route-card{display:none!important}
-.qibla-map-canvas{position:absolute!important;inset:0;width:100%;height:100%;z-index:1;background:#e8efec}
-.qibla-map-ready .map-placeholder{position:absolute;inset:0;height:auto;z-index:3}
-.qibla-map-div-icon{border:0!important;background:transparent!important}
-.qibla-map-pin{display:block;width:16px;height:16px;border-radius:50%;border:2px solid #fff;box-shadow:0 2px 10px rgba(0,0,0,.3)}
-.qibla-map-pin.user{background:#173b36}
-.qibla-map-pin.kaaba{background:#c9a24e;border-radius:3px}
-.qibla-map-ready .leaflet-control-zoom{border:0;box-shadow:0 8px 22px rgba(23,59,54,.18)}
-.qibla-map-ready .leaflet-control-zoom a{color:#173b36;border-color:#e3e7e4}
-.qibla-map-ready .leaflet-control-zoom a:hover{color:#0b7a68;background:#f4f8f6}
-.qibla-map-ready .leaflet-control-attribution{max-width:calc(100% - 12px);font-size:10px;line-height:1.35;background:rgba(255,255,255,.9);white-space:normal;text-align:right}
+#qibla-map{display:block;width:100%;height:100%;min-height:360px}
+.leaflet-container{width:100%!important;height:100%!important;min-height:360px}
+.kb-marker{background:0 0!important;border:0!important}
+.kb-pin{display:block;width:16px;height:16px;border-radius:50%;border:2px solid #fff;box-shadow:0 2px 10px rgba(0,0,0,.3)}
+.kb-pin-city{background:#173b36}
+.kb-pin-kaaba{background:#c9a24e;border-radius:3px}
+.leaflet-marker-icon.kb-marker{background:0 0;border:0}

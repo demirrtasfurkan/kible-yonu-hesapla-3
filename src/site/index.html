@@ -132,10 +132,8 @@
           </div>
 
           <div id="mapPanel" class="tool-panel" hidden>
-            <div id="map" class="map-shell compact-map" aria-label="Konum ile Kâbe arasındaki kıble yönü haritası">
-              <iframe id="mapFrame" title="Kıble yönü haritası" loading="lazy" referrerpolicy="no-referrer" hidden></iframe>
-              <div id="mapPlaceholder" class="map-placeholder"><span>Harita sonuçtan sonra yüklenir</span><small>Önce konumunu kullan veya şehir seç.</small></div>
-              <div class="map-route-card" aria-hidden="true"><span class="route-point">Sen</span><span class="route-line"></span><span class="route-point kaaba">Kâbe</span></div>
+            <div class="map-shell compact-map">
+              <div id="qibla-map" role="img" aria-label="Konum ile Kâbe arasındaki kıble yönü haritası"></div>
             </div>
             <button id="fitMapButton" class="btn btn-secondary full tool-secondary-action" type="button">Haritayı yenile</button>
           </div>
@@ -289,5 +287,6 @@
 
   <script src="/assets/js/qibla.js" defer></script>
   <script src="/assets/js/app.js" defer></script>
+  <script src="/assets/js/qibla-map.js" defer></script>
 </body>
 </html>
