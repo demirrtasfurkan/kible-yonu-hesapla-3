@@ -1,27 +1,4 @@
 (async () => {
-  if ("serviceWorker" in navigator) {
-    try {
-      const registrations = await navigator.serviceWorker.getRegistrations(),
-        controlled = Boolean(navigator.serviceWorker.controller);
-      if (registrations.length) {
-        await Promise.all(registrations.map((registration) => registration.unregister()));
-        if ("caches" in window) {
-          const cacheNames = await window.caches.keys();
-          await Promise.all(
-            cacheNames
-              .filter((name) => name.startsWith("kible-"))
-              .map((name) => window.caches.delete(name)),
-          );
-        }
-        if (controlled) {
-          window.location.reload();
-          return;
-        }
-      }
-    } catch (error) {
-      console.warn("Eski çevrimdışı önbellek temizlenemedi.", error);
-    }
-  }
   const $ = (id) => document.getElementById(id),
     e = {
       locationButton: $("locationButton"),
@@ -53,7 +30,7 @@
       mapViewButton: $("mapViewButton"),
       compassPanel: $("compassPanel"),
       mapPanel: $("mapPanel"),
-      mapLayerButtons: document.querySelectorAll(".map-layers button"),
+      defaultResultLabel: $("defaultResultLabel"),
     };
   let s = {
     lat: null,
@@ -62,14 +39,6 @@
     place: "",
     vibrated: false,
     locations: [],
-    leafletPromise: null,
-    map: null,
-    userMarker: null,
-    kaabaMarker: null,
-    routeLine: null,
-    streetLayer: null,
-    satelliteLayer: null,
-    mapResizeObserver: null,
   };
   function track(action, params = {}) {
     window.dataLayer = window.dataLayer || [];
@@ -104,239 +73,6 @@
       s.locations = [];
     }
   }
-  function loadLeaflet() {
-    if (window.L) return Promise.resolve(window.L);
-    if (s.leafletPromise) return s.leafletPromise;
-
-    if (!document.getElementById("leafletStyles")) {
-      const link = document.createElement("link");
-      link.id = "leafletStyles";
-      link.rel = "stylesheet";
-      link.href = "/assets/vendor/leaflet/leaflet.css";
-      document.head.appendChild(link);
-    }
-
-    s.leafletPromise = new Promise((resolve, reject) => {
-      const existing = document.getElementById("leafletScript"),
-        script = existing || document.createElement("script"),
-        complete = () =>
-          window.L
-            ? resolve(window.L)
-            : reject(new Error("Harita kütüphanesi yüklenemedi."));
-
-      script.addEventListener("load", complete, { once: true });
-      script.addEventListener(
-        "error",
-        () => reject(new Error("Harita kütüphanesi yüklenemedi.")),
-        { once: true },
-      );
-
-      if (!existing) {
-        script.id = "leafletScript";
-        script.src = "/assets/vendor/leaflet/leaflet.js";
-        document.head.appendChild(script);
-      }
-    }).catch((error) => {
-      s.leafletPromise = null;
-      throw error;
-    });
-
-    return s.leafletPromise;
-  }
-  function createMapIcon(L, type) {
-    return L.divIcon({
-      className: "qibla-map-div-icon",
-      html: `<span class="qibla-map-pin ${type}" aria-hidden="true"></span>`,
-      iconSize: [18, 18],
-      iconAnchor: [9, 9],
-    });
-  }
-  function mapElements() {
-    const frame = document.getElementById("mapFrame"),
-      placeholder = document.getElementById("mapPlaceholder"),
-      root =
-        document.getElementById("map") ||
-        frame?.closest(".city-map-shell") ||
-        frame?.parentElement;
-    return { frame, placeholder, root };
-  }
-  function mapVisible(root = mapElements().root) {
-    return Boolean(root && root.offsetParent !== null && root.clientHeight > 40);
-  }
-  function escapeMapText(value) {
-    const element = document.createElement("span");
-    element.textContent = String(value || "");
-    return element.innerHTML;
-  }
-  function drawMap(keepView = false) {
-    if (!s.map || !window.L || s.lat === null || s.lng === null) return;
-    const L = window.L,
-      here = [s.lat, s.lng],
-      there = [KAABA.lat, KAABA.lng];
-
-    if (s.userMarker) s.map.removeLayer(s.userMarker);
-    if (s.kaabaMarker) s.map.removeLayer(s.kaabaMarker);
-    if (s.routeLine) s.map.removeLayer(s.routeLine);
-
-    s.userMarker = L.marker(here, {
-      icon: createMapIcon(L, "user"),
-      title: s.place || "Konumunuz",
-      alt: `${s.place || "Konumunuz"} konumu`,
-      keyboard: true,
-    })
-      .addTo(s.map)
-      .bindPopup(
-        `<strong>${escapeMapText(s.place || "Konumunuz")}</strong><br>Kıble: ${Math.round(s.bearing)}°`,
-      );
-    s.userMarker
-      .getElement()
-      ?.setAttribute("aria-label", `${s.place || "Konumunuz"} konumu`);
-
-    s.kaabaMarker = L.marker(there, {
-      icon: createMapIcon(L, "kaaba"),
-      title: "Kâbe",
-      alt: "Kâbe, Mekke",
-      keyboard: true,
-    })
-      .addTo(s.map)
-      .bindPopup("<strong>Kâbe</strong><br>Mekke");
-    s.kaabaMarker.getElement()?.setAttribute("aria-label", "Kâbe, Mekke");
-
-    s.routeLine = L.polyline([here, there], {
-      color: "#c9a24e",
-      weight: 3,
-      opacity: 0.95,
-      dashArray: "10 8",
-    }).addTo(s.map);
-
-    if (!keepView) s.map.fitBounds(L.latLngBounds(here, there).pad(0.18));
-  }
-  function invalidateMap() {
-    if (!s.map) return;
-    const run = () => {
-      if (!mapVisible()) return;
-      s.map.invalidateSize({ animate: false });
-      drawMap(true);
-    };
-    requestAnimationFrame(() => {
-      run();
-      setTimeout(run, 50);
-      setTimeout(run, 200);
-      setTimeout(run, 450);
-    });
-  }
-  async function ensureMap() {
-    const { frame, placeholder, root } = mapElements();
-    if (!root || !mapVisible(root)) return null;
-
-    const L = await loadLeaflet();
-    if (!mapVisible(root)) return null;
-    let canvas = document.getElementById("mapCanvas");
-    if (!canvas) {
-      canvas = document.createElement("div");
-      canvas.id = "mapCanvas";
-      canvas.className = "qibla-map-canvas";
-      canvas.setAttribute("role", "region");
-      canvas.setAttribute(
-        "aria-label",
-        "Konumunuzdan Kâbe'ye uzanan kıble yönü haritası",
-      );
-      root.insertBefore(canvas, placeholder || root.firstChild);
-    }
-
-    root.classList.add("qibla-map-ready");
-    if (frame) {
-      frame.hidden = true;
-      frame.removeAttribute("src");
-    }
-    if (placeholder) placeholder.hidden = true;
-    root.querySelector(".map-route-card")?.setAttribute("hidden", "");
-
-    if (!s.map) {
-      s.map = L.map(canvas, {
-        zoomControl: true,
-        attributionControl: true,
-        scrollWheelZoom: true,
-      });
-      s.streetLayer = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        maxZoom: 19,
-        attribution: "&copy; OpenStreetMap",
-        detectRetina: true,
-      });
-      s.satelliteLayer = L.tileLayer(
-        "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
-        {
-          maxZoom: 19,
-          attribution: "Tiles &copy; Esri",
-          detectRetina: true,
-        },
-      );
-      s.streetLayer.addTo(s.map);
-
-      if ("ResizeObserver" in window) {
-        s.mapResizeObserver = new ResizeObserver(([entry]) => {
-          if (entry.contentRect.width > 0 && entry.contentRect.height > 40)
-            invalidateMap();
-        });
-        s.mapResizeObserver.observe(canvas);
-      }
-    }
-
-    return { L, map: s.map, root };
-  }
-  async function updateMap({ refit = true } = {}) {
-    if (s.lat === null || s.lng === null) return;
-    const placeholder = document.getElementById("mapPlaceholder");
-    if (placeholder) {
-      placeholder.hidden = false;
-      const title = placeholder.querySelector("span"),
-        copy = placeholder.querySelector("small");
-      if (title) title.textContent = "Harita yükleniyor…";
-      if (copy)
-        copy.textContent =
-          "Konumunuz ile Kâbe arasındaki gerçek doğrultu hazırlanıyor.";
-    }
-
-    try {
-      const mapContext = await ensureMap();
-      if (!mapContext) return;
-      drawMap(!refit);
-      invalidateMap();
-    } catch (error) {
-      if (placeholder) {
-        placeholder.hidden = false;
-        const title = placeholder.querySelector("span"),
-          copy = placeholder.querySelector("small");
-        if (title) title.textContent = "Harita yüklenemedi";
-        if (copy)
-          copy.textContent =
-            "Bağlantını kontrol edip Haritayı yenile düğmesine basabilirsin.";
-      }
-      console.error(error);
-    }
-  }
-  function fitMap() {
-    if (s.map && s.routeLine) {
-      drawMap(false);
-      invalidateMap();
-    } else updateMap();
-  }
-  async function setMapLayer(kind) {
-    if (!s.map) await updateMap();
-    if (!s.map || !s.streetLayer || !s.satelliteLayer) return;
-    const satellite = kind === "satellite";
-    if (satellite) {
-      if (s.map.hasLayer(s.streetLayer)) s.map.removeLayer(s.streetLayer);
-      if (!s.map.hasLayer(s.satelliteLayer)) s.satelliteLayer.addTo(s.map);
-    } else {
-      if (s.map.hasLayer(s.satelliteLayer)) s.map.removeLayer(s.satelliteLayer);
-      if (!s.map.hasLayer(s.streetLayer)) s.streetLayer.addTo(s.map);
-    }
-    e.mapLayerButtons.forEach((button, index) =>
-      button.classList.toggle("active", satellite ? index === 1 : index === 0),
-    );
-    invalidateMap();
-  }
   function render({
     lat,
     lng,
@@ -344,7 +80,6 @@
     place = "Mevcut konum",
     source = "gps",
     scrollResult = false,
-    updateMapFrame = true,
   }) {
     s.lat = lat;
     s.lng = lng;
@@ -372,6 +107,7 @@
     document.getElementById("quickCompass")?.classList.add("is-calculated");
     if (e.result) e.result.hidden = false;
     if (e.shareButton) e.shareButton.hidden = false;
+    if (e.defaultResultLabel) e.defaultResultLabel.hidden = true;
     window.dispatchEvent(
       new CustomEvent("qibla:location", {
         detail: { lat, lng, name: place, qibla: s.bearing },
@@ -668,10 +404,18 @@
       track("scroll_100");
     }
   });
-  window.addEventListener("resize", () => {
-    if (s.map && mapVisible()) invalidateMap();
-  });
   loadLocations();
+  const defaultTool = document.getElementById("quickCompass")?.dataset;
+  if (defaultTool && !document.body.dataset.cityPage) {
+    const lat = Number(defaultTool.defaultLat),
+      lng = Number(defaultTool.defaultLng);
+    if (Number.isFinite(lat) && Number.isFinite(lng)) {
+      s.lat = lat;
+      s.lng = lng;
+      s.place = defaultTool.defaultPlace || "İstanbul merkez";
+      s.bearing = calculateQiblaBearing(lat, lng);
+    }
+  }
   const cityPage = document.body.dataset.cityPage === "true";
   if (cityPage) {
     const lat = Number(document.body.dataset.cityLat),
@@ -686,7 +430,6 @@
             place: name,
             source: "city_page",
             scrollResult: false,
-            updateMapFrame: true,
           }),
         80,
       );

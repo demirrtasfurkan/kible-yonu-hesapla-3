@@ -2,7 +2,7 @@
 
 Statik site, Python ile `src/` klasöründen üretilir. İçerikler Sveltia CMS üzerinden GitHub'a kaydedilir; GitHub'a bağlı Cloudflare dağıtımı değişiklikleri otomatik olarak yayınlar.
 
-V2 şehir altyapısı 81 il ve 971 ilçe merkezini kapsar. İl ve ilçe sayfalarındaki kıble açısı, yön ve Kâbe mesafesi statik HTML'e build sırasında yazılır. Şehir sayfaları ayrıca ilçe tablosu, açı aralığı, yakın il karşılaştırması ve coğrafi uç istatistiklerini otomatik üretir.
+Şehir altyapısı 81 il ve 971 ilçe merkezini kapsar. İl ve ilçe verileri statik HTML'e build sırasında yazılır. Şehir sayfaları ayrıca harita, canlı pusula, ilçe tablosu, açı aralığı, karşılaştırmalar ve özgün doğrulama adımlarını otomatik üretir.
 
 ## Yerel build
 
@@ -11,6 +11,15 @@ python build.py
 ```
 
 Çıktı `dist/` klasörüne yazılır. Cloudflare yapılandırmasındaki çıktı dizini de `dist` olarak ayarlıdır.
+
+Kaynakların tek doğrusu `src/` klasörüdür. `dist/` üretilmiş çıktıdır; repoya veya ZIP paketine eklenmemelidir. Sitemap build sırasında üretilir ve her URL için kaynak değişiklik tarihinden hesaplanan `lastmod` içerir. Arama motorlarının dikkate almadığı `priority` ve `changefreq` alanları bilerek kullanılmaz.
+
+## Cloudflare Pages ayarları
+
+- Build komutu: `python build.py`
+- Çıktı dizini: `dist`
+- Kök dizin: depo kökü
+- Son kontrol: `python build.py` komutunun hatasız tamamlanması
 
 ## İçerik paneli
 

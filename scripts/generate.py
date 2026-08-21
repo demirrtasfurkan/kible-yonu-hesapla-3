@@ -1,13 +1,34 @@
 #!/usr/bin/env python3
 from pathlib import Path
+from datetime import datetime, timezone
 import html
 import json
 import re
 import shutil
+import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "src"
 DIST = ROOT / "dist"
+
+
+def last_modified(*paths):
+    """Return the last real source-change date used to produce a URL."""
+    relative_paths = [str(Path(path).resolve().relative_to(ROOT)) for path in paths]
+    try:
+        result = subprocess.run(
+            ["git", "log", "-1", "--format=%cs", "--", *relative_paths],
+            cwd=ROOT,
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+        if re.fullmatch(r"\d{4}-\d{2}-\d{2}", result.stdout.strip()):
+            return result.stdout.strip()
+    except (FileNotFoundError, subprocess.CalledProcessError, ValueError):
+        pass
+    latest = max(Path(path).stat().st_mtime for path in paths if Path(path).exists())
+    return datetime.fromtimestamp(latest, timezone.utc).date().isoformat()
 
 
 def tr(value):
@@ -192,7 +213,11 @@ def footer(description, cities):
         '<div><strong>Keşfet</strong><a href="/sehirler/">81 İl</a><a href="/blog/">Kıble Rehberi</a>'
         '<a href="/hakkimizda/">Hakkımızda</a><a href="/kullanim-sartlari/">Kullanım Şartları</a>'
         '<a href="/hesaplama-yontemi/">Hesaplama Yöntemi</a><a href="/iletisim/">İletişim</a>'
-        '<a href="/gizlilik/">Gizlilik Politikası</a></div>\n</div>'
+        '<a href="/gizlilik/">Gizlilik Politikası</a></div>\n'
+        '<div><strong>Hızlı yardım</strong><a href="/sikca-sorulan-sorular/">Kıble Ne Tarafta?</a>'
+        '<a href="/#arac">GPS ile Kıble Bul</a><a href="/#arac">Canlı Kıble Pusulası</a>'
+        '<a href="/blog/telefon-kible-pusulasi-dogru-mu/">Pusula Doğruluğu</a>'
+        '<a href="/blog/pusulasiz-kible-bulma-yontemleri/">Pusulasız Kıble Bulma</a></div>\n</div>'
         '<div class="footer-cities"><strong>Türkiye genelinde kıble yönleri</strong>'
         f'<div class="footer-city-grid">{city_links}</div></div></div></footer>'
     )
@@ -347,6 +372,9 @@ def main():
     city_index = (SRC / "templates/cities-index.template.html").read_text(encoding="utf-8")
     blog_index = (SRC / "templates/blog-index.template.html").read_text(encoding="utf-8")
     blog_post = (SRC / "templates/blog-post.template.html").read_text(encoding="utf-8")
+    shared_city_lastmod = last_modified(
+        SRC / "data/cities.json", SRC / "templates/city.template.html", Path(__file__)
+    )
 
     cards = []
     for index, city in enumerate(sorted(cities, key=lambda item: item["name"])):
@@ -395,6 +423,8 @@ def main():
             "GEOGRAPHIC_EXTREME_ROWS": geographic_extremes(city),
             "CITY_INTRO_TEXT": html.escape(intro_text),
             "DISTRICT_NARRATIVE": html.escape(district_text),
+            "CITY_LASTMOD": shared_city_lastmod,
+            "CITY_LASTMOD_TR": datetime.strptime(shared_city_lastmod, "%Y-%m-%d").strftime("%d.%m.%Y"),
             "NEARBY_CITY_LINKS": nearby,
             "CITY_BLOG_LINKS": blog_links,
             "FOOTER": footer_html,
@@ -470,24 +500,25 @@ def main():
         render(blog_index, {"BLOG_CARDS": "".join(blog_cards), "FOOTER": footer_html}), encoding="utf-8"
     )
 
-    urls = [
-        "https://kibleyonuhesapla.com/",
-        "https://kibleyonuhesapla.com/sehirler/",
-        "https://kibleyonuhesapla.com/blog/",
-        "https://kibleyonuhesapla.com/gizlilik/",
-        "https://kibleyonuhesapla.com/hakkimizda/",
-        "https://kibleyonuhesapla.com/kullanim-sartlari/",
+    base = "https://kibleyonuhesapla.com"
+    generator_source = Path(__file__)
+    entries = [
+        (f"{base}/", last_modified(SRC / "site/index.html", SRC / "data/homepage.json", generator_source)),
+        (f"{base}/sehirler/", last_modified(SRC / "templates/cities-index.template.html", SRC / "data/cities.json", generator_source)),
+        (f"{base}/blog/", last_modified(SRC / "templates/blog-index.template.html", SRC / "data/blog.json", generator_source)),
     ]
-    urls += [f'https://kibleyonuhesapla.com/{city["slug"]}/' for city in cities]
-    urls += [f'https://kibleyonuhesapla.com/blog/{post["slug"]}/' for post in posts]
-    urls += [
-        "https://kibleyonuhesapla.com/hesaplama-yontemi/",
-        "https://kibleyonuhesapla.com/iletisim/",
-    ]
+    for slug in ["gizlilik", "hakkimizda", "kullanim-sartlari", "hesaplama-yontemi", "iletisim", "sikca-sorulan-sorular"]:
+        entries.append((f"{base}/{slug}/", last_modified(SRC / "site" / slug / "index.html", generator_source)))
+    entries += [(f'{base}/{city["slug"]}/', shared_city_lastmod) for city in cities]
+    blog_lastmod = last_modified(SRC / "data/blog.json", SRC / "templates/blog-post.template.html", generator_source)
+    entries += [(f'{base}/blog/{post["slug"]}/', blog_lastmod) for post in posts]
     (DIST / "sitemap.xml").write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-        + "\n".join(f"<url><loc>{url}</loc></url>" for url in urls)
+        + "\n".join(
+            f"  <url><loc>{html.escape(url)}</loc><lastmod>{modified}</lastmod></url>"
+            for url, modified in entries
+        )
         + "\n</urlset>",
         encoding="utf-8",
     )
@@ -507,6 +538,7 @@ def main():
             }
             for district in city.get("districts", [])
         )
+    (DIST / "data").mkdir(parents=True, exist_ok=True)
     (DIST / "data" / "locations.json").write_text(
         json.dumps(locations, ensure_ascii=False, separators=(",", ":")), encoding="utf-8"
     )
@@ -517,11 +549,11 @@ def main():
         page = path.read_text(encoding="utf-8")
         if re.search(r"<footer\b.*?</footer>", page, flags=re.DOTALL):
             page = re.sub(r"<footer\b.*?</footer>", footer_html, page, count=1, flags=re.DOTALL)
-        page = re.sub(r'/assets/css/style\.css(?:\?v=\d+)?', '/assets/css/style.css?v=31', page)
-        page = re.sub(r'/assets/js/app\.js(?:\?v=\d+)?', '/assets/js/app.js?v=31', page)
-        page = re.sub(r'/assets/js/qibla-map\.js(?:\?v=\d+)?', '/assets/js/qibla-map.js?v=31', page)
+        page = re.sub(r'/assets/css/style\.css(?:\?v=\d+)?', '/assets/css/style.css?v=32', page)
+        page = re.sub(r'/assets/js/app\.js(?:\?v=\d+)?', '/assets/js/app.js?v=32', page)
+        page = re.sub(r'/assets/js/qibla-map\.js(?:\?v=\d+)?', '/assets/js/qibla-map.js?v=32', page)
         if '/assets/js/nav.js' not in page:
-            page = page.replace('</body>', '<script src="/assets/js/nav.js?v=31" defer></script>\n</body>')
+            page = page.replace('</body>', '<script src="/assets/js/nav.js?v=32" defer></script>\n</body>')
         path.write_text(page, encoding="utf-8")
     print(f"Build tamamlandı: {len(cities)} il, {len(posts)} blog")
 

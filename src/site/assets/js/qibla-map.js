@@ -14,10 +14,11 @@
   if (!el.mapEl) return;
 
   const cityPage = document.body.dataset.cityPage === "true";
+  const defaultTool = document.getElementById("quickCompass")?.dataset;
   const state = {
-    lat: cityPage ? Number(document.body.dataset.cityLat) : null,
-    lng: cityPage ? Number(document.body.dataset.cityLng) : null,
-    name: cityPage ? document.body.dataset.cityName : "Konumunuz",
+    lat: cityPage ? Number(document.body.dataset.cityLat) : Number(defaultTool?.defaultLat),
+    lng: cityPage ? Number(document.body.dataset.cityLng) : Number(defaultTool?.defaultLng),
+    name: cityPage ? document.body.dataset.cityName : defaultTool?.defaultPlace || "Konumunuz",
     qibla: null,
     leafletPromise: null,
     map: null,
