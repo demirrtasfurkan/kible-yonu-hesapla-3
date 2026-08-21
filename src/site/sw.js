@@ -1,11 +1,11 @@
-const CACHE = "kible-v27-qibla-map";
+const CACHE = "kible-v28-map-csp-hotfix";
 const CORE = [
   "/",
   "/sehirler/",
-  "/assets/css/style.css?v=27",
+  "/assets/css/style.css?v=28",
   "/assets/js/qibla.js",
-  "/assets/js/app.js?v=27",
-  "/assets/js/nav.js?v=27",
+  "/assets/js/app.js?v=28",
+  "/assets/js/nav.js?v=28",
   "/assets/vendor/leaflet/leaflet.css",
   "/assets/vendor/leaflet/leaflet.js",
   "/data/locations.json",
@@ -33,12 +33,13 @@ self.addEventListener("activate", (event) =>
   ),
 );
 self.addEventListener("fetch", (event) => {
+  const url = new URL(event.request.url);
   if (
     event.request.method !== "GET" ||
-    new URL(event.request.url).pathname.startsWith("/admin/")
+    url.origin !== self.location.origin ||
+    url.pathname.startsWith("/admin/")
   )
     return;
-  const url = new URL(event.request.url);
   const freshFirst =
     event.request.mode === "navigate" ||
     url.pathname.endsWith(".css") ||
