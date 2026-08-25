@@ -10,6 +10,9 @@
   "guide_sections": [
     {
       "heading": "GPS ile kıbleyi bul",
+      "paragraphs_before": [
+        "GPS ile kıble bulma, şehir merkezini tahmin etmek yerine bulunduğun gerçek enlem ve boylamı kullanır. Araç bu koordinatlardan Kabe'ye uzanan başlangıç açısını gerçek kuzeye göre hesaplar."
+      ],
       "tip": "En hassas sonuç için tarayıcıya konum izni ver. Koordinatlar yalnızca cihazındaki hesaplama için kullanılır ve kaydedilmez.",
       "list_type": "ordered",
       "list_items": [
@@ -17,26 +20,29 @@
         "Tarayıcının konum isteğine izin ver.",
         "Hesaplanan dereceyi pusula veya harita görünümünde kontrol et."
       ],
-      "paragraphs_before": [
-        "GPS ile kıble bulma, şehir merkezini tahmin etmek yerine bulunduğun gerçek enlem ve boylamı kullanır. Araç bu koordinatlardan Kâbe'ye uzanan başlangıç açısını gerçek kuzeye göre hesaplar."
-      ],
-      "paragraphs_after": []
+      "paragraphs_after": [],
+      "cta_label": "",
+      "cta_url": ""
     },
     {
       "heading": "Kıble ne tarafta?",
+      "paragraphs_before": [
+        "Kıble, bulunduğun noktadan Mekke'deki Kabe yönüdür. Türkiye'de genel yön çoğu yerde güney ile güneydoğu arasındadır fakat namaz için kullanılacak kesin açı şehir, ilçe ve bulunduğun koordinata göre değişir.",
+        "Ekrandaki yön adı hızlı bir tarif verir. Derece değeri ise gerçek kuzeye göre daha kesin referanstır. Telefon pusulası manyetik kuzeyi ölçebildiği için harita ile küçük farklar görülebilir."
+      ],
       "tip": "Örneğin 151,6° sonucu, gerçek kuzeyden saat yönünde 151,6 derece dönüldüğünde kıble doğrultusuna ulaşılacağını gösterir.",
       "list_type": "none",
       "list_items": [],
-      "paragraphs_before": [
-        "Kıble, bulunduğun noktadan Mekke'deki Kâbe yönüdür. Türkiye'de genel yön çoğu yerde güney ile güneydoğu arasındadır; fakat namaz için kullanılacak kesin açı şehir, ilçe ve bulunduğun koordinata göre değişir.",
-        "Ekrandaki yön adı hızlı bir tarif verir. Derece değeri ise gerçek kuzeye göre daha kesin referanstır. Telefon pusulası manyetik kuzeyi ölçebildiği için harita ile küçük farklar görülebilir."
-      ],
       "paragraphs_after": [],
       "cta_label": "Kıble Ne Tarafta? Ayrıntılı Rehber",
       "cta_url": "/sikca-sorulan-sorular/"
     },
     {
       "heading": "Canlı kıble pusulası nasıl çalışır?",
+      "paragraphs_before": [
+        "Canlı kıble pusulası GPS ile hesaplanan Kâbe açısını telefonun yön sensörüyle birleştirir. Cihazını çevirdikçe ok da ekranda hareket eder.",
+        "Sensör hatasını azaltmak için:"
+      ],
       "tip": "",
       "list_type": "unordered",
       "list_items": [
@@ -44,10 +50,6 @@
         "Telefonunu düz tut.",
         "Metal nesnelerden uzak dur.",
         "Gerekirse pusulayı kalibre et."
-      ],
-      "paragraphs_before": [
-        "Canlı kıble pusulası GPS ile hesaplanan Kâbe açısını telefonun yön sensörüyle birleştirir. Cihazını çevirdikçe ok da ekranda hareket eder.",
-        "Sensör hatasını azaltmak için:"
       ],
       "paragraphs_after": [
         "Ok sabitlendiğinde telefonu yavaşça döndür. Sensör kararsızsa haritadaki çizgiyi ikinci kontrol olarak kullan."
@@ -57,21 +59,22 @@
     },
     {
       "heading": "Harita ile kıble bulma",
+      "paragraphs_before": [
+        "Harita görünümündeki çizgi, seçilen konum ile Kabe arasındaki küresel doğrultuyu gösterir. Bu çizgi gerçek kuzey hesabına dayanır ve telefon sensöründen bağımsız bir kontrol sunar.",
+        "Pusula oku kararsızsa haritada yakınındaki yol, bina veya sabit bir kenarı referans alıp yönünü doğrulayabilirsin."
+      ],
       "tip": "",
       "list_type": "none",
       "list_items": [],
-      "cta_label": "Tüm Şehirleri Görüntüle",
-      "cta_url": "/sehirler/",
-      "paragraphs_before": [
-        "Harita görünümündeki çizgi, seçilen konum ile Kâbe arasındaki küresel doğrultuyu gösterir. Bu çizgi gerçek kuzey hesabına dayanır ve telefon sensöründen bağımsız bir kontrol sunar.",
-        "Pusula oku kararsızsa haritada yakınındaki yol, bina veya sabit bir kenarı referans alıp yönünü doğrulayabilirsin."
-      ],
       "paragraphs_after": [],
       "cta_label": "Hesaplama Yöntemini İncele",
       "cta_url": "/hesaplama-yontemi/"
     },
     {
       "heading": "Telefon ile kıble bulma",
+      "paragraphs_before": [
+        "Android ve iPhone cihazlarda sensör kalitesi değişebilir. Aşağıdaki kontrol sırası, telefonla kıble bulurken yanlış yön riskini azaltır."
+      ],
       "tip": "",
       "list_type": "ordered",
       "list_items": [
@@ -79,9 +82,6 @@
         "Telefonu düz tutup mıknatıslı kılıf ve metal yüzeylerden uzaklaştır.",
         "Gerekirse cihazı sekiz çizerek kalibre et.",
         "Pusula okunu haritadaki yön çizgisiyle karşılaştır."
-      ],
-      "paragraphs_before": [
-        "Android ve iPhone cihazlarda sensör kalitesi değişebilir. Aşağıdaki kontrol sırası, telefonla kıble bulurken yanlış yön riskini azaltır."
       ],
       "paragraphs_after": [
         "Cihazda yön sensörü yoksa harita veya şehir-ilçe seçimiyle hesaplanan dereceyi kullanabilirsin."
@@ -91,34 +91,34 @@
     },
     {
       "heading": "Şehir ve ilçeye göre kıble yönü",
+      "paragraphs_before": [
+        "Konum paylaşmak istemiyorsan [81 il ve ilçeleri için hazırlanan sayfalardan](kibleyonuhesapla.com/sehirler/) yaklaşık kıble açısını seçebilirsin. Her şehir sayfasında merkez sonucu ilçe aralığı, harita, canlı pusula ve doğrulama adımları birlikte sunulur."
+      ],
       "tip": "Şehir merkezi sonucu yaklaşık bir başlangıçtır. Aynı il içindeki ilçeler arasında küçük açı farkları oluşabilir.",
       "list_type": "none",
       "list_items": [],
+      "paragraphs_after": [],
       "cta_label": "81 İlin Kıble Yönünü Gör",
-      "cta_url": "/sehirler/",
-      "paragraphs_before": [
-        "Konum paylaşmak istemiyorsan 81 il ve ilçeleri için hazırlanan sayfalardan yaklaşık kıble açısını seçebilirsin. Her şehir sayfasında merkez sonucu, ilçe aralığı, harita, canlı pusula ve doğrulama adımları birlikte sunulur."
-      ],
-      "paragraphs_after": []
+      "cta_url": "/sehirler/"
     }
   ],
   "faq_heading": "Sık Sorulan Sorular",
   "faqs": [
     {
       "question": "Kıble nedir?",
-      "answer": "Kıble, Müslümanların namaz kılarken yöneldiği, Mekke'deki Kâbe'nin bulunduğu yöndür. Kâbe'ye olan doğrultu bulunduğun koordinata göre değiştiği için kıble açısı her konum için ayrı hesaplanır."
+      "answer": "Kıble, Müslümanların namaz kılarken yöneldiği, Mekke'deki Kabe'nin bulunduğu yöndür. Kabe'ye olan doğrultu bulunduğun koordinata göre değiştiği için kıble açısı her konumiçin ayrı hesaplanır."
     },
     {
       "question": "Online kıble nasıl bulunur?",
-      "answer": "Konumumdan Kıbleyi Bul düğmesine basıp tarayıcıya konum izni ver. Araç koordinatlarından Kâbe yönünü hesaplar ve kıble açısını canlı pusula ile harita üzerinde gösterir. Konum izni vermek istemezsen şehir veya ilçe araması da yapabilirsin."
+      "answer": "Konumumdan Kıbleyi Bul düğmesine basıp tarayıcıya konum izni ver. Araç koordinatlarından Kabe yönünü hesaplar ve kıble açısını canlı pusula ile harita üzerinde gösterir. Konum izni vermek istemezsen şehir veya ilçe araması da yapabilirsin."
     },
     {
       "question": "Kıble açısı ne anlama gelir?",
-      "answer": "Kıble açısı, bulunduğun konumdan Kâbe'ye yönelmek için gerçek kuzeye göre dönmen gereken dereceyi ifade eder."
+      "answer": "Kıble açısı, bulunduğun konumdan Kabe'ye yönelmek için gerçek kuzeye göre dönmen gereken dereceyi ifade eder."
     },
     {
       "question": "Kıble yönü neden şehirden şehire değişir?",
-      "answer": "Kıble doğrultusu bulunduğun koordinata göre hesaplandığı için her şehirde kıble açısı farklıdır. Aynı il içinde bile küçük farklılıklar oluşabilir."
+      "answer": "Kıble doğrultusu bulunduğun koordinata göre hesaplandığı için her şehirde kıble açısı farkıdır. Aynı il içinde bile küçük farklılıklar oluşabilir"
     },
     {
       "question": "Canlı pusula neden hareket etmiyor?",
