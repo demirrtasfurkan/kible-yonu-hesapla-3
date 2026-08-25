@@ -34,8 +34,8 @@ collections:
             summary: "{{fields.heading}}"
             fields:
               - {name: heading, label: Bölüm Başlığı, widget: string}
-              - {name: paragraphs_before, label: Liste Öncesi Paragraflar, widget: list, field: {name: paragraph, label: Paragraf, widget: text}}
-              - {name: tip, label: İpucu Kutusu, widget: text, required: false}
+              - {name: paragraphs_before, label: Liste Öncesi Paragraflar, widget: list, field: {name: paragraph, label: Paragraf (link destekli), widget: markdown}}
+              - {name: tip, label: İpucu Kutusu (link destekli), widget: markdown, required: false}
               - name: list_type
                 label: Liste Türü
                 widget: select
@@ -43,8 +43,8 @@ collections:
                   - {label: Liste yok, value: none}
                   - {label: Madde işaretli, value: unordered}
                   - {label: Numaralı, value: ordered}
-              - {name: list_items, label: Liste Maddeleri, widget: list, required: false, field: {name: item, label: Madde, widget: string}}
-              - {name: paragraphs_after, label: Liste Sonrası Paragraflar, widget: list, required: false, field: {name: paragraph, label: Paragraf, widget: text}}
+              - {name: list_items, label: Liste Maddeleri, widget: list, required: false, field: {name: item, label: Madde (link destekli), widget: markdown}}
+              - {name: paragraphs_after, label: Liste Sonrası Paragraflar, widget: list, required: false, field: {name: paragraph, label: Paragraf (link destekli), widget: markdown}}
               - {name: cta_label, label: Buton Metni, widget: string, required: false}
               - {name: cta_url, label: Buton Bağlantısı, widget: string, required: false}
           - {name: faq_heading, label: SSS Başlığı, widget: string}
@@ -54,8 +54,8 @@ collections:
             summary: "{{fields.question}}"
             fields:
               - {name: question, label: Soru, widget: string}
-              - {name: answer, label: Cevap, widget: text}
-          - {name: closing_copy, label: Kapanış Metni, widget: text}
+              - {name: answer, label: Cevap (link destekli), widget: markdown}
+          - {name: closing_copy, label: Kapanış Metni (link destekli), widget: markdown}
 
       - name: about_page
         label: Hakkımızda Sayfası
@@ -73,11 +73,11 @@ collections:
             summary: "{{fields.heading}}"
             fields:
               - {name: heading, label: Bölüm Başlığı, widget: string}
-              - {name: paragraphs, label: Paragraflar, widget: list, field: {name: paragraph, label: Paragraf, widget: text}}
+              - {name: paragraphs, label: Paragraflar, widget: list, field: {name: paragraph, label: Paragraf (link destekli), widget: markdown}}
               - {name: cta_label, label: Bölüm Buton Metni, widget: string, required: false}
               - {name: cta_url, label: Bölüm Buton Bağlantısı, widget: string, required: false}
           - {name: aside_title, label: Yan Kutu Başlığı, widget: string}
-          - {name: aside_items, label: Yan Kutu Maddeleri, widget: list, field: {name: item, label: Madde, widget: string}}
+          - {name: aside_items, label: Yan Kutu Maddeleri, widget: list, field: {name: item, label: Madde (link destekli), widget: markdown}}
           - {name: cta_label, label: Ana Buton Metni, widget: string, required: false}
           - {name: cta_url, label: Ana Buton Bağlantısı, widget: string, required: false}
 
@@ -121,7 +121,7 @@ collections:
             summary: "{{fields.heading}}"
             fields:
               - {name: heading, label: Bölüm Başlığı, widget: string}
-              - {name: paragraphs, label: Paragraflar, widget: list, field: {name: paragraph, label: Paragraf, widget: text}}
+              - {name: paragraphs, label: Paragraflar, widget: list, field: {name: paragraph, label: Paragraf (link destekli), widget: markdown}}
           - {name: faq_heading, label: SSS Başlığı, widget: string}
           - name: faqs
             label: Sorular ve Cevaplar
@@ -129,9 +129,9 @@ collections:
             summary: "{{fields.question}}"
             fields:
               - {name: question, label: Soru, widget: string}
-              - {name: answer, label: Cevap, widget: text}
+              - {name: answer, label: Cevap (link destekli), widget: markdown}
           - {name: aside_title, label: Yan Kutu Başlığı, widget: string}
-          - {name: aside_items, label: Yan Kutu Maddeleri, widget: list, field: {name: item, label: Madde, widget: string}}
+          - {name: aside_items, label: Yan Kutu Maddeleri, widget: list, field: {name: item, label: Madde (link destekli), widget: markdown}}
           - {name: cta_label, label: Ana Buton Metni, widget: string}
           - {name: cta_url, label: Ana Buton Bağlantısı, widget: string}
 
@@ -160,7 +160,7 @@ collections:
                 summary: "{{fields.heading}}"
                 fields:
                   - {name: heading, label: Bölüm Başlığı, widget: string}
-                  - {name: paragraphs, label: Paragraflar, widget: list, field: {name: paragraph, label: Paragraf, widget: text}}
+                  - {name: paragraphs, label: Paragraflar, widget: list, field: {name: paragraph, label: Paragraf (link destekli), widget: markdown}}
               - name: faq
                 label: Sık Sorulan Sorular
                 widget: list
@@ -168,7 +168,7 @@ collections:
                 summary: "{{fields.question}}"
                 fields:
                   - {name: question, label: Soru, widget: string}
-                  - {name: answer, label: Cevap, widget: text}
+                  - {name: answer, label: Cevap (link destekli), widget: markdown}
 
       - name: cities
         label: Şehir Verileri
