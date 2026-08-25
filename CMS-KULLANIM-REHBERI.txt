@@ -11,13 +11,15 @@ Giriş
 
 Metin düzenleme
 1. “Site İçerikleri” bölümünü açın.
-2. Ana Sayfa, Blog Yazıları veya Şehir Verileri bölümünü seçin.
+2. Ana Sayfa, kurumsal sayfalar, Sık Sorulan Sorular, Blog Yazıları veya Şehir Verileri bölümünü seçin.
 3. İstediğiniz alanı değiştirin.
 4. Kaydedin/yayınlayın. Panel değişikliği doğrudan GitHub reposuna commit eder.
 5. GitHub'a bağlı Cloudflare build'i tamamlanınca değişiklik yayına gelir.
 
 Dikkat
 - Blog ve şehir slug alanlarını değiştirmek mevcut URL'leri değiştirir.
+- Sayfa SEO başlığı, meta açıklaması, H1, giriş metni, içerik bölümleri ve CTA alanları panelden düzenlenebilir.
+- Sık Sorulan Sorular sayfasındaki soru-cevaplar görünür içerik ve FAQ schema için tek kaynaktır.
 - Şehir enlem, boylam, kıble açısı ve mesafe değerleri hesaplama sonucunu etkiler.
 - Bu alanları yalnızca doğrulanmış yeni değerler varsa düzenleyin.
 - Panel arama motorlarına kapalıdır: robots.txt ve X-Robots-Tag ile /admin/ engellenmiştir.

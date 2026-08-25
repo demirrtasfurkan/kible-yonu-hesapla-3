@@ -1,0 +1,48 @@
+{
+  "seo_title": "Kıble Yönü Nasıl Hesaplanır? | Hesaplama Yöntemi",
+  "meta_description": "Kıble açısı, Kâbe mesafesi, gerçek kuzey ve telefon pusulası arasındaki farkın nasıl hesaplandığını teknik ayrıntılarıyla inceleyin.",
+  "eyebrow": "TEKNİK AÇIKLAMA",
+  "h1": "Kıble yönünü nasıl hesaplıyoruz?",
+  "lead": "Sayfalardaki derece ve mesafe değerlerinin hangi koordinatlarla, hangi kuzey referansıyla ve hangi matematiksel yaklaşımla üretildiğini burada açıklıyoruz.",
+  "sections": [
+    {
+      "heading": "Başlangıç noktası ve Kâbe koordinatı",
+      "paragraphs": [
+        "Hesaplama için seçilen il veya ilçe merkezinin enlem-boylam değeri kullanılır. Hedef nokta olarak Kâbe’nin yaklaşık 21.422487 kuzey enlemi ve 39.826206 doğu boylamı alınır. GPS izni verildiğinde il merkezi yerine cihazın bildirdiği koordinat hesaplamaya girer."
+      ]
+    },
+    {
+      "heading": "Kıble açısı neyi gösterir?",
+      "paragraphs": [
+        "Kıble açısı gerçek kuzeyden başlayıp saat yönünde ölçülür. Örneğin 160° değeri, kuzeyden saat yönünde 160 derece dönüldüğünde Kâbe’ye uzanan ilk doğrultuyu anlatır. Bu değer pusula uygulamasındaki manyetik kuzeyle her zaman birebir aynı olmayabilir."
+      ]
+    },
+    {
+      "heading": "Büyük daire hesabı",
+      "paragraphs": [
+        "Dünya üzerindeki iki koordinat düz bir kâğıt üzerindeki iki nokta gibi ele alınmaz. Başlangıç yönü küresel trigonometriyle, iki nokta arasındaki mesafe ise Haversine yaklaşımıyla hesaplanır. Şehir ve ilçe sayfaları aynı formülü kullanır; değişen yalnızca başlangıç koordinatıdır."
+      ]
+    },
+    {
+      "heading": "Gerçek kuzey ve manyetik kuzey farkı",
+      "paragraphs": [
+        "Sayfadaki sabit açı coğrafi kuzeye göredir. Fiziksel pusulalar ve telefon sensörleri manyetik kuzeyi algılar. Manyetik sapma zamana ve konuma göre değişebildiği için telefonun gösterdiği yön birkaç derece oynayabilir. Metal masa, mıknatıslı kılıf ve kalibrasyon sorunu da sensörü etkiler."
+      ]
+    },
+    {
+      "heading": "Neden ilçe tablosu var?",
+      "paragraphs": [
+        "Bir ilin doğusu ile batısı arasında enlem-boylam farkı oluşur. Bu nedenle şehir merkezinin açısını bütün ilçelere uygulamak doğru değildir. İlçe tablosu merkez koordinatına göre daha yakın bir başlangıç değeri verir; en hassas sonuç yine bulunduğunuz noktadan GPS ile yapılan hesaptır."
+      ]
+    }
+  ],
+  "aside_title": "Kısa özet",
+  "aside_items": [
+    "Açılar gerçek kuzeye göredir.",
+    "İl ve ilçe değerleri merkez koordinatıdır.",
+    "GPS hesabı bulunduğunuz noktayı kullanır.",
+    "Telefon sensörü çevreden etkilenebilir."
+  ],
+  "cta_label": "Canlı hesaplamayı aç",
+  "cta_url": "/#arac"
+}

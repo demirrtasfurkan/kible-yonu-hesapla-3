@@ -1,0 +1,37 @@
+{
+  "seo_title": "İletişim ve Hata Bildirimi | Kıble Yönü Hesapla",
+  "meta_description": "Kıble Yönü Hesapla aracında tespit ettiğiniz veri, pusula veya sayfa hatalarını proje ekibine bildirin.",
+  "eyebrow": "GERİ BİLDİRİM",
+  "h1": "Bir hata mı fark ettiniz?",
+  "lead": "Yanlış ilçe adı, tutarsız derece, çalışmayan pusula veya erişim problemi gibi durumları ayrıntısıyla iletebilirsiniz.",
+  "sections": [
+    {
+      "heading": "Bildirimde hangi bilgiler olmalı?",
+      "paragraphs": [
+        "İlgili sayfanın adresini, kullandığınız cihazı ve gördüğünüz sonucu yazmanız sorunu yeniden üretmemizi kolaylaştırır. Pusula sorunlarında telefon modeli, tarayıcı ve konum izni durumu özellikle yararlıdır."
+      ]
+    },
+    {
+      "heading": "Bize ulaşın",
+      "paragraphs": [
+        "Soru, öneri ve teknik hata bildirimlerinizi info@kibleyonuhesapla.com adresine gönderebilirsiniz. Konum adresinizi veya özel bilgilerinizi paylaşmanız gerekmez."
+      ],
+      "cta_label": "E-posta gönder",
+      "cta_url": "mailto:info@kibleyonuhesapla.com?subject=K%C4%B1ble%20Y%C3%B6n%C3%BC%20Hata%20Bildirimi"
+    },
+    {
+      "heading": "Konum verisi",
+      "paragraphs": [
+        "Konum izni tarayıcı tarafından yönetilir. Hesaplama cihazınızda yapılır; koordinatınızı hata kaydına eklemeyin. Yaklaşık il veya ilçe adı teknik inceleme için yeterlidir."
+      ]
+    }
+  ],
+  "aside_title": "Hızlı bağlantılar",
+  "aside_items": [
+    "Hesaplama yöntemini inceleyin",
+    "Gizlilik politikasını okuyun",
+    "81 il listesini görüntüleyin"
+  ],
+  "cta_label": "Kıble yönünü hesapla",
+  "cta_url": "/#arac"
+}

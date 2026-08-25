@@ -25,6 +25,8 @@ Kaynakların tek doğrusu `src/` klasörüdür. `dist/` üretilmiş çıktıdır
 
 Yayındaki panel adresi: `https://kibleyonuhesapla.com/admin/`
 
-Panelden ana sayfa metinleri, blog yazıları, şehir ve ilçe verileri düzenlenebilir. Girişte GitHub access token yöntemi kullanılır. Koordinat, kıble açısı, mesafe ve slug alanları yalnızca doğrulanmış değerlerle değiştirilmelidir.
+Panelden ana sayfa, Sık Sorulan Sorular, Hakkımızda, Gizlilik Politikası, Kullanım Şartları, İletişim ve Hesaplama Yöntemi içerikleri düzenlenebilir. Blog yazıları ile şehir ve ilçe verileri de aynı panelde yönetilir. Girişte GitHub access token yöntemi kullanılır. Koordinat, kıble açısı, mesafe ve slug alanları yalnızca doğrulanmış değerlerle değiştirilmelidir.
+
+Kurumsal ve rehber sayfalarının kaynakları `src/data/pages/` klasöründedir. Görünen HTML ve yapılandırılmış veri build sırasında aynı içerik kaynağından üretildiği için SSS metni ile FAQ schema birbirinden kopmaz.
 
 Ayrıntılı kullanım adımları için `CMS-KULLANIM-REHBERI.txt` dosyasına bakın.

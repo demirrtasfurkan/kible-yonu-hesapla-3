@@ -1,0 +1,69 @@
+{
+  "seo_title": "Kıble Ne Tarafta? Canlı Pusula ile Kıbleyi Bul",
+  "meta_description": "Kıble ne tarafta, derece nasıl okunur, telefon pusulası neden şaşar? GPS, canlı kıble pusulası ve harita ile doğru yönü adım adım bulun.",
+  "eyebrow": "KIBLE REHBERİ",
+  "h1": "Kıble Ne Tarafta?",
+  "lead": "Yön adını, dereceyi, canlı pusulayı ve haritayı birlikte okuyarak bulunduğun noktada kıbleyi doğrula.",
+  "intro_sections": [
+    {
+      "heading": "Kıblenin hangi tarafta olduğunu nasıl anlarsın?",
+      "paragraphs": [
+        "Kıble, bulunduğun konumdan Mekke'deki Kâbe'ye uzanan doğrultudur. Türkiye için yalnızca ‘güneydoğu’ demek her noktada yeterli değildir; doğru açı enlem ve boylama göre değişir. GPS ile hesaplanan dereceyi önce sonuç kartında gör, sonra pusula okunu ve haritadaki çizgiyi karşılaştır."
+      ]
+    },
+    {
+      "heading": "Kıble derecesi ne anlatır?",
+      "paragraphs": [
+        "Gösterilen açı gerçek kuzeyden başlayarak saat yönünde ölçülür. 90° doğuyu, 180° güneyi ifade eder. Örneğin 151° sonucu güney ile güneydoğu arasındaki doğrultuya karşılık gelir. Şehir merkezi sonucu yaklaşık referanstır; aynı ilin ilçelerinde küçük farklar olabilir."
+      ]
+    },
+    {
+      "heading": "Canlı pusula neden hareket eder veya şaşar?",
+      "paragraphs": [
+        "Telefonun yön sensörü çevredeki manyetik alandan etkilenir. Mıknatıslı kılıfı çıkar, metal masa ve elektronik cihazlardan uzaklaş, telefonu düz tut ve gerekiyorsa cihazı sekiz çizerek kalibre et. Sensör hâlâ kararsızsa haritadaki gerçek-kuzey çizgisini yakındaki sabit bir yol veya bina kenarıyla karşılaştır."
+      ]
+    },
+    {
+      "heading": "GPS, şehir seçimi ve harita arasındaki fark",
+      "paragraphs": [
+        "GPS bulunduğun gerçek koordinatı kullanır. Şehir veya ilçe seçimi ilgili merkezin koordinatına göre yaklaşık sonuç üretir. Harita ise hesaplanan doğrultuyu telefon sensöründen bağımsız biçimde görselleştirir. En sağlam kontrol sırası GPS sonucu, kalibre edilmiş pusula ve harita karşılaştırmasıdır."
+      ]
+    }
+  ],
+  "faq_heading": "Sık sorulan sorular",
+  "faqs": [
+    {
+      "question": "Kıble nedir?",
+      "answer": "Kıble, Müslümanların namaz kılarken yöneldiği, Mekke'deki Kâbe'nin bulunduğu yöndür. Kâbe'ye olan doğrultu bulunduğun koordinata göre değiştiği için kıble açısı her konum için ayrı hesaplanır."
+    },
+    {
+      "question": "Kıble ne tarafta?",
+      "answer": "Türkiye'de çoğu konumda güney ile güneydoğu arasındadır; kesin yön için bulunduğun koordinata özel dereceyi hesapla."
+    },
+    {
+      "question": "Kıble derecesi nasıl okunur?",
+      "answer": "Derece gerçek kuzeyden başlayıp saat yönünde ölçülür. Ekrandaki yön adı, bu derecenin günlük dildeki karşılığıdır."
+    },
+    {
+      "question": "Telefon pusulası neden yanlış gösterebilir?",
+      "answer": "Mıknatıs, metal yüzey, elektronik cihaz ve kalibrasyon eksikliği sensörü etkileyebilir. Harita çizgisiyle ikinci kontrol yap."
+    },
+    {
+      "question": "Konum izni vermeden kıble bulunur mu?",
+      "answer": "Evet. Şehir veya ilçe seçerek merkez koordinatına göre yaklaşık sonucu görebilirsin."
+    },
+    {
+      "question": "Harita mı pusula mı daha doğru?",
+      "answer": "Harita gerçek kuzey hesabını gösterir; pusula pratik kullanım sağlar ancak manyetik etkilerden etkilenebilir. İkisini birlikte kullan."
+    }
+  ],
+  "aside_title": "Hızlı kontrol",
+  "aside_items": [
+    "Konumu netleştir",
+    "Telefonu kalibre et",
+    "Metalden uzaklaş",
+    "Harita çizgisiyle doğrula"
+  ],
+  "cta_label": "Canlı Kıble Pusulasını Aç",
+  "cta_url": "/#arac"
+}

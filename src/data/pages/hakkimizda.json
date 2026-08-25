@@ -1,0 +1,53 @@
+{
+  "seo_title": "Hakkımızda | Kıble Yönü Hesapla",
+  "meta_description": "Kıble Yönü Hesapla projesinin amacı, hesaplama yöntemi, gizlilik yaklaşımı ve sunduğu özellikler hakkında bilgi edinin.",
+  "eyebrow": "HAKKIMIZDA",
+  "h1": "Kıble Yönü Hesapla hakkında",
+  "lead": "Kıble Yönü Hesapla; bulunduğun konuma göre kıble açısını, Kâbe yönünü ve yaklaşık mesafeyi hızlı ve anlaşılır biçimde sunmak amacıyla geliştirilmiş ücretsiz bir web aracıdır.",
+  "sections": [
+    {
+      "heading": "Amacımız",
+      "paragraphs": [
+        "Kullanıcıların herhangi bir uygulama yüklemeden, masaüstü veya mobil tarayıcı üzerinden kıble yönünü kolayca bulabilmesini amaçlıyoruz. Canlı konum, şehir seçimi, pusula ve harita gibi farklı yöntemleri bir arada sunarak sonucun kontrol edilebilmesini sağlıyoruz.",
+        "Türkiye’nin 81 ili için hazırlanan şehir sayfalarıyla konum paylaşmak istemeyen kullanıcıların da il merkezi koordinatına göre yaklaşık kıble bilgisine ulaşabilmesini hedefliyoruz."
+      ]
+    },
+    {
+      "heading": "Kıble yönünü nasıl hesaplıyoruz?",
+      "paragraphs": [
+        "Hesaplama, seçilen konum ile Mekke’deki Kâbe’nin koordinatları arasındaki başlangıç açısına dayanır. Sonuç gerçek kuzey referans alınarak derece cinsinden gösterilir.",
+        "Konum izni verildiğinde hesaplama bulunduğun noktaya göre güncellenir. Canlı pusula özelliği desteklenen cihazlarda telefonun yön sensörlerinden yararlanır; harita görünümü ise doğrultuyu görsel olarak kontrol etmeye yardımcı olur."
+      ]
+    },
+    {
+      "heading": "Gizlilik yaklaşımımız",
+      "paragraphs": [
+        "Konum izni zorunlu değildir. Kullanıcılar şehir seçerek de yaklaşık kıble hesabı yapabilir. Konum bilgisi kıble açısını hesaplamak amacıyla tarayıcıda kullanılır ve bir kullanıcı hesabına bağlanmaz.",
+        "Kullandığımız harita ve manuel konum arama hizmetleri hakkında ayrıntılar Gizlilik Politikası sayfasında açıklanmıştır."
+      ]
+    },
+    {
+      "heading": "Ücretsiz ve erişilebilir kullanım",
+      "paragraphs": [
+        "Kıble Yönü Hesapla üyelik gerektirmeden ve ücretsiz olarak kullanılabilir. Sayfalar mobil, tablet ve masaüstü ekranlara uyumlu olacak şekilde hazırlanmıştır.",
+        "İçerik ve özellikler, kullanıcı deneyimini ve hesaplama açıklığını geliştirmek amacıyla zaman içinde güncellenebilir."
+      ]
+    },
+    {
+      "heading": "İçerik yaklaşımımız",
+      "paragraphs": [
+        "Kıble yönü, telefon pusulası, harita ile yön tayini ve şehir bazlı kıble açıları hakkında anlaşılır rehberler hazırlıyoruz. Teknik bilgileri mümkün olduğunca sade bir dille sunmayı amaçlıyoruz."
+      ]
+    }
+  ],
+  "aside_title": "Kısaca",
+  "aside_items": [
+    "Ücretsiz kullanım",
+    "Konum izni vermeden şehir seçimi",
+    "81 il için kıble sayfası",
+    "Canlı pusula ve harita desteği",
+    "Gizlilik odaklı yaklaşım"
+  ],
+  "cta_label": "Kıble yönünü hesapla",
+  "cta_url": "/#arac"
+}

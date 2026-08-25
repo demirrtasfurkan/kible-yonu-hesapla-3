@@ -1,0 +1,42 @@
+{
+  "seo_title": "Gizlilik Politikası | Kıble Yönü Hesapla",
+  "meta_description": "Kıble Yönü Hesapla konum, harita ve manuel arama verilerini nasıl kullanır? Gizlilik yaklaşımımızı inceleyin.",
+  "eyebrow": "GİZLİLİK",
+  "h1": "Konum verisini nasıl kullanıyoruz?",
+  "lead": "Kıble yönü hesabı için tarayıcınızdan konum izni yalnızca açıkça onaylamanız halinde alınır.",
+  "sections": [
+    {
+      "heading": "Konum saklanmaz",
+      "paragraphs": [
+        "Enlem ve boylam bilgisi tarayıcı içinde kıble açısı ve Kâbe mesafesi hesaplamak için kullanılır. Uygulama bu bilgiyi bir kullanıcı hesabına bağlamaz."
+      ]
+    },
+    {
+      "heading": "Manuel arama",
+      "paragraphs": [
+        "Şehir veya ilçe araması yaptığınızda önce cihazdaki yer listesi kullanılır. Listede bulunmayan sorgular OpenStreetMap Nominatim hizmetine gönderilebilir."
+      ]
+    },
+    {
+      "heading": "Harita",
+      "paragraphs": [
+        "Harita yalnızca sonuç üretildikten sonra yüklenir. Harita kutuları OpenStreetMap altyapısından alınır."
+      ]
+    },
+    {
+      "heading": "Analitik",
+      "paragraphs": [
+        "Analitik kurulumu yapılması halinde yürürlükteki izin tercihlerine uygun şekilde yapılandırılmalıdır."
+      ]
+    }
+  ],
+  "aside_title": "Özet",
+  "aside_items": [
+    "Konum izni zorunlu değildir.",
+    "Şehir aramasıyla da hesaplama yapılabilir.",
+    "Konum özel profile bağlanmaz.",
+    "Harita gecikmeli yüklenir."
+  ],
+  "cta_label": "Konumdan kıbleyi bul",
+  "cta_url": "/#arac"
+}

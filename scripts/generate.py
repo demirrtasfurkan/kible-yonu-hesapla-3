@@ -256,6 +256,156 @@ def guide_sections(sections):
     )
 
 
+def content_sections(sections):
+    blocks = []
+    for section in sections:
+        body = "".join(f'<p>{html.escape(text)}</p>' for text in section.get("paragraphs", []))
+        if section.get("cta_label") and section.get("cta_url"):
+            body += (
+                f'<p><a class="btn btn-primary" href="{html.escape(section["cta_url"], quote=True)}">'
+                f'{html.escape(section["cta_label"])}</a></p>'
+            )
+        blocks.append(f'<section><h2>{html.escape(section["heading"])}</h2>{body}</section>')
+    return "".join(blocks)
+
+
+def page_schema(slug, page, page_type="WebPage"):
+    url = f"https://kibleyonuhesapla.com/{slug}/"
+    return json.dumps(
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": page_type,
+                    "@id": f"{url}#webpage",
+                    "url": url,
+                    "name": page["seo_title"],
+                    "description": page["meta_description"],
+                    "inLanguage": "tr-TR",
+                    "breadcrumb": {"@id": f"{url}#breadcrumb"},
+                },
+                {
+                    "@type": "BreadcrumbList",
+                    "@id": f"{url}#breadcrumb",
+                    "itemListElement": [
+                        {
+                            "@type": "ListItem",
+                            "position": 1,
+                            "name": "Ana Sayfa",
+                            "item": "https://kibleyonuhesapla.com/",
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 2,
+                            "name": page["h1"],
+                            "item": url,
+                        },
+                    ],
+                },
+            ],
+        },
+        ensure_ascii=False,
+        separators=(",", ":"),
+    )
+
+
+def write_content_page(slug, page, template, footer_html, breadcrumb, page_type="WebPage"):
+    aside_items = "".join(f'<li>{html.escape(item)}</li>' for item in page["aside_items"])
+    cta = ""
+    if page.get("cta_label") and page.get("cta_url"):
+        cta = (
+            f'<a class="btn btn-primary full" href="{html.escape(page["cta_url"], quote=True)}">'
+            f'{html.escape(page["cta_label"])}</a>'
+        )
+    values = {
+        "TITLE": html.escape(page["seo_title"]),
+        "DESCRIPTION": html.escape(page["meta_description"], quote=True),
+        "SLUG": slug,
+        "BREADCRUMB": html.escape(breadcrumb),
+        "EYEBROW": html.escape(page["eyebrow"]),
+        "H1": html.escape(page["h1"]),
+        "LEAD": html.escape(page["lead"]),
+        "SECTIONS": content_sections(page["sections"]),
+        "ASIDE_TITLE": html.escape(page["aside_title"]),
+        "ASIDE_ITEMS": aside_items,
+        "CTA": cta,
+        "SCHEMA": page_schema(slug, page, page_type),
+        "FOOTER": footer_html,
+    }
+    directory = DIST / slug
+    directory.mkdir(parents=True, exist_ok=True)
+    (directory / "index.html").write_text(render(template, values), encoding="utf-8")
+
+
+def write_faq_page(page, template, footer_html):
+    slug = "sikca-sorulan-sorular"
+    url = f"https://kibleyonuhesapla.com/{slug}/"
+    faq_entities = [
+        {
+            "@type": "Question",
+            "name": item["question"],
+            "acceptedAnswer": {"@type": "Answer", "text": item["answer"]},
+        }
+        for item in page["faqs"]
+    ]
+    schema = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "FAQPage",
+                "@id": f"{url}#webpage",
+                "url": url,
+                "name": page["seo_title"],
+                "description": page["meta_description"],
+                "inLanguage": "tr-TR",
+                "mainEntity": faq_entities,
+                "breadcrumb": {"@id": f"{url}#breadcrumb"},
+            },
+            {
+                "@type": "BreadcrumbList",
+                "@id": f"{url}#breadcrumb",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Ana Sayfa",
+                        "item": "https://kibleyonuhesapla.com/",
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Sık Sorulan Sorular",
+                        "item": url,
+                    },
+                ],
+            },
+        ],
+    }
+    values = {
+        "TITLE": html.escape(page["seo_title"]),
+        "DESCRIPTION": html.escape(page["meta_description"], quote=True),
+        "EYEBROW": html.escape(page["eyebrow"]),
+        "H1": html.escape(page["h1"]),
+        "LEAD": html.escape(page["lead"]),
+        "INTRO_SECTIONS": content_sections(page["intro_sections"]),
+        "FAQ_HEADING": html.escape(page["faq_heading"]),
+        "FAQ_HTML": "".join(
+            f'<details><summary><h3>{html.escape(item["question"])}</h3></summary>'
+            f'<p>{html.escape(item["answer"])}</p></details>'
+            for item in page["faqs"]
+        ),
+        "ASIDE_TITLE": html.escape(page["aside_title"]),
+        "ASIDE_ITEMS": "".join(f'<li>{html.escape(item)}</li>' for item in page["aside_items"]),
+        "CTA_LABEL": html.escape(page["cta_label"]),
+        "CTA_URL": html.escape(page["cta_url"], quote=True),
+        "SCHEMA": json.dumps(schema, ensure_ascii=False, separators=(",", ":")),
+        "FOOTER": footer_html,
+    }
+    directory = DIST / slug
+    directory.mkdir(parents=True, exist_ok=True)
+    (directory / "index.html").write_text(render(template, values), encoding="utf-8")
+
+
 def update_homepage(home):
     path = DIST / "index.html"
     page = path.read_text(encoding="utf-8")
@@ -335,6 +485,11 @@ def update_homepage(home):
         raise ValueError("Ana sayfa yapılandırılmış verisi bulunamadı")
     schema = json.loads(schema_match.group(1))
     for item in schema.get("@graph", []):
+        if item.get("@type") == "WebSite":
+            item["name"] = home["seo_title"]
+            item["description"] = home["meta_description"]
+        if item.get("@type") == "WebApplication":
+            item["description"] = home["meta_description"]
         if item.get("@type") == "FAQPage":
             item["mainEntity"] = [
                 {
@@ -367,6 +522,24 @@ def main():
 
     update_homepage(home)
     footer_html = footer(home["footer_description"], cities)
+    content_page_template = (SRC / "templates/content-page.template.html").read_text(encoding="utf-8")
+    faq_page_template = (SRC / "templates/faq-page.template.html").read_text(encoding="utf-8")
+    content_page_config = {
+        "hakkimizda": ("Kıble Yönü Hesapla hakkında", "AboutPage"),
+        "gizlilik": ("Gizlilik Politikası", "WebPage"),
+        "kullanim-sartlari": ("Kullanım Şartları", "WebPage"),
+        "iletisim": ("İletişim", "ContactPage"),
+        "hesaplama-yontemi": ("Hesaplama Yöntemi", "WebPage"),
+    }
+    for slug, (breadcrumb, page_type) in content_page_config.items():
+        page = json.loads((SRC / f"data/pages/{slug}.json").read_text(encoding="utf-8"))
+        write_content_page(
+            slug, page, content_page_template, footer_html, breadcrumb, page_type
+        )
+    faq_page = json.loads(
+        (SRC / "data/pages/sikca-sorulan-sorular.json").read_text(encoding="utf-8")
+    )
+    write_faq_page(faq_page, faq_page_template, footer_html)
     city_lookup = {city["slug"]: city for city in cities}
     city_template = (SRC / "templates/city.template.html").read_text(encoding="utf-8")
     city_index = (SRC / "templates/cities-index.template.html").read_text(encoding="utf-8")
@@ -507,8 +680,27 @@ def main():
         (f"{base}/sehirler/", last_modified(SRC / "templates/cities-index.template.html", SRC / "data/cities.json", generator_source)),
         (f"{base}/blog/", last_modified(SRC / "templates/blog-index.template.html", SRC / "data/blog.json", generator_source)),
     ]
-    for slug in ["gizlilik", "hakkimizda", "kullanim-sartlari", "hesaplama-yontemi", "iletisim", "sikca-sorulan-sorular"]:
-        entries.append((f"{base}/{slug}/", last_modified(SRC / "site" / slug / "index.html", generator_source)))
+    for slug in ["gizlilik", "hakkimizda", "kullanim-sartlari", "hesaplama-yontemi", "iletisim"]:
+        entries.append(
+            (
+                f"{base}/{slug}/",
+                last_modified(
+                    SRC / f"data/pages/{slug}.json",
+                    SRC / "templates/content-page.template.html",
+                    generator_source,
+                ),
+            )
+        )
+    entries.append(
+        (
+            f"{base}/sikca-sorulan-sorular/",
+            last_modified(
+                SRC / "data/pages/sikca-sorulan-sorular.json",
+                SRC / "templates/faq-page.template.html",
+                generator_source,
+            ),
+        )
+    )
     entries += [(f'{base}/{city["slug"]}/', shared_city_lastmod) for city in cities]
     blog_lastmod = last_modified(SRC / "data/blog.json", SRC / "templates/blog-post.template.html", generator_source)
     entries += [(f'{base}/blog/{post["slug"]}/', blog_lastmod) for post in posts]

@@ -57,6 +57,84 @@ collections:
               - {name: answer, label: Cevap, widget: text}
           - {name: closing_copy, label: Kapanış Metni, widget: text}
 
+      - name: about_page
+        label: Hakkımızda Sayfası
+        file: src/data/pages/hakkimizda.json
+        format: json
+        fields: &content_page_fields
+          - {name: seo_title, label: SEO Başlığı, widget: string}
+          - {name: meta_description, label: Meta Açıklaması, widget: text}
+          - {name: eyebrow, label: Üst Etiket, widget: string}
+          - {name: h1, label: Ana Başlık (H1), widget: string}
+          - {name: lead, label: Giriş Metni, widget: text}
+          - name: sections
+            label: İçerik Bölümleri
+            widget: list
+            summary: "{{fields.heading}}"
+            fields:
+              - {name: heading, label: Bölüm Başlığı, widget: string}
+              - {name: paragraphs, label: Paragraflar, widget: list, field: {name: paragraph, label: Paragraf, widget: text}}
+              - {name: cta_label, label: Bölüm Buton Metni, widget: string, required: false}
+              - {name: cta_url, label: Bölüm Buton Bağlantısı, widget: string, required: false}
+          - {name: aside_title, label: Yan Kutu Başlığı, widget: string}
+          - {name: aside_items, label: Yan Kutu Maddeleri, widget: list, field: {name: item, label: Madde, widget: string}}
+          - {name: cta_label, label: Ana Buton Metni, widget: string, required: false}
+          - {name: cta_url, label: Ana Buton Bağlantısı, widget: string, required: false}
+
+      - name: privacy_page
+        label: Gizlilik Politikası
+        file: src/data/pages/gizlilik.json
+        format: json
+        fields: *content_page_fields
+
+      - name: terms_page
+        label: Kullanım Şartları
+        file: src/data/pages/kullanim-sartlari.json
+        format: json
+        fields: *content_page_fields
+
+      - name: contact_page
+        label: İletişim Sayfası
+        file: src/data/pages/iletisim.json
+        format: json
+        fields: *content_page_fields
+
+      - name: calculation_page
+        label: Hesaplama Yöntemi
+        file: src/data/pages/hesaplama-yontemi.json
+        format: json
+        fields: *content_page_fields
+
+      - name: faq_page
+        label: Sık Sorulan Sorular Sayfası
+        file: src/data/pages/sikca-sorulan-sorular.json
+        format: json
+        fields:
+          - {name: seo_title, label: SEO Başlığı, widget: string}
+          - {name: meta_description, label: Meta Açıklaması, widget: text}
+          - {name: eyebrow, label: Üst Etiket, widget: string}
+          - {name: h1, label: Ana Başlık (H1), widget: string}
+          - {name: lead, label: Giriş Metni, widget: text}
+          - name: intro_sections
+            label: Rehber Bölümleri
+            widget: list
+            summary: "{{fields.heading}}"
+            fields:
+              - {name: heading, label: Bölüm Başlığı, widget: string}
+              - {name: paragraphs, label: Paragraflar, widget: list, field: {name: paragraph, label: Paragraf, widget: text}}
+          - {name: faq_heading, label: SSS Başlığı, widget: string}
+          - name: faqs
+            label: Sorular ve Cevaplar
+            widget: list
+            summary: "{{fields.question}}"
+            fields:
+              - {name: question, label: Soru, widget: string}
+              - {name: answer, label: Cevap, widget: text}
+          - {name: aside_title, label: Yan Kutu Başlığı, widget: string}
+          - {name: aside_items, label: Yan Kutu Maddeleri, widget: list, field: {name: item, label: Madde, widget: string}}
+          - {name: cta_label, label: Ana Buton Metni, widget: string}
+          - {name: cta_url, label: Ana Buton Bağlantısı, widget: string}
+
       - name: blog
         label: Blog Yazıları
         file: src/data/blog.json

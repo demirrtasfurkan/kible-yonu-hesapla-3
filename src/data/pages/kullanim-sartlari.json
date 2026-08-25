@@ -1,0 +1,66 @@
+{
+  "seo_title": "Kullanım Şartları | Kıble Yönü Hesapla",
+  "meta_description": "Kıble Yönü Hesapla web sitesinin kullanım kapsamını, kullanıcı sorumluluklarını ve hizmet koşullarını inceleyin.",
+  "eyebrow": "KULLANIM ŞARTLARI",
+  "h1": "Kullanım Şartları",
+  "lead": "Kıble Yönü Hesapla web sitesini kullanarak aşağıdaki kullanım koşullarını kabul etmiş olursun. Bu koşullar hizmetin kapsamını ve tarafların sorumluluklarını açıklar.",
+  "sections": [
+    {
+      "heading": "Hizmetin kapsamı",
+      "paragraphs": [
+        "Kıble Yönü Hesapla; konum, şehir merkezi koordinatları, pusula sensörü ve harita verileri yardımıyla kıble yönüne ilişkin bilgilendirici sonuçlar sunar. Hizmet ücretsiz olarak ve mevcut haliyle sağlanır.",
+        "Şehir sayfalarında gösterilen sabit değerler il merkezi koordinatına göre hesaplanır. Bulunduğun noktaya göre daha hassas sonuç almak için konum özelliği kullanılmalıdır."
+      ]
+    },
+    {
+      "heading": "Sonuçların kullanımı",
+      "paragraphs": [
+        "Cihaz sensörleri; metal yüzeyler, manyetik aksesuarlar, kalibrasyon durumu, tarayıcı izinleri ve çevresel koşullardan etkilenebilir. Kullanıcı, sonucu kendi koşullarına göre değerlendirmek ve gerektiğinde harita veya güvenilir fiziksel referanslarla kontrol etmekle sorumludur.",
+        "Sitedeki bilgiler genel bilgilendirme amacı taşır. Kesintisiz erişim, belirli bir cihazda sensör desteği veya her koşulda aynı doğruluk seviyesi garanti edilmez."
+      ]
+    },
+    {
+      "heading": "Kullanıcı sorumlulukları",
+      "paragraphs": [
+        "Siteyi hukuka aykırı, hizmeti bozucu veya üçüncü kişilerin haklarını ihlal edici biçimde kullanmamalısın. Otomatik ve aşırı isteklerle hizmetin çalışmasını engellemek veya güvenlik mekanizmalarını aşmaya çalışmak yasaktır.",
+        "Cihaz ve tarayıcı izinlerinin yönetimi kullanıcıya aittir. Konum erişimini tarayıcı ayarlarından dilediğin zaman kapatabilirsin."
+      ]
+    },
+    {
+      "heading": "Harici hizmetler",
+      "paragraphs": [
+        "Harita ve manuel konum arama gibi bazı özellikler üçüncü taraf veri veya altyapı hizmetlerinden yararlanabilir. Bu hizmetlerin erişilebilirliği ve kendi kullanım koşulları ilgili sağlayıcıların sorumluluğundadır."
+      ]
+    },
+    {
+      "heading": "Fikri mülkiyet",
+      "paragraphs": [
+        "Sitenin tasarımı, metinleri, yazılım bileşenleri ve özgün görsel unsurları üzerindeki haklar, aksi belirtilmedikçe Kıble Yönü Hesapla’ya aittir. Kişisel ve ticari olmayan kullanım dışında içeriklerin izinsiz çoğaltılması veya yeniden yayımlanması uygun değildir."
+      ]
+    },
+    {
+      "heading": "Değişiklikler ve güncellemeler",
+      "paragraphs": [
+        "Özellikler, içerikler ve bu kullanım şartları gerektiğinde güncellenebilir. Güncel metin her zaman bu sayfada yayımlanır. Siteyi kullanmaya devam etmen güncel şartların kabul edildiği anlamına gelir."
+      ]
+    },
+    {
+      "heading": "İletişim ve bildirim",
+      "paragraphs": [
+        "Siteyle ilgili teknik hata, içerik bildirimi veya hak talebi için info@kibleyonuhesapla.com adresini kullanabilirsin. Acil yön tayini gereken durumlarda yalnızca tek bir dijital araca dayanmak yerine sonucu farklı yöntemlerle kontrol etmen önerilir."
+      ],
+      "cta_label": "E-posta gönder",
+      "cta_url": "mailto:info@kibleyonuhesapla.com?subject=K%C4%B1ble%20Y%C3%B6n%C3%BC%20Bildirimi"
+    }
+  ],
+  "aside_title": "Önemli noktalar",
+  "aside_items": [
+    "Sonuçlar bilgilendirme amaçlıdır",
+    "Sensör doğruluğu cihazdan etkilenebilir",
+    "Şehir sonuçları merkez koordinatına göredir",
+    "Hizmet mevcut haliyle sunulur",
+    "Şartlar gerektiğinde güncellenebilir"
+  ],
+  "cta_label": "Kıble yönünü hesapla",
+  "cta_url": "/#arac"
+}
