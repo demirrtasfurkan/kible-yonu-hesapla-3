@@ -6,6 +6,7 @@ import json
 import re
 import shutil
 import subprocess
+from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "src"
@@ -200,6 +201,7 @@ def render(template, values):
 
 
 INLINE_LINK_RE = re.compile(r"\[([^\]\n]+)\]\(([^)\s]+)\)")
+SITE_HOSTS = {"kibleyonuhesapla.com", "www.kibleyonuhesapla.com"}
 
 
 def safe_link_target(value):
@@ -208,7 +210,17 @@ def safe_link_target(value):
         return value
     if value.startswith("#"):
         return value
+    if value.startswith("kibleyonuhesapla.com") or value.startswith("www.kibleyonuhesapla.com"):
+        value = f"https://{value}"
     if value.startswith("https://"):
+        parsed = urlsplit(value)
+        if parsed.hostname and parsed.hostname.lower() in SITE_HOSTS:
+            target = parsed.path or "/"
+            if parsed.query:
+                target += f"?{parsed.query}"
+            if parsed.fragment:
+                target += f"#{parsed.fragment}"
+            return target
         return value
     if value.startswith("mailto:") and re.fullmatch(r"mailto:[^\s@]+@[^\s@]+(?:\?[^\s]*)?", value):
         return value
