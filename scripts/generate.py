@@ -199,6 +199,55 @@ def render(template, values):
     return template
 
 
+INLINE_LINK_RE = re.compile(r"\[([^\]\n]+)\]\(([^)\s]+)\)")
+
+
+def safe_link_target(value):
+    value = value.strip()
+    if value.startswith("/") and not value.startswith("//"):
+        return value
+    if value.startswith("#"):
+        return value
+    if value.startswith("https://"):
+        return value
+    if value.startswith("mailto:") and re.fullmatch(r"mailto:[^\s@]+@[^\s@]+(?:\?[^\s]*)?", value):
+        return value
+    return None
+
+
+def render_inline_text(value):
+    value = html.escape(value)
+    value = re.sub(r"\*\*([^*\n]+)\*\*", r"<strong>\1</strong>", value)
+    value = re.sub(r"(?<!\*)\*([^*\n]+)\*(?!\*)", r"<em>\1</em>", value)
+    return value
+
+
+def render_inline(value):
+    """Render safe links and basic emphasis while escaping raw HTML."""
+    output = []
+    cursor = 0
+    for match in INLINE_LINK_RE.finditer(value):
+        output.append(render_inline_text(value[cursor : match.start()]))
+        label, target = match.groups()
+        safe_target = safe_link_target(target)
+        if safe_target:
+            output.append(
+                f'<a href="{html.escape(safe_target, quote=True)}">'
+                f'{render_inline_text(label)}</a>'
+            )
+        else:
+            output.append(render_inline_text(match.group(0)))
+        cursor = match.end()
+    output.append(render_inline_text(value[cursor:]))
+    return "".join(output)
+
+
+def plain_text(value):
+    """Remove supported Markdown syntax for metadata and structured data."""
+    value = INLINE_LINK_RE.sub(lambda match: match.group(1), value)
+    return value.replace("**", "").replace("*", "").strip()
+
+
 def footer(description, cities):
     city_links = "".join(
         f'<a href="/{city["slug"]}/">{html.escape(city["name"])} Kıble</a>'
@@ -227,18 +276,18 @@ def guide_sections(sections):
     blocks = []
     for section in sections:
         body = "".join(
-            f'<p>{html.escape(text)}</p>' for text in section.get("paragraphs_before", [])
+            f'<p>{render_inline(text)}</p>' for text in section.get("paragraphs_before", [])
         )
         items = section.get("list_items", [])
         list_type = section.get("list_type", "none")
         if items and list_type in {"ordered", "unordered"}:
             tag = "ol" if list_type == "ordered" else "ul"
-            body += f'<{tag}>' + "".join(f'<li>{html.escape(item)}</li>' for item in items) + f'</{tag}>'
+            body += f'<{tag}>' + "".join(f'<li>{render_inline(item)}</li>' for item in items) + f'</{tag}>'
         body += "".join(
-            f'<p>{html.escape(text)}</p>' for text in section.get("paragraphs_after", [])
+            f'<p>{render_inline(text)}</p>' for text in section.get("paragraphs_after", [])
         )
         if section.get("tip"):
-            body += f'<p class="tip-box">{html.escape(section["tip"])}</p>'
+            body += f'<p class="tip-box">{render_inline(section["tip"])}</p>'
         if section.get("cta_label") and section.get("cta_url"):
             body += (
                 f'<p><a class="btn btn-secondary" href="{html.escape(section["cta_url"], quote=True)}">'
@@ -259,7 +308,7 @@ def guide_sections(sections):
 def content_sections(sections):
     blocks = []
     for section in sections:
-        body = "".join(f'<p>{html.escape(text)}</p>' for text in section.get("paragraphs", []))
+        body = "".join(f'<p>{render_inline(text)}</p>' for text in section.get("paragraphs", []))
         if section.get("cta_label") and section.get("cta_url"):
             body += (
                 f'<p><a class="btn btn-primary" href="{html.escape(section["cta_url"], quote=True)}">'
@@ -310,7 +359,7 @@ def page_schema(slug, page, page_type="WebPage"):
 
 
 def write_content_page(slug, page, template, footer_html, breadcrumb, page_type="WebPage"):
-    aside_items = "".join(f'<li>{html.escape(item)}</li>' for item in page["aside_items"])
+    aside_items = "".join(f'<li>{render_inline(item)}</li>' for item in page["aside_items"])
     cta = ""
     if page.get("cta_label") and page.get("cta_url"):
         cta = (
@@ -344,7 +393,7 @@ def write_faq_page(page, template, footer_html):
         {
             "@type": "Question",
             "name": item["question"],
-            "acceptedAnswer": {"@type": "Answer", "text": item["answer"]},
+            "acceptedAnswer": {"@type": "Answer", "text": plain_text(item["answer"])},
         }
         for item in page["faqs"]
     ]
@@ -391,11 +440,11 @@ def write_faq_page(page, template, footer_html):
         "FAQ_HEADING": html.escape(page["faq_heading"]),
         "FAQ_HTML": "".join(
             f'<details><summary><h3>{html.escape(item["question"])}</h3></summary>'
-            f'<p>{html.escape(item["answer"])}</p></details>'
+            f'<p>{render_inline(item["answer"])}</p></details>'
             for item in page["faqs"]
         ),
         "ASIDE_TITLE": html.escape(page["aside_title"]),
-        "ASIDE_ITEMS": "".join(f'<li>{html.escape(item)}</li>' for item in page["aside_items"]),
+        "ASIDE_ITEMS": "".join(f'<li>{render_inline(item)}</li>' for item in page["aside_items"]),
         "CTA_LABEL": html.escape(page["cta_label"]),
         "CTA_URL": html.escape(page["cta_url"], quote=True),
         "SCHEMA": json.dumps(schema, ensure_ascii=False, separators=(",", ":")),
@@ -453,7 +502,7 @@ def update_homepage(home):
 
     faq_html = "".join(
         f'<details><summary><h3>{html.escape(item["question"])}</h3></summary>'
-        f'<p>{html.escape(item["answer"])}</p></details>'
+        f'<p>{render_inline(item["answer"])}</p></details>'
         for item in home["faqs"]
     )
     page, count = re.subn(
@@ -472,7 +521,7 @@ def update_homepage(home):
         raise ValueError("Ana sayfa SSS başlığı bulunamadı")
     page, count = re.subn(
         r'(<p class="closing-copy">).*?(</p>)',
-        rf'\1{html.escape(home["closing_copy"])}\2',
+        rf'\1{render_inline(home["closing_copy"])}\2',
         page,
         count=1,
         flags=re.DOTALL,
@@ -495,7 +544,7 @@ def update_homepage(home):
                 {
                     "@type": "Question",
                     "name": faq["question"],
-                    "acceptedAnswer": {"@type": "Answer", "text": faq["answer"]},
+                    "acceptedAnswer": {"@type": "Answer", "text": plain_text(faq["answer"])},
                 }
                 for faq in home["faqs"]
             ]
@@ -625,12 +674,12 @@ def main():
         )
         content = "".join(
             f'<h2>{html.escape(section["heading"])}</h2>'
-            + "".join(f'<p>{html.escape(paragraph)}</p>' for paragraph in section["paragraphs"])
+            + "".join(f'<p>{render_inline(paragraph)}</p>' for paragraph in section["paragraphs"])
             for section in post["sections"]
         )
         faq = "".join(
             f'<details><summary>{html.escape(item["question"])}</summary>'
-            f'<p>{html.escape(item["answer"])}</p></details>'
+            f'<p>{render_inline(item["answer"])}</p></details>'
             for item in post["faq"]
         )
         related = "".join(
