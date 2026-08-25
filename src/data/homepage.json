@@ -151,6 +151,10 @@
     {
       "question": "Telefonumun pusulası neden yanlış gösteriyor?",
       "answer": "Telefon kılıfındaki mıknatıslar metal yüzeyler veya kalibrasyon eksikliği pusula doğruluğunu etkileyebilir. Telefonu düz tutarak ve pusulayı yeniden kalibre ederek daha doğru sonuç alabilirsin."
+    },
+    {
+      "question": "İlk kıble neresi?",
+      "answer": "İslam’ın ilk kıblesi, Kudüs’te bulunan Mescid-i Aksa’dır. Müslümanlar, hicretten sonra yaklaşık 16–17 ay boyunca namazlarını Kudüs yönüne dönerek kılmıştır. Daha sonra Bakara Suresi’nin 144. ayetiyle kıble, Mekke’deki Kabe yönüne çevrilmiştir. Günümüzde Müslümanların namaz kılarken yöneldiği kıble Kabe’dir."
     }
   ],
   "closing_copy": "Kıble Bul aracı GPS koordinatından gerçek kuzeye göre Kâbe açısını hesaplar. Sonucu canlı kıble pusulası, harita veya 81 il ve ilçe verileriyle kontrol edebilirsin. Konum bilgisi yalnızca cihazında kullanılır; kaydedilmez veya üçüncü taraflarla paylaşılmaz."
