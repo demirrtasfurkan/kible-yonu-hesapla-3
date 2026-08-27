@@ -467,7 +467,54 @@ def write_faq_page(page, template, footer_html):
     (directory / "index.html").write_text(render(template, values), encoding="utf-8")
 
 
-def update_homepage(home):
+def popular_cities_section(cities):
+    featured_names = [
+        "İstanbul",
+        "Ankara",
+        "İzmir",
+        "Bursa",
+        "Antalya",
+        "Konya",
+        "Adana",
+        "Gaziantep",
+        "Kayseri",
+        "Eskişehir",
+        "Diyarbakır",
+        "Samsun",
+    ]
+    city_lookup = {city["name"]: city for city in cities}
+    missing = [name for name in featured_names if name not in city_lookup]
+    if missing:
+        raise ValueError(f"Popüler şehir verileri eksik: {', '.join(missing)}")
+
+    city_links = "".join(
+        (
+            f'<a class="popular-city-chip" href="/{city_lookup[name]["slug"]}/" '
+            f'aria-label="{html.escape(name)} kıble yönü '
+            f'{decimal_tr(city_lookup[name]["bearing"])} derece">'
+            f'<strong>{html.escape(name)}</strong>'
+            f'<span>{decimal_tr(city_lookup[name]["bearing"])}°</span>'
+            "</a>"
+        )
+        for name in featured_names
+    )
+    return (
+        '<section class="cities" id="sehirler">\n'
+        '  <div class="container">\n'
+        '    <div class="popular-cities-head">\n'
+        '      <div>\n'
+        '        <span class="section-label">HIZLI ERİŞİM</span>\n'
+        '        <h2>En Çok Aranan Şehirler</h2>\n'
+        '      </div>\n'
+        '      <a class="btn btn-secondary popular-cities-all" href="/sehirler/">Tüm şehirler</a>\n'
+        '    </div>\n'
+        f'    <div class="popular-city-list">{city_links}</div>\n'
+        '  </div>\n'
+        '</section>'
+    )
+
+
+def update_homepage(home, cities):
     path = DIST / "index.html"
     page = path.read_text(encoding="utf-8")
 
@@ -541,6 +588,16 @@ def update_homepage(home):
     if count != 1:
         raise ValueError("Ana sayfa kapanış metni bulunamadı")
 
+    page, count = re.subn(
+        r'<section class="cities" id="sehirler">.*?</section>',
+        popular_cities_section(cities),
+        page,
+        count=1,
+        flags=re.DOTALL,
+    )
+    if count != 1:
+        raise ValueError("Ana sayfa popüler şehirler bölümü bulunamadı")
+
     schema_match = re.search(r'<script type="application/ld\+json">(.*?)</script>', page, flags=re.DOTALL)
     if not schema_match:
         raise ValueError("Ana sayfa yapılandırılmış verisi bulunamadı")
@@ -581,7 +638,7 @@ def main():
     if not cities or not posts:
         raise ValueError("Şehir ve blog listeleri boş bırakılamaz")
 
-    update_homepage(home)
+    update_homepage(home, cities)
     footer_html = footer(home["footer_description"], cities)
     content_page_template = (SRC / "templates/content-page.template.html").read_text(encoding="utf-8")
     faq_page_template = (SRC / "templates/faq-page.template.html").read_text(encoding="utf-8")
@@ -802,11 +859,12 @@ def main():
         page = path.read_text(encoding="utf-8")
         if re.search(r"<footer\b.*?</footer>", page, flags=re.DOTALL):
             page = re.sub(r"<footer\b.*?</footer>", footer_html, page, count=1, flags=re.DOTALL)
-        page = re.sub(r'/assets/css/style\.css(?:\?v=\d+)?', '/assets/css/style.css?v=34', page)
-        page = re.sub(r'/assets/js/app\.js(?:\?v=\d+)?', '/assets/js/app.js?v=34', page)
-        page = re.sub(r'/assets/js/qibla-map\.js(?:\?v=\d+)?', '/assets/js/qibla-map.js?v=34', page)
+        page = re.sub(r'/assets/css/style\.css(?:\?v=\d+)?', '/assets/css/style.css?v=35', page)
+        page = re.sub(r'/assets/js/app\.js(?:\?v=\d+)?', '/assets/js/app.js?v=35', page)
+        page = re.sub(r'/assets/js/qibla-map\.js(?:\?v=\d+)?', '/assets/js/qibla-map.js?v=35', page)
+        page = re.sub(r'/assets/js/nav\.js(?:\?v=\d+)?', '/assets/js/nav.js?v=35', page)
         if '/assets/js/nav.js' not in page:
-            page = page.replace('</body>', '<script src="/assets/js/nav.js?v=34" defer></script>\n</body>')
+            page = page.replace('</body>', '<script src="/assets/js/nav.js?v=35" defer></script>\n</body>')
         path.write_text(page, encoding="utf-8")
     print(f"Build tamamlandı: {len(cities)} il, {len(posts)} blog")
 

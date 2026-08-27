@@ -223,6 +223,30 @@ body[data-city-page="true"] .faq{padding:88px 0;background:#fff}
 .kb-pin-kaaba{background:#c9a24e;border-radius:3px}
 .leaflet-marker-icon.kb-marker{background:0 0;border:0}
 
+/* Ana sayfa: kompakt popüler şehir bağlantıları */
+.cities{padding:76px 0;background:#fbf9f4}
+.popular-cities-head{display:flex;align-items:flex-end;justify-content:space-between;gap:28px}
+.popular-cities-head h2{font-size:clamp(38px,5vw,56px);line-height:1.08;letter-spacing:-2px;margin:10px 0 0;color:#173b36}
+.popular-cities-all{flex:0 0 auto;padding:14px 22px;border-radius:15px}
+.popular-city-list{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.popular-city-chip{display:inline-flex;align-items:baseline;justify-content:center;gap:5px;min-height:58px;padding:14px 18px;border:1px solid #ded9ce;border-radius:16px;background:#fff;box-shadow:0 14px 34px rgba(48,78,70,.06);color:#173b36;text-decoration:none;transition:border-color .2s ease,box-shadow .2s ease,transform .2s ease}
+.popular-city-chip strong{font-size:17px;line-height:1.2}
+.popular-city-chip span{font-size:15px;color:#71847e;line-height:1.2}
+.popular-city-chip:hover{transform:translateY(-2px);border-color:#8ebfb3;box-shadow:0 18px 38px rgba(48,78,70,.1)}
+
+@media(max-width:760px){
+  .cities{padding:58px 0}
+  .popular-cities-head{align-items:flex-start;flex-direction:column;gap:18px}
+  .popular-cities-head h2{font-size:38px;letter-spacing:-1.4px}
+  .popular-cities-all{width:100%}
+  .popular-city-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:26px}
+  .popular-city-chip{padding:13px 10px;min-width:0}
+}
+
+@media(max-width:420px){
+  .popular-city-list{grid-template-columns:1fr}
+}
+
 /* V32: intent hub, default result and city verification */
 .city-update{margin:14px 0 0;color:#7a8783;font-size:13px}.city-verification-section{padding:88px 0;background:#e8f2ee}.verification-layout{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px;align-items:start}.verification-copy h2{font-size:clamp(34px,4vw,50px);line-height:1.12;letter-spacing:-1.4px;margin:8px 0 18px}.verification-copy p{color:#5b716b;font-size:17px}.verification-steps{list-style:none;counter-reset:verify;margin:0;padding:0;display:grid;gap:14px}.verification-steps li{counter-increment:verify;position:relative;background:#fff;border:1px solid #cfe0da;border-radius:18px;padding:20px 20px 20px 68px}.verification-steps li::before{content:counter(verify);position:absolute;left:20px;top:20px;display:grid;place-items:center;width:32px;height:32px;border-radius:10px;background:#173b36;color:#fff;font-weight:900}.verification-steps strong,.verification-steps span{display:block}.verification-steps span{margin-top:4px;color:#667a75}.faq-more{margin:22px 0 0}.faq-more a{color:#0b7a68;font-weight:900}.footer-grid{grid-template-columns:2fr 1fr 1fr 1fr}
 @media(max-width:940px){.verification-layout{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr}}
