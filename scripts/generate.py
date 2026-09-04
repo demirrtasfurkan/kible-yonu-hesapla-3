@@ -269,10 +269,6 @@ def footer(description, cities):
         '<footer><div class="container"><div class="footer-grid">\n'
         f'<div><strong>Kıble Yönü Hesapla</strong><p>{html.escape(description)}</p>'
         '<nav class="social-links" aria-label="Sosyal medya hesaplarımız">'
-        '<a href="https://x.com/kibleyonuhesap" target="_blank" rel="noopener noreferrer" '
-        'aria-label="Kıble Yönü Hesapla X profili">'
-        '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg>'
-        '<span class="sr-only">X</span></a>'
         '<a href="https://www.linkedin.com/company/k%C4%B1ble-y%C3%B6n%C3%BC-hesapla" target="_blank" '
         'rel="noopener noreferrer" aria-label="Kıble Yönü Hesapla LinkedIn sayfası">'
         '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.047c.475-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286h-.002ZM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124ZM7.119 20.452H3.555V9h3.564v11.452Z"/></svg>'
@@ -623,7 +619,7 @@ def update_homepage(home, cities):
         if item.get("@type") == "WebSite":
             item["name"] = home["seo_title"]
             item["description"] = home["meta_description"]
-        if item.get("@type") == "WebApplication":
+        if item.get("@type") in {"WebApplication", "SoftwareApplication"}:
             item["description"] = home["meta_description"]
         if item.get("@type") == "FAQPage":
             item["mainEntity"] = [
@@ -809,42 +805,31 @@ def main():
     )
 
     base = "https://kibleyonuhesapla.com"
-    generator_source = Path(__file__)
     entries = [
-        (f"{base}/", last_modified(SRC / "site/index.html", SRC / "data/homepage.json", generator_source)),
-        (f"{base}/sehirler/", last_modified(SRC / "templates/cities-index.template.html", SRC / "data/cities.json", generator_source)),
-        (f"{base}/blog/", last_modified(SRC / "templates/blog-index.template.html", SRC / "data/blog.json", generator_source)),
+        (f"{base}/", "daily", "1.0"),
+        (f"{base}/sehirler/", "weekly", "0.9"),
+        (f"{base}/blog/", "weekly", "0.8"),
     ]
-    for slug in ["gizlilik", "hakkimizda", "kullanim-sartlari", "hesaplama-yontemi", "iletisim"]:
-        entries.append(
-            (
-                f"{base}/{slug}/",
-                last_modified(
-                    SRC / f"data/pages/{slug}.json",
-                    SRC / "templates/content-page.template.html",
-                    generator_source,
-                ),
-            )
-        )
-    entries.append(
-        (
-            f"{base}/sikca-sorulan-sorular/",
-            last_modified(
-                SRC / "data/pages/sikca-sorulan-sorular.json",
-                SRC / "templates/faq-page.template.html",
-                generator_source,
-            ),
-        )
-    )
-    entries += [(f'{base}/{city["slug"]}/', shared_city_lastmod) for city in cities]
-    blog_lastmod = last_modified(SRC / "data/blog.json", SRC / "templates/blog-post.template.html", generator_source)
-    entries += [(f'{base}/blog/{post["slug"]}/', blog_lastmod) for post in posts]
+    entries += [
+        (f"{base}/gizlilik/", "yearly", "0.3"),
+        (f"{base}/hakkimizda/", "yearly", "0.5"),
+        (f"{base}/kullanim-sartlari/", "yearly", "0.3"),
+        (f"{base}/hesaplama-yontemi/", "monthly", "0.7"),
+        (f"{base}/iletisim/", "yearly", "0.5"),
+        (f"{base}/sikca-sorulan-sorular/", "monthly", "0.7"),
+    ]
+    entries += [(f'{base}/{city["slug"]}/', "monthly", "0.8") for city in cities]
+    entries += [(f'{base}/blog/{post["slug"]}/', "monthly", "0.7") for post in posts]
     (DIST / "sitemap.xml").write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
         + "\n".join(
-            f"  <url><loc>{html.escape(url)}</loc><lastmod>{modified}</lastmod></url>"
-            for url, modified in entries
+            "  <url>\n"
+            f"    <loc>{html.escape(url)}</loc>\n"
+            f"    <changefreq>{changefreq}</changefreq>\n"
+            f"    <priority>{priority}</priority>\n"
+            "  </url>"
+            for url, changefreq, priority in entries
         )
         + "\n</urlset>",
         encoding="utf-8",
