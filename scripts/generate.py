@@ -288,7 +288,7 @@ def footer(description, cities):
         '<a href="/hakkimizda/">Hakkımızda</a><a href="/kullanim-sartlari/">Kullanım Şartları</a>'
         '<a href="/hesaplama-yontemi/">Hesaplama Yöntemi</a><a href="/iletisim/">İletişim</a>'
         '<a href="/gizlilik/">Gizlilik Politikası</a>'
-        '<a href="https://plakarehberi.com/">Plaka Rehberi</a></div>\n'
+        '<a href="https://plakarehberi.com/">Plaka Sorgulama</a></div>\n'
         '<div><strong>Hızlı yardım</strong><a href="/sikca-sorulan-sorular/">Kıble Ne Tarafta?</a>'
         '<a href="/#arac">GPS ile Kıble Bul</a><a href="/#arac">Canlı Kıble Pusulası</a>'
         '<a href="/blog/telefon-kible-pusulasi-dogru-mu/">Pusula Doğruluğu</a>'
